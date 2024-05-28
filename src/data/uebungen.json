@@ -1,0 +1,1320 @@
+[
+  {
+    "name": "Klimmzüge",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Klimmzugstange",
+    "primaryMuscles": ["Latissimus dorsi", "Trapez"],
+    "secondaryMuscles": ["Bizeps"],
+    "instructions": [
+      "Greife die Klimmzugstange mit beiden Händen, die Handflächen zeigen nach vorne.",
+      "Ziehe deinen Körper hoch, bis dein Kinn über der Stange ist.",
+      "Senke deinen Körper langsam wieder ab, bis deine Arme gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Klimmzüge"
+  },
+  {
+    "name": "Klimmzüge (mit Gewicht)",
+    "level": "Experte",
+    "mechanic": "Grundübung",
+    "equipment": "Klimmzugstange, Gewichtsgürtel",
+    "primaryMuscles": ["Latissimus dorsi", "Trapez"],
+    "secondaryMuscles": ["Bizeps"],
+    "instructions": [
+      "Befestige ein Gewicht an einem Gewichtsgürtel.",
+      "Greife die Klimmzugstange mit beiden Händen, die Handflächen zeigen nach vorne.",
+      "Ziehe deinen Körper hoch, bis dein Kinn über der Stange ist.",
+      "Senke deinen Körper langsam wieder ab, bis deine Arme gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Klimmzüge_mit_Gewicht"
+  },
+  {
+    "name": "Lattzug",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Latzugmaschine",
+    "primaryMuscles": ["Latissimus dorsi", "Trapez"],
+    "secondaryMuscles": ["Bizeps"],
+    "instructions": [
+      "Setze dich an die Latzugmaschine und greife die Stange mit einem Schulterbreiten Griff.",
+      "Ziehe die Stange zu deinem oberen Brustbereich.",
+      "Lasse die Stange langsam wieder nach oben gleiten, bis deine Arme gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Lattzug"
+  },
+  {
+    "name": "Enges Lattzug",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Latzugmaschine",
+    "primaryMuscles": ["Latissimus dorsi", "Trapez"],
+    "secondaryMuscles": ["Bizeps"],
+    "instructions": [
+      "Setze dich an die Latzugmaschine und greife die Stange mit einem engen Griff.",
+      "Ziehe die Stange zu deinem oberen Brustbereich.",
+      "Lasse die Stange langsam wieder nach oben gleiten, bis deine Arme gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Enges_Lattzug"
+  },
+  {
+    "name": "Ruderzug",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Ruderzugmaschine",
+    "primaryMuscles": ["Latissimus dorsi", "Trapez"],
+    "secondaryMuscles": ["Bizeps"],
+    "instructions": [
+      "Setze dich an die Ruderzugmaschine und greife die Griffe.",
+      "Ziehe die Griffe zu deinem unteren Brustbereich.",
+      "Lasse die Griffe langsam wieder nach vorne gleiten, bis deine Arme gestreckt sind.",
+      "Deine Schulterblätter nach innen ziehen."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Ruderzug"
+  },
+  {
+    "name": "Ruderzug an der Maschine",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Ruderzugmaschine",
+    "primaryMuscles": ["Latissimus dorsi", "Trapez"],
+    "secondaryMuscles": ["Bizeps"],
+    "instructions": [
+      "Setze dich an die Maschine und greife die Griffe.",
+      "Ziehe die Griffe zu deinem unteren Brustbereich.",
+      "Lasse die Griffe langsam wieder nach vorne gleiten, bis deine Arme gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Ruderzug_an_der_Maschine"
+  },
+  {
+    "name": "Rudern mit Langhantel",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Latissimus dorsi", "Trapez"],
+    "secondaryMuscles": ["Bizeps"],
+    "instructions": [
+      "Stehe mit leicht gebeugten Knien und halte die Langhantel mit beiden Händen.",
+      "Beuge deinen Oberkörper leicht nach vorne.",
+      "Ziehe die Langhantel zu deinem unteren Brustbereich.",
+      "Lasse die Langhantel langsam wieder nach unten gleiten, bis deine Arme gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Rudern_mit_Langhantel"
+  },
+  {
+    "name": "Rudern mit Kurzhantel",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Kurzhantel",
+    "primaryMuscles": ["Latissimus dorsi", "Trapez"],
+    "secondaryMuscles": ["Bizeps"],
+    "instructions": [
+      "Stelle einen Fuß und ein Knie auf eine Bank und halte eine Kurzhantel mit der anderen Hand.",
+      "Ziehe die Kurzhantel zu deinem unteren Brustbereich.",
+      "Lasse die Kurzhantel langsam wieder nach unten gleiten, bis dein Arm gestreckt ist."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Rudern_mit_Kurzhantel"
+  },
+  {
+    "name": "T-Bar Rudern",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "T-Bar Rudermaschine",
+    "primaryMuscles": ["Latissimus dorsi", "Trapez"],
+    "secondaryMuscles": ["Bizeps"],
+    "instructions": [
+      "Stehe auf die Plattform der T-Bar Rudermaschine und greife die Griffe.",
+      "Ziehe die Griffe zu deinem unteren Brustbereich.",
+      "Lasse die Griffe langsam wieder nach unten gleiten, bis deine Arme gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "T-Bar_Rudern"
+  },
+  {
+    "name": "Pullovers",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhantel",
+    "primaryMuscles": ["Latissimus dorsi", "Trizeps"],
+    "secondaryMuscles": ["Brustmuskeln"],
+    "instructions": [
+      "Lege dich quer auf eine Bank und halte eine Kurzhantel mit beiden Händen über deiner Brust.",
+      "Senke die Kurzhantel langsam hinter deinen Kopf ab.",
+      "Bringe die Kurzhantel wieder in die Ausgangsposition über deiner Brust."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Pullovers"
+  },
+  {
+    "name": "Kreuzheben",
+    "level": "Experte",
+    "mechanic": "Grundübung",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Latissimus dorsi", "Erector spinae"],
+    "secondaryMuscles": ["Gluteus", "Beinbizeps", "Trapez"],
+    "instructions": [
+      "Stelle dich mit den Füßen schulterbreit auseinander vor eine Langhantel.",
+      "Beuge dich an den Hüften und greife die Langhantel mit beiden Händen.",
+      "Hebe die Langhantel an, indem du dich aufrichtest und die Hüften streckst.",
+      "Halte während der Ausführung ein Hohlkreuz.",
+      "Senke die Langhantel langsam wieder ab, bis sie den Boden berührt."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Kreuzheben"
+  },
+  {
+    "name": "Romanian Deadlifts",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Erector spinae", "Beinbizeps"],
+    "secondaryMuscles": ["Gluteus", "Trapez"],
+    "instructions": [
+      "Stelle dich mit den Füßen schulterbreit auseinander vor eine Langhantel.",
+      "Beuge dich an den Hüften und greife die Langhantel mit beiden Händen.",
+      "Hebe die Langhantel an, indem du die Hüften streckst, aber halte deine Knie leicht gebeugt.",
+      "Senke die Langhantel langsam wieder ab, indem du die Hüften beugst und den Rücken gerade hältst."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Romanian_Deadlifts"
+  },
+  {
+    "name": "Hyperextensions",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Hyperextensionsbank",
+    "primaryMuscles": ["Erector spinae"],
+    "secondaryMuscles": ["Gluteus"],
+    "instructions": [
+      "Lege dich auf die Hyperextensionsbank und haken deine Füße unter den Stützen ein.",
+      "Beuge deinen Oberkörper nach unten, bis er parallel zum Boden ist.",
+      "Strecke deinen Oberkörper wieder nach oben, bis er in einer Linie mit deinen Beinen ist."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Hyperextensions"
+  },
+  {
+    "name": "Shrugs",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Trapez"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Stehe aufrecht und halte in jeder Hand eine Kurzhantel.",
+      "Ziehe deine Schultern so hoch wie möglich zu deinen Ohren.",
+      "Senke die Schultern langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Shrugs"
+  },
+  {
+    "name": "Bankdrücken",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Pectoralis major"],
+    "secondaryMuscles": ["Trizeps", "Deltoideus anterior"],
+    "instructions": [
+      "Lege dich auf die Bank und greife die Langhantel etwas breiter als schulterbreit.",
+      "Senke die Langhantel kontrolliert bis zur Brust ab.",
+      "Drücke die Langhantel explosiv nach oben, bis die Arme gestreckt sind.",
+      "Während der Ausführung ein leichtes Hohlkreuz halten."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Bankdrücken"
+  },
+  {
+    "name": "Schrägbankdrücken",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Pectoralis major (obere Fasern)"],
+    "secondaryMuscles": ["Trizeps", "Deltoideus anterior"],
+    "instructions": [
+      "Lege dich auf eine Schrägbank und greife die Langhantel etwas breiter als schulterbreit.",
+      "Senke die Langhantel kontrolliert bis zur oberen Brust ab.",
+      "Drücke die Langhantel explosiv nach oben, bis die Arme gestreckt sind.",
+      "Während der Ausführung ein leichtes Hohlkreuz halten."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Schrägbankdrücken"
+  },
+  {
+    "name": "Smith-Maschinen-Schrägbankdrücken",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Smith-Maschine",
+    "primaryMuscles": ["Pectoralis major (obere Fasern)"],
+    "secondaryMuscles": ["Trizeps", "Deltoideus anterior"],
+    "instructions": [
+      "Lege dich auf eine Schrägbank in der Smith-Maschine und greife die Stange etwas breiter als schulterbreit.",
+      "Senke die Stange kontrolliert bis zur oberen Brust ab.",
+      "Drücke die Stange explosiv nach oben, bis die Arme gestreckt sind.",
+      "Während der Ausführung ein leichtes Hohlkreuz halten."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Smith-Maschinen-Schrägbankdrücken"
+  },
+  {
+    "name": "Kurzhantel-Bankdrücken",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Pectoralis major"],
+    "secondaryMuscles": ["Trizeps", "Deltoideus anterior"],
+    "instructions": [
+      "Lege dich auf die Bank und halte in jeder Hand eine Kurzhantel.",
+      "Senke die Kurzhanteln kontrolliert bis zur Brust ab.",
+      "Drücke die Kurzhanteln explosiv nach oben, bis die Arme gestreckt sind.",
+      "Während der Ausführung ein leichtes Hohlkreuz halten."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Kurzhantel-Bankdrücken"
+  },
+  {
+    "name": "Schrägbank-Kurzhanteldrücken",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Pectoralis major (obere Fasern)"],
+    "secondaryMuscles": ["Trizeps", "Deltoideus anterior"],
+    "instructions": [
+      "Lege dich auf eine Schrägbank und halte in jeder Hand eine Kurzhantel.",
+      "Senke die Kurzhanteln kontrolliert bis zur oberen Brust ab.",
+      "Drücke die Kurzhanteln explosiv nach oben, bis die Arme gestreckt sind.",
+      "Während der Ausführung ein leichtes Hohlkreuz halten."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Schrägbank-Kurzhanteldrücken"
+  },
+  {
+    "name": "Incline Schrägbankdrücken",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Pectoralis major (obere Fasern)"],
+    "secondaryMuscles": ["Trizeps", "Deltoideus anterior"],
+    "instructions": [
+      "Lege dich auf eine Schrägbank und greife die Langhantel etwas breiter als schulterbreit.",
+      "Senke die Langhantel kontrolliert bis zur oberen Brust ab.",
+      "Drücke die Langhantel explosiv nach oben, bis die Arme gestreckt sind.",
+      "Während der Ausführung ein leichtes Hohlkreuz halten."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Incline_Schrägbankdrücken"
+  },
+  {
+    "name": "Flachbank-Fliegende",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Pectoralis major"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Lege dich auf die Bank und halte in jeder Hand eine Kurzhantel.",
+      "Senke die Kurzhanteln kontrolliert zur Seite ab, die Arme leicht gebeugt.",
+      "Bringe die Kurzhanteln wieder zusammen über deiner Brust.",
+      "Während der Ausführung ein leichtes Hohlkreuz halten."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Flachbank-Fliegende"
+  },
+  {
+    "name": "Schrägbank-Fliegende",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Pectoralis major (obere Fasern)"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Lege dich auf eine Schrägbank und halte in jeder Hand eine Kurzhantel.",
+      "Senke die Kurzhanteln kontrolliert zur Seite ab, die Arme leicht gebeugt.",
+      "Bringe die Kurzhanteln wieder zusammen über deiner oberen Brust.",
+      "Während der Ausführung ein leichtes Hohlkreuz halten."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Schrägbank-Fliegende"
+  },
+  {
+    "name": "Dips",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Dip-Stangen",
+    "primaryMuscles": ["Pectoralis major", "Trizeps"],
+    "secondaryMuscles": ["Deltoideus anterior"],
+    "instructions": [
+      "Stütze dich auf den Dip-Stangen ab und strecke die Arme.",
+      "Senke deinen Körper kontrolliert ab, bis die Arme einen 90-Grad-Winkel bilden.",
+      "Drücke dich wieder nach oben, bis die Arme gestreckt sind.",
+      "Während der Ausführung ein leichtes Hohlkreuz halten."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Dips"
+  },
+  {
+    "name": "Liegestütze",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Körpergewicht",
+    "primaryMuscles": ["Pectoralis major"],
+    "secondaryMuscles": ["Trizeps", "Deltoideus anterior"],
+    "instructions": [
+      "Lege dich mit den Händen schulterbreit auf den Boden.",
+      "Senke deinen Körper kontrolliert ab, bis die Brust den Boden fast berührt.",
+      "Drücke dich explosiv nach oben, bis die Arme gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Liegestütze"
+  },
+  {
+    "name": "Butterfly",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Butterfly-Maschine",
+    "primaryMuscles": ["Pectoralis major"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Setze dich an die Butterfly-Maschine und greife die Griffe.",
+      "Führe die Griffe kontrolliert vor deiner Brust zusammen.",
+      "Lasse die Griffe langsam wieder in die Ausgangsposition zurückkehren.",
+      "Während der Ausführung ein leichtes Hohlkreuz halten."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Butterfly"
+  },
+  {
+    "name": "Brustpresse",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Brustpresse-Maschine",
+    "primaryMuscles": ["Pectoralis major"],
+    "secondaryMuscles": ["Trizeps", "Deltoideus anterior"],
+    "instructions": [
+      "Setze dich an die Brustpresse und greife die Griffe.",
+      "Drücke die Griffe nach vorne, bis die Arme gestreckt sind.",
+      "Lasse die Griffe kontrolliert wieder zurück in die Ausgangsposition.",
+      "Während der Ausführung ein leichtes Hohlkreuz halten."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Brustpresse"
+  },
+  {
+    "name": "Landmine-Press",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Pectoralis major"],
+    "secondaryMuscles": ["Deltoideus anterior", "Trizeps"],
+    "instructions": [
+      "Befestige eine Langhantel in einem Landmine-Aufsatz oder in einer Ecke.",
+      "Stehe in einem leichten Ausfallschritt und halte das Ende der Langhantel mit beiden Händen vor der Brust.",
+      "Drücke die Langhantel explosiv nach oben und vorne, bis die Arme gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Landmine-Press"
+  },
+  {
+    "name": "Kabel-Fliegende",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kabelzugmaschine",
+    "primaryMuscles": ["Pectoralis major"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Stelle dich in die Mitte einer Kabelzugmaschine und greife die Griffe.",
+      "Führe die Griffe vor deiner Brust zusammen, die Arme leicht gebeugt.",
+      "Lasse die Griffe langsam wieder in die Ausgangsposition zurückkehren."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Kabel-Fliegende"
+  },
+  {
+    "name": "Schulterdrücken mit Kurzhanteln",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Deltoideus (alle Anteile)"],
+    "secondaryMuscles": ["Trizeps"],
+    "instructions": [
+      "Setze dich auf eine Bank mit Rückenlehne und halte in jeder Hand eine Kurzhantel auf Schulterhöhe.",
+      "Drücke die Kurzhanteln nach oben, bis die Arme gestreckt sind.",
+      "Senke die Kurzhanteln langsam wieder auf Schulterhöhe ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Schulterdrücken_mit_Kurzhanteln"
+  },
+  {
+    "name": "Schulterdrücken mit Langhantel",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Deltoideus (alle Anteile)"],
+    "secondaryMuscles": ["Trizeps"],
+    "instructions": [
+      "Setze dich auf eine Bank mit Rückenlehne und halte die Langhantel auf Schulterhöhe.",
+      "Drücke die Langhantel nach oben, bis die Arme gestreckt sind.",
+      "Senke die Langhantel langsam wieder auf Schulterhöhe ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Schulterdrücken_mit_Langhantel"
+  },
+  {
+    "name": "Schulterdrücken an der Smith-Maschine",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Smith-Maschine",
+    "primaryMuscles": ["Deltoideus (alle Anteile)"],
+    "secondaryMuscles": ["Trizeps"],
+    "instructions": [
+      "Setze dich auf eine Bank mit Rückenlehne in der Smith-Maschine und halte die Stange auf Schulterhöhe.",
+      "Drücke die Stange nach oben, bis die Arme gestreckt sind.",
+      "Senke die Stange langsam wieder auf Schulterhöhe ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Schulterdrücken_an_der_Smith-Maschine"
+  },
+  {
+    "name": "Schulterdrücken an der Maschine",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Schulterpresse-Maschine",
+    "primaryMuscles": ["Deltoideus (alle Anteile)"],
+    "secondaryMuscles": ["Trizeps"],
+    "instructions": [
+      "Setze dich an die Schulterpresse-Maschine und greife die Griffe auf Schulterhöhe.",
+      "Drücke die Griffe nach oben, bis die Arme gestreckt sind.",
+      "Senke die Griffe langsam wieder auf Schulterhöhe ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Schulterdrücken_an_der_Maschine"
+  },
+  {
+    "name": "Arnold Press",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Deltoideus (alle Anteile)"],
+    "secondaryMuscles": ["Trizeps"],
+    "instructions": [
+      "Setze dich auf eine Bank mit Rückenlehne und halte in jeder Hand eine Kurzhantel vor der Brust, die Handflächen zeigen zu dir.",
+      "Drehe die Handflächen nach außen, während du die Kurzhanteln nach oben drückst, bis die Arme gestreckt sind.",
+      "Drehe die Handflächen wieder zu dir, während du die Kurzhanteln auf Brusthöhe senkst."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Arnold_Press"
+  },
+  {
+    "name": "Frontheben mit Kurzhanteln",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Deltoideus (vorderer Anteil)"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Stehe aufrecht und halte in jeder Hand eine Kurzhantel vor deinen Oberschenkeln.",
+      "Hebe die Kurzhanteln gerade nach vorne, bis die Arme parallel zum Boden sind.",
+      "Senke die Kurzhanteln langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Frontheben_mit_Kurzhanteln"
+  },
+  {
+    "name": "Seitheben mit Kurzhanteln",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Deltoideus (seitlicher Anteil)"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Stehe aufrecht und halte in jeder Hand eine Kurzhantel an den Seiten.",
+      "Hebe die Kurzhanteln seitlich an, bis die Arme parallel zum Boden sind.",
+      "Senke die Kurzhanteln langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Seitheben_mit_Kurzhanteln"
+  },
+  {
+    "name": "Seitheben am Kabelzug",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kabelzugmaschine",
+    "primaryMuscles": ["Deltoideus (seitlicher Anteil)"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Stelle dich seitlich zur Kabelzugmaschine und greife den Griff mit einer Hand.",
+      "Hebe den Arm seitlich an, bis er parallel zum Boden ist.",
+      "Senke den Arm langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Seitheben_am_Kabelzug"
+  },
+  {
+    "name": "Seitheben an der Maschine",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Seitheben-Maschine",
+    "primaryMuscles": ["Deltoideus (seitlicher Anteil)"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Setze dich an die Seitheben-Maschine und greife die Griffe an den Seiten.",
+      "Hebe die Arme seitlich an, bis sie parallel zum Boden sind.",
+      "Senke die Arme langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Seitheben_an_der_Maschine"
+  },
+  {
+    "name": "Seitheben in Vorbeuge (Reverse Flys)",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Deltoideus (hinterer Anteil)"],
+    "secondaryMuscles": ["Rhomboiden", "Trapez"],
+    "instructions": [
+      "Beuge dich an den Hüften nach vorne und halte in jeder Hand eine Kurzhantel unter deinen Schultern.",
+      "Hebe die Arme seitlich an, bis sie parallel zum Boden sind.",
+      "Senke die Arme langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Seitheben_in_Vorbeuge"
+  },
+  {
+    "name": "Face pulls",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Kabelzugmaschine",
+    "primaryMuscles": ["Deltoideus (hinterer Anteil)", "Rhomboiden"],
+    "secondaryMuscles": ["Trapez"],
+    "instructions": [
+      "Stelle dich vor eine Kabelzugmaschine und greife das Seil mit beiden Händen.",
+      "Ziehe das Seil zu deinem Gesicht, wobei deine Ellbogen nach außen zeigen.",
+      "Lasse das Seil langsam wieder in die Ausgangsposition gleiten."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Face_pulls"
+  },
+  {
+    "name": "Reverse Flys Maschine",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Reverse Flys Maschine",
+    "primaryMuscles": ["Deltoideus (hinterer Anteil)"],
+    "secondaryMuscles": ["Rhomboiden", "Trapez"],
+    "instructions": [
+      "Setze dich an die Reverse Flys Maschine und greife die Griffe.",
+      "Ziehe die Griffe nach hinten, bis deine Arme parallel zum Boden sind.",
+      "Lasse die Griffe langsam wieder in die Ausgangsposition zurückkehren."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Reverse_Flys_Maschine"
+  },
+  {
+    "name": "Bizepscurls mit Kurzhanteln",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Bizeps"],
+    "secondaryMuscles": ["Brachialis", "Brachioradialis"],
+    "instructions": [
+      "Stehe aufrecht und halte in jeder Hand eine Kurzhantel.",
+      "Beuge die Arme und bringe die Kurzhanteln zu deinen Schultern.",
+      "Senke die Kurzhanteln langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Bizepscurls_mit_Kurzhanteln"
+  },
+  {
+    "name": "Bizepscurls mit Langhantel",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Bizeps"],
+    "secondaryMuscles": ["Brachialis", "Brachioradialis"],
+    "instructions": [
+      "Stehe aufrecht und halte eine Langhantel mit beiden Händen.",
+      "Beuge die Arme und bringe die Langhantel zu deinen Schultern.",
+      "Senke die Langhantel langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Bizepscurls_mit_Langhantel"
+  },
+  {
+    "name": "Konzentrationscurls",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhantel",
+    "primaryMuscles": ["Bizeps"],
+    "secondaryMuscles": ["Brachialis"],
+    "instructions": [
+      "Setze dich auf eine Bank und halte eine Kurzhantel in einer Hand.",
+      "Stütze deinen Ellenbogen auf dein Knie und beuge den Arm, um die Kurzhantel zu deinen Schultern zu bringen.",
+      "Senke die Kurzhantel langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Konzentrationscurls"
+  },
+  {
+    "name": "Hammer Curls",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Brachialis", "Brachioradialis"],
+    "secondaryMuscles": ["Bizeps"],
+    "instructions": [
+      "Stehe aufrecht und halte in jeder Hand eine Kurzhantel mit den Handflächen zueinander.",
+      "Beuge die Arme und bringe die Kurzhanteln zu deinen Schultern.",
+      "Senke die Kurzhanteln langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Hammer_Curls"
+  },
+  {
+    "name": "Preacher Curls",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Bizeps"],
+    "secondaryMuscles": ["Brachialis"],
+    "instructions": [
+      "Setze dich auf die Preacher Bank und halte eine Langhantel mit beiden Händen.",
+      "Beuge die Arme und bringe die Langhantel zu deinen Schultern.",
+      "Senke die Langhantel langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Preacher_Curls"
+  },
+  {
+    "name": "Bizepsmaschinen-Curls",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Bizepsmaschine",
+    "primaryMuscles": ["Bizeps"],
+    "secondaryMuscles": ["Brachialis"],
+    "instructions": [
+      "Setze dich an die Bizepsmaschine und greife die Griffe mit beiden Händen.",
+      "Beuge die Arme und bringe die Griffe zu deinen Schultern.",
+      "Senke die Griffe langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Bizepsmaschinen-Curls"
+  },
+  {
+    "name": "Kabelzug Curls",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Kabelzugmaschine",
+    "primaryMuscles": ["Bizeps"],
+    "secondaryMuscles": ["Brachialis"],
+    "instructions": [
+      "Stelle dich vor eine Kabelzugmaschine und greife die Stange mit beiden Händen.",
+      "Beuge die Arme und bringe die Stange zu deinen Schultern.",
+      "Senke die Stange langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Kabelzug_Curls"
+  },
+  {
+    "name": "Incline Dumbbell Curls",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Bizeps"],
+    "secondaryMuscles": ["Brachialis"],
+    "instructions": [
+      "Setze dich auf eine Schrägbank und halte in jeder Hand eine Kurzhantel.",
+      "Beuge die Arme und bringe die Kurzhanteln zu deinen Schultern.",
+      "Senke die Kurzhanteln langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Incline_Dumbbell_Curls"
+  },
+  {
+    "name": "Bayesian Curl",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kabelzugmaschine",
+    "primaryMuscles": ["Bizeps"],
+    "secondaryMuscles": ["Brachialis"],
+    "instructions": [
+      "Stelle dich mit dem Rücken zur Kabelzugmaschine und greife den Griff mit einer Hand.",
+      "Beuge den Arm und bringe den Griff zu deiner Schulter.",
+      "Senke den Griff langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Bayesian_Curl"
+  },
+  {
+    "name": "Push-Downs am Kabelzug",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Kabelzugmaschine",
+    "primaryMuscles": ["Caput longum", "Caput laterale", "Caput mediale"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Stelle dich vor die Kabelzugmaschine und greife die Stange mit beiden Händen.",
+      "Drücke die Stange nach unten, bis die Arme vollständig gestreckt sind.",
+      "Lasse die Stange langsam wieder nach oben gleiten, bis die Arme leicht gebeugt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Push-Downs_am_Kabelzug"
+  },
+  {
+    "name": "Overhead-Press am Kabelzug",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kabelzugmaschine",
+    "primaryMuscles": ["Caput longum", "Caput laterale", "Caput mediale"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Stelle dich mit dem Rücken zur Kabelzugmaschine und greife den Griff mit beiden Händen über deinem Kopf.",
+      "Drücke den Griff nach oben, bis die Arme vollständig gestreckt sind.",
+      "Lasse den Griff langsam wieder nach unten gleiten, bis die Arme leicht gebeugt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Overhead-Press_am_Kabelzug"
+  },
+  {
+    "name": "Overhead Trizepsdrücken mit Kurzhantel",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhantel",
+    "primaryMuscles": ["Caput longum"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Setze dich auf eine Bank und halte eine Kurzhantel mit beiden Händen über deinem Kopf.",
+      "Senke die Kurzhantel hinter deinem Kopf ab, bis die Arme einen 90-Grad-Winkel bilden.",
+      "Drücke die Kurzhantel wieder nach oben, bis die Arme vollständig gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Overhead_Trizepsdrücken_mit_Kurzhantel"
+  },
+  {
+    "name": "Trizeps Kickbacks",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhantel",
+    "primaryMuscles": ["Caput laterale", "Caput mediale"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Stütze dich mit einem Knie und einer Hand auf eine Bank und halte eine Kurzhantel in der anderen Hand.",
+      "Strecke den Arm nach hinten, bis er vollständig gestreckt ist.",
+      "Beuge den Arm wieder, bis er einen 90-Grad-Winkel bildet."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Trizeps_Kickbacks"
+  },
+  {
+    "name": "Dips",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Dip-Stangen",
+    "primaryMuscles": ["Caput longum", "Caput laterale", "Caput mediale"],
+    "secondaryMuscles": ["Pectoralis major", "Deltoideus anterior"],
+    "instructions": [
+      "Stütze dich auf den Dip-Stangen ab und strecke die Arme.",
+      "Senke deinen Körper kontrolliert ab, bis die Arme einen 90-Grad-Winkel bilden.",
+      "Drücke dich wieder nach oben, bis die Arme gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Dips"
+  },
+  {
+    "name": "Enges Bankdrücken",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Caput longum", "Caput laterale", "Caput mediale"],
+    "secondaryMuscles": ["Pectoralis major", "Deltoideus anterior"],
+    "instructions": [
+      "Lege dich auf die Bank und greife die Langhantel schulterbreit.",
+      "Senke die Langhantel kontrolliert bis zur Brust ab.",
+      "Drücke die Langhantel explosiv nach oben, bis die Arme gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Enges_Bankdrücken"
+  },
+  {
+    "name": "French Press (Skull Crushers)",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Caput longum", "Caput laterale", "Caput mediale"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Lege dich auf eine Bank und halte eine Langhantel über deinem Kopf.",
+      "Senke die Langhantel kontrolliert hinter deinem Kopf ab, bis die Arme einen 90-Grad-Winkel bilden.",
+      "Drücke die Langhantel wieder nach oben, bis die Arme vollständig gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "French_Press"
+  },
+  {
+    "name": "Diamond Push-Ups",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Körpergewicht",
+    "primaryMuscles": ["Caput longum", "Caput laterale", "Caput mediale"],
+    "secondaryMuscles": ["Pectoralis major", "Deltoideus anterior"],
+    "instructions": [
+      "Lege dich mit den Händen unter der Brust in einer Diamantform auf den Boden.",
+      "Senke deinen Körper kontrolliert ab, bis die Brust den Boden fast berührt.",
+      "Drücke dich explosiv nach oben, bis die Arme gestreckt sind."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Diamond_Push-Ups"
+  },
+  {
+    "name": "Trizeps Kickbacks am Kabel",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kabelzugmaschine",
+    "primaryMuscles": ["Caput laterale", "Caput mediale"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Stelle dich vor die Kabelzugmaschine und befestige einen Einzelgriff am unteren Kabel.",
+      "Beuge dich leicht nach vorne und halte den Griff mit einer Hand, der Oberarm liegt eng am Körper.",
+      "Strecke den Arm nach hinten, bis er vollständig gestreckt ist.",
+      "Beuge den Arm wieder, bis er einen 90-Grad-Winkel bildet."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Trizeps_Kickbacks_am_Kabel"
+  },
+  {
+    "name": "Squats",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Quadrizeps", "Gluteus maximus"],
+    "secondaryMuscles": ["Adduktoren", "Beinbeuger", "Erector spinae"],
+    "instructions": [
+      "Stehe schulterbreit mit einer Langhantel auf den Schultern.",
+      "Beuge die Knie und senke die Hüften, als würdest du dich hinsetzen.",
+      "Halte den Rücken gerade und die Knie hinter den Zehen.",
+      "Drücke dich explosiv nach oben, bis die Beine gestreckt sind.",
+      "Halte während der Ausführung ein leichtes Hohlkreuz."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Squats"
+  },
+  {
+    "name": "Beinpresse",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Beinpresse-Maschine",
+    "primaryMuscles": ["Quadrizeps", "Gluteus maximus"],
+    "secondaryMuscles": ["Adduktoren", "Beinbeuger"],
+    "instructions": [
+      "Setze dich in die Beinpresse-Maschine und platziere die Füße schulterbreit auf der Plattform.",
+      "Drücke die Plattform nach oben, bis die Beine gestreckt sind.",
+      "Beuge die Knie und senke die Plattform langsam ab, bis die Knie einen 90-Grad-Winkel bilden."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Beinpresse"
+  },
+  {
+    "name": "Ausfallschritte (Lunges)",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Quadrizeps", "Gluteus maximus"],
+    "secondaryMuscles": ["Adduktoren", "Beinbeuger"],
+    "instructions": [
+      "Stehe aufrecht mit einer Kurzhantel in jeder Hand.",
+      "Mache einen großen Schritt nach vorne und beuge das vordere Knie, bis der Oberschenkel parallel zum Boden ist.",
+      "Drücke dich zurück in die Ausgangsposition und wechsle das Bein."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Ausfallschritte"
+  },
+  {
+    "name": "Bulgarische Split Squats",
+    "level": "Experte",
+    "mechanic": "Grundübung",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Quadrizeps", "Gluteus maximus"],
+    "secondaryMuscles": ["Adduktoren", "Beinbeuger"],
+    "instructions": [
+      "Stelle einen Fuß auf eine Bank hinter dir und halte eine Kurzhantel in jeder Hand.",
+      "Beuge das vordere Knie, bis der Oberschenkel parallel zum Boden ist.",
+      "Drücke dich zurück in die Ausgangsposition."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Bulgarische_Split_Squats"
+  },
+  {
+    "name": "Beinbeuger",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Beinbeuger-Maschine",
+    "primaryMuscles": ["Beinbeuger"],
+    "secondaryMuscles": ["Gluteus maximus"],
+    "instructions": [
+      "Setze dich in die Beinbeuger-Maschine und platziere die Füße unter den Polstern.",
+      "Beuge die Knie und ziehe die Füße nach unten.",
+      "Strecke die Beine langsam wieder aus."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Beinbeuger"
+  },
+  {
+    "name": "Beinstrecker",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Beinstrecker-Maschine",
+    "primaryMuscles": ["Quadrizeps"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Setze dich in die Beinstrecker-Maschine und platziere die Füße unter den Polstern.",
+      "Strecke die Beine nach oben, bis sie vollständig gestreckt sind.",
+      "Beuge die Knie und senke die Füße langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Beinstrecker"
+  },
+  {
+    "name": "Step Ups",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Quadrizeps", "Gluteus maximus"],
+    "secondaryMuscles": ["Adduktoren", "Beinbeuger"],
+    "instructions": [
+      "Stehe vor einer Bank und halte eine Kurzhantel in jeder Hand.",
+      "Tritt mit einem Fuß auf die Bank und drücke dich nach oben, bis das Bein gestreckt ist.",
+      "Senke dich langsam wieder ab und wechsle das Bein."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Step_Ups"
+  },
+  {
+    "name": "Wadenheben",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Wadenheben-Maschine",
+    "primaryMuscles": ["Soleus", "Gastrocnemius"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Stelle dich auf die Plattform der Wadenheben-Maschine und platziere die Schultern unter den Polstern.",
+      "Hebe die Fersen so hoch wie möglich an.",
+      "Senke die Fersen langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Wadenheben"
+  },
+  {
+    "name": "Hip Thrusts",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Langhantel",
+    "primaryMuscles": ["Gluteus maximus"],
+    "secondaryMuscles": ["Beinbeuger", "Quadrizeps"],
+    "instructions": [
+      "Setze dich auf den Boden und lege eine Langhantel über deine Hüften.",
+      "Lehne den oberen Rücken gegen eine Bank und stelle die Füße flach auf den Boden.",
+      "Hebe die Hüften an, bis der Körper eine gerade Linie bildet.",
+      "Senke die Hüften langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Hip_Thrusts"
+  },
+  {
+    "name": "Glute Bridge",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Körpergewicht",
+    "primaryMuscles": ["Gluteus maximus"],
+    "secondaryMuscles": ["Beinbeuger", "Quadrizeps"],
+    "instructions": [
+      "Lege dich auf den Rücken und stelle die Füße flach auf den Boden, die Knie sind gebeugt.",
+      "Hebe die Hüften an, bis der Körper eine gerade Linie bildet.",
+      "Senke die Hüften langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Glute_Bridge"
+  },
+  {
+    "name": "Adduktorenmaschine",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Adduktorenmaschine",
+    "primaryMuscles": ["Adduktoren"],
+    "secondaryMuscles": [],
+    "instructions": [
+      "Setze dich in die Adduktorenmaschine und platziere die Beine gegen die Polster.",
+      "Drücke die Beine zusammen, bis sich die Polster berühren.",
+      "Lasse die Beine langsam wieder auseinander gleiten."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Adduktorenmaschine"
+  },
+  {
+    "name": "Kickbacks am Kabelzug",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kabelzugmaschine",
+    "primaryMuscles": ["Gluteus maximus"],
+    "secondaryMuscles": ["Beinbeuger"],
+    "instructions": [
+      "Befestige einen Knöchelriemen am unteren Kabelzug und befestige ihn an deinem Knöchel.",
+      "Stelle dich vor die Kabelzugmaschine und halte dich an der Stange fest.",
+      "Hebe das Bein nach hinten, bis es vollständig gestreckt ist.",
+      "Senke das Bein langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Kickbacks_am_Kabelzug"
+  },
+  {
+    "name": "Plank",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Körpergewicht",
+    "primaryMuscles": ["Rectus abdominis", "Transversus abdominis"],
+    "secondaryMuscles": ["Obliques", "Erector spinae"],
+    "instructions": [
+      "Lege dich auf den Boden und stütze dich auf die Unterarme und Zehenspitzen.",
+      "Halte den Körper in einer geraden Linie von Kopf bis Fuß.",
+      "Spanne die Bauchmuskeln an und halte diese Position."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Plank"
+  },
+  {
+    "name": "Crunches",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Körpergewicht",
+    "primaryMuscles": ["Rectus abdominis"],
+    "secondaryMuscles": ["Obliques"],
+    "instructions": [
+      "Lege dich auf den Rücken und beuge die Knie, die Füße flach auf dem Boden.",
+      "Lege die Hände hinter den Kopf und hebe die Schulterblätter vom Boden ab.",
+      "Spanne die Bauchmuskeln an und ziehe den Oberkörper in Richtung der Knie."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Crunches"
+  },
+  {
+    "name": "Hanging Leg Raises",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Klimmzugstange",
+    "primaryMuscles": ["Rectus abdominis"],
+    "secondaryMuscles": ["Obliques", "Hip flexors"],
+    "instructions": [
+      "Hänge an einer Klimmzugstange mit gestreckten Armen.",
+      "Hebe die Beine gerade nach oben, bis sie parallel zum Boden sind.",
+      "Senke die Beine langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Hanging_Leg_Raises"
+  },
+  {
+    "name": "Sit Ups",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Körpergewicht",
+    "primaryMuscles": ["Rectus abdominis"],
+    "secondaryMuscles": ["Obliques"],
+    "instructions": [
+      "Lege dich auf den Rücken und beuge die Knie, die Füße flach auf dem Boden.",
+      "Lege die Hände hinter den Kopf und hebe den Oberkörper bis zu den Knien hoch.",
+      "Senke den Oberkörper langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Sit_Ups"
+  },
+  {
+    "name": "V-Ups",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Körpergewicht",
+    "primaryMuscles": ["Rectus abdominis"],
+    "secondaryMuscles": ["Obliques", "Hip flexors"],
+    "instructions": [
+      "Lege dich auf den Rücken mit ausgestreckten Armen und Beinen.",
+      "Hebe gleichzeitig die Beine und den Oberkörper an, um mit den Händen die Füße zu berühren.",
+      "Senke die Beine und den Oberkörper langsam wieder ab."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "V_Ups"
+  },
+  {
+    "name": "Cable Crunches",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Kabelzugmaschine",
+    "primaryMuscles": ["Rectus abdominis"],
+    "secondaryMuscles": ["Obliques"],
+    "instructions": [
+      "Knie dich vor eine Kabelzugmaschine und halte das Seil über deinem Kopf.",
+      "Beuge den Oberkörper nach unten und ziehe das Seil in Richtung der Knie.",
+      "Strecke den Oberkörper langsam wieder aus."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Cable_Crunches"
+  },
+  {
+    "name": "Medicine Ball Slams",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Medizinball",
+    "primaryMuscles": ["Rectus abdominis"],
+    "secondaryMuscles": ["Obliques", "Hip flexors"],
+    "instructions": [
+      "Stehe aufrecht und halte einen Medizinball über dem Kopf.",
+      "Schwinge den Ball mit voller Kraft auf den Boden.",
+      "Fange den Ball wieder auf und wiederhole die Bewegung."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Medicine_Ball_Slams"
+  },
+  {
+    "name": "Russian Twists",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Medizinball",
+    "primaryMuscles": ["Obliques"],
+    "secondaryMuscles": ["Rectus abdominis", "Hip flexors"],
+    "instructions": [
+      "Setze dich auf den Boden und hebe die Füße leicht an.",
+      "Halte einen Medizinball vor der Brust und drehe den Oberkörper von einer Seite zur anderen.",
+      "Berühre den Ball bei jeder Drehung auf dem Boden."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Russian_Twists"
+  },
+  {
+    "name": "Flutter Kicks",
+    "level": "Fortgeschritten",
+    "mechanic": "Isolation",
+    "equipment": "Körpergewicht",
+    "primaryMuscles": ["Rectus abdominis", "Hip flexors"],
+    "secondaryMuscles": ["Obliques"],
+    "instructions": [
+      "Lege dich auf den Rücken und hebe die Beine leicht an.",
+      "Wechsle abwechselnd die Beine auf und ab in einer schnellen Bewegung.",
+      "Halte die Bauchmuskeln angespannt und den unteren Rücken flach auf dem Boden."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Flutter_Kicks"
+  },
+  {
+    "name": "Bauchübungen am Gerät",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Bauchgerät",
+    "primaryMuscles": ["Rectus abdominis"],
+    "secondaryMuscles": ["Obliques"],
+    "instructions": [
+      "Setze dich auf das Bauchgerät und greife die Griffe.",
+      "Ziehe die Griffe nach vorne und spanne die Bauchmuskeln an.",
+      "Lasse die Griffe langsam wieder in die Ausgangsposition zurückkehren."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Bauchübungen_am_Gerät"
+  },
+  {
+    "name": "Ab Roller",
+    "level": "Fortgeschritten",
+    "mechanic": "Grundübung",
+    "equipment": "Ab Roller",
+    "primaryMuscles": ["Rectus abdominis"],
+    "secondaryMuscles": ["Obliques", "Erector spinae"],
+    "instructions": [
+      "Knie dich auf den Boden und halte den Ab Roller mit beiden Händen.",
+      "Rolle den Ab Roller nach vorne, bis der Körper eine gerade Linie bildet.",
+      "Rolle den Ab Roller langsam wieder zurück in die Ausgangsposition."
+    ],
+    "category": "Kraft",
+    "images": [],
+    "id": "Ab_Roller"
+  }
+]
