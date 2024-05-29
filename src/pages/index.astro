@@ -1,10 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Layout from '../layouts/Layout.astro';
+import { EXERCISES } from '../constant';
+import ExerciseCard from '../components/ExerciseCard.svelte';
 ---
 
 <Layout title="Welcome to Astro.">
-  <main>
-    <button class="btn">Hello daisyUI</button>
+  <main class="container mx-auto p-4">
+    <h1 class="text-2xl font-bold mb-4">Exercises</h1>
+    <div class="grid gap-4 grid-cols-auto-fit">
+      {EXERCISES.map((exercise) => <ExerciseCard exercise={exercise} />)}
+    </div>
   </main>
 </Layout>
