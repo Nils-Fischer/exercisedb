@@ -2,10 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import { EXERCISES } from '../constant';
 import ExerciseCard from '../components/ExerciseCard.svelte';
+import ExtentedCard from '../components/ExtentedCard.svelte';
 ---
 
 <Layout title="Welcome to Astro.">
   <main class="container mx-auto p-4">
+    <ExtentedCard exercise={EXERCISES[0]} />
     <h1 class="text-2xl font-bold mb-4">Exercises</h1>
     <div class="grid gap-4 grid-cols-auto-fit">
       {EXERCISES.map((exercise) => <ExerciseCard exercise={exercise} />)}

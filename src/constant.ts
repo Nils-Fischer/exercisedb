@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import type { Exercise } from './lib/types';
 
-const EXERCISES_FILE_PATH = './src/data/exercises.json';
+const EXERCISES_FILE_PATH = './src/data/uebungen.json';
 export const EXERCISES: Exercise[] = generateExercises();
 export const FILTER_FIELDS: (keyof Exercise)[] = [
   'force',

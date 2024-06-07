@@ -4,7 +4,6 @@ export interface FilterableItem {
 
 export interface Exercise extends FilterableItem {
   name: string;
-  force: string;
   level: string;
   mechanic: string;
   equipment: string;
