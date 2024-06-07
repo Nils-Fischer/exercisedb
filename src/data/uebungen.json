@@ -11,7 +11,7 @@
       "Ziehe deinen Körper hoch, bis dein Kinn über der Stange ist.",
       "Senke deinen Körper langsam wieder ab, bis deine Arme gestreckt sind."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "Klimmzüge"
   },
@@ -28,7 +28,7 @@
       "Ziehe deinen Körper hoch, bis dein Kinn über der Stange ist.",
       "Senke deinen Körper langsam wieder ab, bis deine Arme gestreckt sind."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "Klimmzüge_mit_Gewicht"
   },
@@ -44,7 +44,7 @@
       "Ziehe die Stange zu deinem oberen Brustbereich.",
       "Lasse die Stange langsam wieder nach oben gleiten, bis deine Arme gestreckt sind."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "Lattzug"
   },
@@ -60,7 +60,7 @@
       "Ziehe die Stange zu deinem oberen Brustbereich.",
       "Lasse die Stange langsam wieder nach oben gleiten, bis deine Arme gestreckt sind."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "Enges_Lattzug"
   },
@@ -77,7 +77,7 @@
       "Lasse die Griffe langsam wieder nach vorne gleiten, bis deine Arme gestreckt sind.",
       "Deine Schulterblätter nach innen ziehen."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "Ruderzug"
   },
@@ -93,7 +93,7 @@
       "Ziehe die Griffe zu deinem unteren Brustbereich.",
       "Lasse die Griffe langsam wieder nach vorne gleiten, bis deine Arme gestreckt sind."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "Ruderzug_an_der_Maschine"
   },
@@ -110,7 +110,7 @@
       "Ziehe die Langhantel zu deinem unteren Brustbereich.",
       "Lasse die Langhantel langsam wieder nach unten gleiten, bis deine Arme gestreckt sind."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "Rudern_mit_Langhantel"
   },
@@ -126,7 +126,7 @@
       "Ziehe die Kurzhantel zu deinem unteren Brustbereich.",
       "Lasse die Kurzhantel langsam wieder nach unten gleiten, bis dein Arm gestreckt ist."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "Rudern_mit_Kurzhantel"
   },
@@ -142,7 +142,7 @@
       "Ziehe die Griffe zu deinem unteren Brustbereich.",
       "Lasse die Griffe langsam wieder nach unten gleiten, bis deine Arme gestreckt sind."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "T-Bar_Rudern"
   },
@@ -158,7 +158,7 @@
       "Senke die Kurzhantel langsam hinter deinen Kopf ab.",
       "Bringe die Kurzhantel wieder in die Ausgangsposition über deiner Brust."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "Pullovers"
   },
@@ -176,7 +176,7 @@
       "Halte während der Ausführung ein Hohlkreuz.",
       "Senke die Langhantel langsam wieder ab, bis sie den Boden berührt."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "Kreuzheben"
   },
@@ -193,7 +193,7 @@
       "Hebe die Langhantel an, indem du die Hüften streckst, aber halte deine Knie leicht gebeugt.",
       "Senke die Langhantel langsam wieder ab, indem du die Hüften beugst und den Rücken gerade hältst."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "Romanian_Deadlifts"
   },
@@ -209,7 +209,7 @@
       "Beuge deinen Oberkörper nach unten, bis er parallel zum Boden ist.",
       "Strecke deinen Oberkörper wieder nach oben, bis er in einer Linie mit deinen Beinen ist."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "Hyperextensions"
   },
@@ -225,7 +225,7 @@
       "Ziehe deine Schultern so hoch wie möglich zu deinen Ohren.",
       "Senke die Schultern langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Rücken",
     "images": [],
     "id": "Shrugs"
   },
@@ -242,7 +242,7 @@
       "Drücke die Langhantel explosiv nach oben, bis die Arme gestreckt sind.",
       "Während der Ausführung ein leichtes Hohlkreuz halten."
     ],
-    "category": "Kraft",
+    "category": "Brust",
     "images": [],
     "id": "Bankdrücken"
   },
@@ -259,7 +259,7 @@
       "Drücke die Langhantel explosiv nach oben, bis die Arme gestreckt sind.",
       "Während der Ausführung ein leichtes Hohlkreuz halten."
     ],
-    "category": "Kraft",
+    "category": "Brust",
     "images": [],
     "id": "Schrägbankdrücken"
   },
@@ -276,7 +276,7 @@
       "Drücke die Stange explosiv nach oben, bis die Arme gestreckt sind.",
       "Während der Ausführung ein leichtes Hohlkreuz halten."
     ],
-    "category": "Kraft",
+    "category": "Brust",
     "images": [],
     "id": "Smith-Maschinen-Schrägbankdrücken"
   },
@@ -293,7 +293,7 @@
       "Drücke die Kurzhanteln explosiv nach oben, bis die Arme gestreckt sind.",
       "Während der Ausführung ein leichtes Hohlkreuz halten."
     ],
-    "category": "Kraft",
+    "category": "Brust",
     "images": [],
     "id": "Kurzhantel-Bankdrücken"
   },
@@ -310,7 +310,7 @@
       "Drücke die Kurzhanteln explosiv nach oben, bis die Arme gestreckt sind.",
       "Während der Ausführung ein leichtes Hohlkreuz halten."
     ],
-    "category": "Kraft",
+    "category": "Brust",
     "images": [],
     "id": "Schrägbank-Kurzhanteldrücken"
   },
@@ -327,7 +327,7 @@
       "Drücke die Langhantel explosiv nach oben, bis die Arme gestreckt sind.",
       "Während der Ausführung ein leichtes Hohlkreuz halten."
     ],
-    "category": "Kraft",
+    "category": "Brust",
     "images": [],
     "id": "Incline_Schrägbankdrücken"
   },
@@ -344,7 +344,7 @@
       "Bringe die Kurzhanteln wieder zusammen über deiner Brust.",
       "Während der Ausführung ein leichtes Hohlkreuz halten."
     ],
-    "category": "Kraft",
+    "category": "Brust",
     "images": [],
     "id": "Flachbank-Fliegende"
   },
@@ -361,7 +361,7 @@
       "Bringe die Kurzhanteln wieder zusammen über deiner oberen Brust.",
       "Während der Ausführung ein leichtes Hohlkreuz halten."
     ],
-    "category": "Kraft",
+    "category": "Brust",
     "images": [],
     "id": "Schrägbank-Fliegende"
   },
@@ -378,7 +378,7 @@
       "Drücke dich wieder nach oben, bis die Arme gestreckt sind.",
       "Während der Ausführung ein leichtes Hohlkreuz halten."
     ],
-    "category": "Kraft",
+    "category": "Brust",
     "images": [],
     "id": "Dips"
   },
@@ -394,7 +394,7 @@
       "Senke deinen Körper kontrolliert ab, bis die Brust den Boden fast berührt.",
       "Drücke dich explosiv nach oben, bis die Arme gestreckt sind."
     ],
-    "category": "Kraft",
+    "category": "Brust",
     "images": [],
     "id": "Liegestütze"
   },
@@ -411,7 +411,7 @@
       "Lasse die Griffe langsam wieder in die Ausgangsposition zurückkehren.",
       "Während der Ausführung ein leichtes Hohlkreuz halten."
     ],
-    "category": "Kraft",
+    "category": "Brust",
     "images": [],
     "id": "Butterfly"
   },
@@ -428,7 +428,7 @@
       "Lasse die Griffe kontrolliert wieder zurück in die Ausgangsposition.",
       "Während der Ausführung ein leichtes Hohlkreuz halten."
     ],
-    "category": "Kraft",
+    "category": "Brust",
     "images": [],
     "id": "Brustpresse"
   },
@@ -444,7 +444,7 @@
       "Stehe in einem leichten Ausfallschritt und halte das Ende der Langhantel mit beiden Händen vor der Brust.",
       "Drücke die Langhantel explosiv nach oben und vorne, bis die Arme gestreckt sind."
     ],
-    "category": "Kraft",
+    "category":["Brust", "Schulter"],
     "images": [],
     "id": "Landmine-Press"
   },
@@ -460,7 +460,7 @@
       "Führe die Griffe vor deiner Brust zusammen, die Arme leicht gebeugt.",
       "Lasse die Griffe langsam wieder in die Ausgangsposition zurückkehren."
     ],
-    "category": "Kraft",
+    "category": "Brust",
     "images": [],
     "id": "Kabel-Fliegende"
   },
@@ -476,7 +476,7 @@
       "Drücke die Kurzhanteln nach oben, bis die Arme gestreckt sind.",
       "Senke die Kurzhanteln langsam wieder auf Schulterhöhe ab."
     ],
-    "category": "Kraft",
+    "category": "Schulter",
     "images": [],
     "id": "Schulterdrücken_mit_Kurzhanteln"
   },
@@ -492,7 +492,7 @@
       "Drücke die Langhantel nach oben, bis die Arme gestreckt sind.",
       "Senke die Langhantel langsam wieder auf Schulterhöhe ab."
     ],
-    "category": "Kraft",
+    "category": "Schulter",
     "images": [],
     "id": "Schulterdrücken_mit_Langhantel"
   },
@@ -508,7 +508,7 @@
       "Drücke die Stange nach oben, bis die Arme gestreckt sind.",
       "Senke die Stange langsam wieder auf Schulterhöhe ab."
     ],
-    "category": "Kraft",
+    "category": "Schulter",
     "images": [],
     "id": "Schulterdrücken_an_der_Smith-Maschine"
   },
@@ -524,7 +524,7 @@
       "Drücke die Griffe nach oben, bis die Arme gestreckt sind.",
       "Senke die Griffe langsam wieder auf Schulterhöhe ab."
     ],
-    "category": "Kraft",
+    "category": "Schulter",
     "images": [],
     "id": "Schulterdrücken_an_der_Maschine"
   },
@@ -540,7 +540,7 @@
       "Drehe die Handflächen nach außen, während du die Kurzhanteln nach oben drückst, bis die Arme gestreckt sind.",
       "Drehe die Handflächen wieder zu dir, während du die Kurzhanteln auf Brusthöhe senkst."
     ],
-    "category": "Kraft",
+    "category": "Schulter",
     "images": [],
     "id": "Arnold_Press"
   },
@@ -556,7 +556,7 @@
       "Hebe die Kurzhanteln gerade nach vorne, bis die Arme parallel zum Boden sind.",
       "Senke die Kurzhanteln langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Schulter",
     "images": [],
     "id": "Frontheben_mit_Kurzhanteln"
   },
@@ -572,7 +572,7 @@
       "Hebe die Kurzhanteln seitlich an, bis die Arme parallel zum Boden sind.",
       "Senke die Kurzhanteln langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Schulter",
     "images": [],
     "id": "Seitheben_mit_Kurzhanteln"
   },
@@ -588,7 +588,7 @@
       "Hebe den Arm seitlich an, bis er parallel zum Boden ist.",
       "Senke den Arm langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Schulter",
     "images": [],
     "id": "Seitheben_am_Kabelzug"
   },
@@ -604,7 +604,7 @@
       "Hebe die Arme seitlich an, bis sie parallel zum Boden sind.",
       "Senke die Arme langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Schulter",
     "images": [],
     "id": "Seitheben_an_der_Maschine"
   },
@@ -620,7 +620,7 @@
       "Hebe die Arme seitlich an, bis sie parallel zum Boden sind.",
       "Senke die Arme langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Schulter",
     "images": [],
     "id": "Seitheben_in_Vorbeuge"
   },
@@ -636,7 +636,7 @@
       "Ziehe das Seil zu deinem Gesicht, wobei deine Ellbogen nach außen zeigen.",
       "Lasse das Seil langsam wieder in die Ausgangsposition gleiten."
     ],
-    "category": "Kraft",
+    "category": "Schulter",
     "images": [],
     "id": "Face_pulls"
   },
@@ -652,7 +652,7 @@
       "Ziehe die Griffe nach hinten, bis deine Arme parallel zum Boden sind.",
       "Lasse die Griffe langsam wieder in die Ausgangsposition zurückkehren."
     ],
-    "category": "Kraft",
+    "category": "Schulter",
     "images": [],
     "id": "Reverse_Flys_Maschine"
   },
@@ -668,7 +668,7 @@
       "Beuge die Arme und bringe die Kurzhanteln zu deinen Schultern.",
       "Senke die Kurzhanteln langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Bizeps",
     "images": [],
     "id": "Bizepscurls_mit_Kurzhanteln"
   },
@@ -684,7 +684,7 @@
       "Beuge die Arme und bringe die Langhantel zu deinen Schultern.",
       "Senke die Langhantel langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Bizeps",
     "images": [],
     "id": "Bizepscurls_mit_Langhantel"
   },
@@ -700,7 +700,7 @@
       "Stütze deinen Ellenbogen auf dein Knie und beuge den Arm, um die Kurzhantel zu deinen Schultern zu bringen.",
       "Senke die Kurzhantel langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Bizeps",
     "images": [],
     "id": "Konzentrationscurls"
   },
@@ -716,7 +716,7 @@
       "Beuge die Arme und bringe die Kurzhanteln zu deinen Schultern.",
       "Senke die Kurzhanteln langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Bizeps",
     "images": [],
     "id": "Hammer_Curls"
   },
@@ -732,7 +732,7 @@
       "Beuge die Arme und bringe die Langhantel zu deinen Schultern.",
       "Senke die Langhantel langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Bizeps",
     "images": [],
     "id": "Preacher_Curls"
   },
@@ -748,7 +748,7 @@
       "Beuge die Arme und bringe die Griffe zu deinen Schultern.",
       "Senke die Griffe langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Bizeps",
     "images": [],
     "id": "Bizepsmaschinen-Curls"
   },
@@ -764,7 +764,7 @@
       "Beuge die Arme und bringe die Stange zu deinen Schultern.",
       "Senke die Stange langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Bizeps",
     "images": [],
     "id": "Kabelzug_Curls"
   },
@@ -780,7 +780,7 @@
       "Beuge die Arme und bringe die Kurzhanteln zu deinen Schultern.",
       "Senke die Kurzhanteln langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Bizeps",
     "images": [],
     "id": "Incline_Dumbbell_Curls"
   },
@@ -796,7 +796,7 @@
       "Beuge den Arm und bringe den Griff zu deiner Schulter.",
       "Senke den Griff langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Bizeps",
     "images": [],
     "id": "Bayesian_Curl"
   },
@@ -812,7 +812,7 @@
       "Drücke die Stange nach unten, bis die Arme vollständig gestreckt sind.",
       "Lasse die Stange langsam wieder nach oben gleiten, bis die Arme leicht gebeugt sind."
     ],
-    "category": "Kraft",
+    "category": "Trizeps",
     "images": [],
     "id": "Push-Downs_am_Kabelzug"
   },
@@ -828,7 +828,7 @@
       "Drücke den Griff nach oben, bis die Arme vollständig gestreckt sind.",
       "Lasse den Griff langsam wieder nach unten gleiten, bis die Arme leicht gebeugt sind."
     ],
-    "category": "Kraft",
+    "category": "Trizeps",
     "images": [],
     "id": "Overhead-Press_am_Kabelzug"
   },
@@ -844,7 +844,7 @@
       "Senke die Kurzhantel hinter deinem Kopf ab, bis die Arme einen 90-Grad-Winkel bilden.",
       "Drücke die Kurzhantel wieder nach oben, bis die Arme vollständig gestreckt sind."
     ],
-    "category": "Kraft",
+    "category": "Trizeps",
     "images": [],
     "id": "Overhead_Trizepsdrücken_mit_Kurzhantel"
   },
@@ -860,7 +860,7 @@
       "Strecke den Arm nach hinten, bis er vollständig gestreckt ist.",
       "Beuge den Arm wieder, bis er einen 90-Grad-Winkel bildet."
     ],
-    "category": "Kraft",
+    "category": "Trizeps",
     "images": [],
     "id": "Trizeps_Kickbacks"
   },
@@ -876,7 +876,7 @@
       "Senke deinen Körper kontrolliert ab, bis die Arme einen 90-Grad-Winkel bilden.",
       "Drücke dich wieder nach oben, bis die Arme gestreckt sind."
     ],
-    "category": "Kraft",
+    "category": "Trizeps",
     "images": [],
     "id": "Dips"
   },
@@ -892,7 +892,7 @@
       "Senke die Langhantel kontrolliert bis zur Brust ab.",
       "Drücke die Langhantel explosiv nach oben, bis die Arme gestreckt sind."
     ],
-    "category": "Kraft",
+    "category": "Trizeps",
     "images": [],
     "id": "Enges_Bankdrücken"
   },
@@ -908,7 +908,7 @@
       "Senke die Langhantel kontrolliert hinter deinem Kopf ab, bis die Arme einen 90-Grad-Winkel bilden.",
       "Drücke die Langhantel wieder nach oben, bis die Arme vollständig gestreckt sind."
     ],
-    "category": "Kraft",
+    "category": "Trizeps",
     "images": [],
     "id": "French_Press"
   },
@@ -924,7 +924,7 @@
       "Senke deinen Körper kontrolliert ab, bis die Brust den Boden fast berührt.",
       "Drücke dich explosiv nach oben, bis die Arme gestreckt sind."
     ],
-    "category": "Kraft",
+    "category": "Trizeps",
     "images": [],
     "id": "Diamond_Push-Ups"
   },
@@ -941,7 +941,7 @@
       "Strecke den Arm nach hinten, bis er vollständig gestreckt ist.",
       "Beuge den Arm wieder, bis er einen 90-Grad-Winkel bildet."
     ],
-    "category": "Kraft",
+    "category": "Trizeps",
     "images": [],
     "id": "Trizeps_Kickbacks_am_Kabel"
   },
@@ -959,7 +959,7 @@
       "Drücke dich explosiv nach oben, bis die Beine gestreckt sind.",
       "Halte während der Ausführung ein leichtes Hohlkreuz."
     ],
-    "category": "Kraft",
+    "category": "Beine",
     "images": [],
     "id": "Squats"
   },
@@ -975,7 +975,7 @@
       "Drücke die Plattform nach oben, bis die Beine gestreckt sind.",
       "Beuge die Knie und senke die Plattform langsam ab, bis die Knie einen 90-Grad-Winkel bilden."
     ],
-    "category": "Kraft",
+    "category": "Beine",
     "images": [],
     "id": "Beinpresse"
   },
@@ -991,7 +991,7 @@
       "Mache einen großen Schritt nach vorne und beuge das vordere Knie, bis der Oberschenkel parallel zum Boden ist.",
       "Drücke dich zurück in die Ausgangsposition und wechsle das Bein."
     ],
-    "category": "Kraft",
+    "category": "Beine",
     "images": [],
     "id": "Ausfallschritte"
   },
@@ -1007,7 +1007,7 @@
       "Beuge das vordere Knie, bis der Oberschenkel parallel zum Boden ist.",
       "Drücke dich zurück in die Ausgangsposition."
     ],
-    "category": "Kraft",
+    "category": "Beine",
     "images": [],
     "id": "Bulgarische_Split_Squats"
   },
@@ -1023,7 +1023,7 @@
       "Beuge die Knie und ziehe die Füße nach unten.",
       "Strecke die Beine langsam wieder aus."
     ],
-    "category": "Kraft",
+    "category": "Beine",
     "images": [],
     "id": "Beinbeuger"
   },
@@ -1039,7 +1039,7 @@
       "Strecke die Beine nach oben, bis sie vollständig gestreckt sind.",
       "Beuge die Knie und senke die Füße langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Beine",
     "images": [],
     "id": "Beinstrecker"
   },
@@ -1055,7 +1055,7 @@
       "Tritt mit einem Fuß auf die Bank und drücke dich nach oben, bis das Bein gestreckt ist.",
       "Senke dich langsam wieder ab und wechsle das Bein."
     ],
-    "category": "Kraft",
+    "category": "Beine",
     "images": [],
     "id": "Step_Ups"
   },
@@ -1071,7 +1071,7 @@
       "Hebe die Fersen so hoch wie möglich an.",
       "Senke die Fersen langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Beine",
     "images": [],
     "id": "Wadenheben"
   },
@@ -1088,7 +1088,7 @@
       "Hebe die Hüften an, bis der Körper eine gerade Linie bildet.",
       "Senke die Hüften langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Beine",
     "images": [],
     "id": "Hip_Thrusts"
   },
@@ -1104,7 +1104,7 @@
       "Hebe die Hüften an, bis der Körper eine gerade Linie bildet.",
       "Senke die Hüften langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Beine",
     "images": [],
     "id": "Glute_Bridge"
   },
@@ -1120,7 +1120,7 @@
       "Drücke die Beine zusammen, bis sich die Polster berühren.",
       "Lasse die Beine langsam wieder auseinander gleiten."
     ],
-    "category": "Kraft",
+    "category": "Beine",
     "images": [],
     "id": "Adduktorenmaschine"
   },
@@ -1137,7 +1137,7 @@
       "Hebe das Bein nach hinten, bis es vollständig gestreckt ist.",
       "Senke das Bein langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Beine",
     "images": [],
     "id": "Kickbacks_am_Kabelzug"
   },
@@ -1153,7 +1153,7 @@
       "Halte den Körper in einer geraden Linie von Kopf bis Fuß.",
       "Spanne die Bauchmuskeln an und halte diese Position."
     ],
-    "category": "Kraft",
+    "category": "Bauch",
     "images": [],
     "id": "Plank"
   },
@@ -1169,7 +1169,7 @@
       "Lege die Hände hinter den Kopf und hebe die Schulterblätter vom Boden ab.",
       "Spanne die Bauchmuskeln an und ziehe den Oberkörper in Richtung der Knie."
     ],
-    "category": "Kraft",
+    "category": "Bauch",
     "images": [],
     "id": "Crunches"
   },
@@ -1185,7 +1185,7 @@
       "Hebe die Beine gerade nach oben, bis sie parallel zum Boden sind.",
       "Senke die Beine langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Bauch",
     "images": [],
     "id": "Hanging_Leg_Raises"
   },
@@ -1201,7 +1201,7 @@
       "Lege die Hände hinter den Kopf und hebe den Oberkörper bis zu den Knien hoch.",
       "Senke den Oberkörper langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Bauch",
     "images": [],
     "id": "Sit_Ups"
   },
@@ -1217,7 +1217,7 @@
       "Hebe gleichzeitig die Beine und den Oberkörper an, um mit den Händen die Füße zu berühren.",
       "Senke die Beine und den Oberkörper langsam wieder ab."
     ],
-    "category": "Kraft",
+    "category": "Bauch",
     "images": [],
     "id": "V_Ups"
   },
@@ -1233,7 +1233,7 @@
       "Beuge den Oberkörper nach unten und ziehe das Seil in Richtung der Knie.",
       "Strecke den Oberkörper langsam wieder aus."
     ],
-    "category": "Kraft",
+    "category": "Bauch",
     "images": [],
     "id": "Cable_Crunches"
   },
@@ -1249,7 +1249,7 @@
       "Schwinge den Ball mit voller Kraft auf den Boden.",
       "Fange den Ball wieder auf und wiederhole die Bewegung."
     ],
-    "category": "Kraft",
+    "category": "Bauch",
     "images": [],
     "id": "Medicine_Ball_Slams"
   },
@@ -1265,7 +1265,7 @@
       "Halte einen Medizinball vor der Brust und drehe den Oberkörper von einer Seite zur anderen.",
       "Berühre den Ball bei jeder Drehung auf dem Boden."
     ],
-    "category": "Kraft",
+    "category": "Bauch",
     "images": [],
     "id": "Russian_Twists"
   },
@@ -1281,7 +1281,7 @@
       "Wechsle abwechselnd die Beine auf und ab in einer schnellen Bewegung.",
       "Halte die Bauchmuskeln angespannt und den unteren Rücken flach auf dem Boden."
     ],
-    "category": "Kraft",
+    "category": "Bauch",
     "images": [],
     "id": "Flutter_Kicks"
   },
@@ -1297,7 +1297,7 @@
       "Ziehe die Griffe nach vorne und spanne die Bauchmuskeln an.",
       "Lasse die Griffe langsam wieder in die Ausgangsposition zurückkehren."
     ],
-    "category": "Kraft",
+    "category": "Bauch",
     "images": [],
     "id": "Bauchübungen_am_Gerät"
   },
@@ -1313,7 +1313,7 @@
       "Rolle den Ab Roller nach vorne, bis der Körper eine gerade Linie bildet.",
       "Rolle den Ab Roller langsam wieder zurück in die Ausgangsposition."
     ],
-    "category": "Kraft",
+    "category": "Bauch",
     "images": [],
     "id": "Ab_Roller"
   }
