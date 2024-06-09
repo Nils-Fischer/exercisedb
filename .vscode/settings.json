@@ -11,5 +11,7 @@
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
-  "prettier.requireConfig": true
+  "prettier.requireConfig": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false
 }
