@@ -1,14 +1,28 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { EXERCISES } from '../constant';
-import ExerciseCard from '../components/ExerciseCard.svelte';
+import ExercisePage from '../components/ExercisePage.svelte';
+import { generateExercises, generateFilters } from '../constant.ts';
+import type { Exercise } from '../lib/types';
+
+const exercises_file_path = './src/data/exercises.json';
+const exercises: Exercise[] = generateExercises(exercises_file_path);
+export const filter_fields: (keyof Exercise)[] = [
+  'force',
+  'level',
+  'mechanic',
+  'equipment',
+  'primaryMuscles',
+  'secondaryMuscles',
+  'category',
+];
+const filters: Map<keyof Exercise, Set<string>> = generateFilters(
+  exercises,
+  filter_fields
+);
 ---
 
 <Layout title="Welcome to Astro.">
   <main class="container mx-auto p-4">
-    <h1 class="text-2xl font-bold mb-4">Exercises</h1>
-    <div class="grid gap-4 grid-cols-auto-fit">
-      {EXERCISES.map((exercise) => <ExerciseCard exercise={exercise} />)}
-    </div>
+    <ExercisePage exercises={exercises} filters={filters} client:load />
   </main>
 </Layout>

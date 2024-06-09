@@ -1,10 +1,8 @@
 <!-- src/components/ExerciseCard.svelte -->
 <script lang="ts">
   import type { Exercise } from '../lib/types';
-  import { onMount } from 'svelte';
 
   export let exercise: Exercise;
-  let imageLoadErrors: boolean[] = [];
 </script>
 
 <div class="max-h-lg card max-w-md bg-base-100 shadow-xl">
