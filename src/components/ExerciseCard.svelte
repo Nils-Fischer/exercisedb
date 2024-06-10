@@ -10,7 +10,6 @@
     <h2 class="card-title">{exercise.name}</h2>
     <div class="flex flex-wrap space-x-1">
       <div class="badge">{exercise.level}</div>
-      <div class="badge badge-neutral">{exercise.force}</div>
     </div>
     <div class="flex flex-wrap space-x-1">
       <div class="badge badge-secondary">{exercise.mechanic}</div>
@@ -21,13 +20,8 @@
         <span>Loading...</span>
       </div>
     </div>
-    <div class="grid-cols-auto-fitgrid gap-4">
-      {#each exercise.primaryMuscles as muscle}
-        <div class="badge badge-accent">{muscle}</div>
-      {/each}
-      {#each exercise.secondaryMuscles as muscle}
-        <div class="badge badge-ghost">{muscle}</div>
-      {/each}
+    <div class="grid grid-cols-auto-fit gap-4">
+      <div class="badge badge-accent">{exercise.category}</div>
     </div>
   </div>
 </div>
