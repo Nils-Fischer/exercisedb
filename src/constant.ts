@@ -2,23 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import type { Exercise } from './lib/types';
 
-const EXERCISES_FILE_PATH = './src/data/uebungen.json';
-export const EXERCISES: Exercise[] = generateExercises();
-export const FILTER_FIELDS: (keyof Exercise)[] = [
-  'force',
-  'level',
-  'mechanic',
-  'equipment',
-  'primaryMuscles',
-  'secondaryMuscles',
-  'category',
-];
-export const FILTERS: Map<keyof Exercise, Set<string>> = generateFilters(
-  EXERCISES,
-  FILTER_FIELDS
-);
-
-function generateFilters(
+export function generateFilters(
   exercises: Exercise[],
   filterFields: (keyof Exercise)[]
 ): Map<keyof Exercise, Set<string>> {
@@ -41,8 +25,8 @@ function generateFilters(
   return setMap;
 }
 
-function generateExercises(): Exercise[] {
-  const filePath = path.resolve(EXERCISES_FILE_PATH);
+export function generateExercises(json_file_path: string): Exercise[] {
+  const filePath = path.resolve(json_file_path);
   const fileContent = fs.readFileSync(filePath, 'utf-8');
   return JSON.parse(fileContent, (key: string, value: string | null) => {
     return value === null ? 'other' : value;
