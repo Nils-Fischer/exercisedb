@@ -13,18 +13,20 @@
   function filterExercises(
     event: CustomEvent<{ value: Map<keyof Exercise, Set<string>> }>
   ) {
+    const filterMap = event.detail.value;
     filteredExercises.set(
       exercises.filter((exercise) => {
-        for (const [category, values] of event.detail.value) {
+        for (const [category, values] of filterMap) {
           const result = exercise[category];
           const result_arr = Array.isArray(result) ? result : [result];
-          if (values.size > 0 && !result_arr.some((item) => values.has(item))) {
+          if (!result_arr.some((item) => values.has(item))) {
             return false;
           }
         }
         return true;
       })
     );
+    console.log(filteredExercises);
   }
 
   let filteredExercisesArray: Exercise[] = [];

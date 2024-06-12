@@ -15,7 +15,9 @@
     } else {
       values.add(value);
     }
-    updatedFilters.set(category, values);
+    if (values.size == 0) updatedFilters.delete(category);
+    else updatedFilters.set(category, values);
+
     activeFilters = updatedFilters;
   }
 
