@@ -36,7 +36,7 @@
 
 <h1 class="mb-4 text-2xl font-bold">Exercises</h1>
 <div class="flex">
-  <div class="flex-shrink-0 p-4">
+  <div class="flex-shrink-0 p-8">
     <FilterMenu {filters} on:updateFilter={filterExercises} />
   </div>
   <div class="flex-grow">

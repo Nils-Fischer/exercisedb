@@ -6,7 +6,7 @@
   export let exercises: Exercise[];
 </script>
 
-<div class="grid grid-cols-auto-fit gap-4">
+<div class="grid grid-cols-auto-fill gap-4">
   {#each exercises as exercise}
     <ExerciseCard {exercise} />
   {/each}

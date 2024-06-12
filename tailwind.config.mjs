@@ -4,8 +4,8 @@ export default {
   theme: {
     extend: {
       gridTemplateColumns: {
-        'auto-fit': 'repeat(auto-fit, minmax(250px, 1fr))',
-        'auto-fill': 'repeat(auto-fill, minmax(250px, 1fr))',
+        'auto-fit': 'repeat(auto-fit, minmax(16rem, 1fr))',
+        'auto-fill': 'repeat(auto-fill, minmax(16rem, 1fr))',
       },
     },
   },
