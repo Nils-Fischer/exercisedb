@@ -13,6 +13,16 @@
     const left = target.offsetLeft;
     carousel.scrollTo({ left: left, behavior: 'smooth' });
   }
+
+  mediaItems = mediaItems.sort((a, b) => {
+    if (a.type === 'video' && b.type === 'image') {
+      return -1;
+    } else if (a.type === 'image' && b.type === 'video') {
+      return 1;
+    } else {
+      return 0;
+    }
+  });
 </script>
 
 <div class="carousel relative w-full overflow-hidden">

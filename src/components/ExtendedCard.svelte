@@ -32,7 +32,7 @@
     <MediaCarousel mediaItems={media} />
 
     <h3 class="text-xl font-bold">Beschreibung</h3>
-    <p>{exercise.instructions}</p>
+    <p>{exercise.instructions.join(' ')}</p>
     <div>
       <h5 class="pt-3 text-xl font-bold">Muskel:</h5>
     </div>
@@ -46,4 +46,3 @@
     </div>
   </div>
 </div>
-
