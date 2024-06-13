@@ -30,6 +30,7 @@
       <div class="badge badge-primary">{exercise.equipment}</div>
     </div>
     <MediaCarousel mediaItems={media} />
+
     <h3 class="text-xl font-bold">Beschreibung</h3>
     <p>{exercise.instructions}</p>
     <div>
@@ -45,3 +46,4 @@
     </div>
   </div>
 </div>
+
