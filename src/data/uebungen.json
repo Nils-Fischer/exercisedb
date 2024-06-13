@@ -444,7 +444,8 @@
       "Stehe in einem leichten Ausfallschritt und halte das Ende der Langhantel mit beiden Händen vor der Brust.",
       "Drücke die Langhantel explosiv nach oben und vorne, bis die Arme gestreckt sind."
     ],
-    "category":["Brust", "Schulter"],
+    "category": ["Brust", "Schulter"],
+
     "images": [],
     "id": "Landmine-Press"
   },
@@ -1176,7 +1177,7 @@
   {
     "name": "Hanging Leg Raises",
     "level": "Fortgeschritten",
-    "mechanic": "Isolation",
+    "mechanic": "Isolation", 
     "equipment": "Klimmzugstange",
     "primaryMuscles": ["Rectus abdominis"],
     "secondaryMuscles": ["Obliques", "Hip flexors"],

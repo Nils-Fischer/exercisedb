@@ -5,15 +5,14 @@ import { generateExercises, generateFilters } from '../constant.ts';
 import type { Exercise } from '../lib/types';
 import ExtendedCard from '../components/ExtendedCard.svelte';
 
-const exercises_file_path = './src/data/exercises.json';
+const exercises_file_path = './src/data/uebungen.json';
 const exercises: Exercise[] = generateExercises(exercises_file_path);
 export const filter_fields: (keyof Exercise)[] = [
-  'force',
+  'category',
   'level',
   'mechanic',
   'equipment',
-  'primaryMuscles',
-  'secondaryMuscles',
+
   'category',
 ];
 const filters: Map<keyof Exercise, Set<string>> = generateFilters(
@@ -24,7 +23,9 @@ const filters: Map<keyof Exercise, Set<string>> = generateFilters(
 
 <Layout title="Welcome to Astro.">
   <main class="container mx-auto p-4">
-    <ExtendedCard exercise={exercises[0]} />
+
+    <ExtendedCard exercise={exercises[0]} client:load />
+    <h1 class="text-2xl font-bold mb-4">Exercises</h1>
     <ExercisePage exercises={exercises} filters={filters} client:load />
   </main>
 </Layout>
