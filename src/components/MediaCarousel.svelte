@@ -1,19 +1,9 @@
 <script lang="ts">
   import type { MediaItem } from '../lib/types';
-  import { mod } from '../lib/utils';
 
   export let mediaItems: MediaItem[] = [];
 
-  function goTo(event: Event) {
-    event.preventDefault();
-    const btn = event.currentTarget as HTMLAnchorElement;
-    const carousel = btn.closest('.carousel') as HTMLElement;
-    const href = btn.getAttribute('href')!;
-    const target = carousel.querySelector<HTMLDivElement>(href)!;
-    const left = target.offsetLeft;
-    carousel.scrollTo({ left: left, behavior: 'smooth' });
-  }
-
+  // Sort media items so that videos appear first
   mediaItems = mediaItems.sort((a, b) => {
     if (a.type === 'video' && b.type === 'image') {
       return -1;
@@ -23,6 +13,23 @@
       return 0;
     }
   });
+
+  function goTo(event: Event) {
+    event.preventDefault();
+    const btn = event.currentTarget as HTMLAnchorElement;
+    const carousel = btn.closest('.carousel') as HTMLElement;
+    // Pause the current video if it's playing
+    const currentSlide = carousel.querySelector(
+      '.carousel-item:not([hidden]) video'
+    ) as HTMLVideoElement;
+    if (currentSlide && !currentSlide.paused) {
+      currentSlide.pause();
+    }
+    const href = btn.getAttribute('href')!;
+    const target = carousel.querySelector<HTMLDivElement>(href)!;
+    const left = target.offsetLeft;
+    carousel.scrollTo({ left: left, behavior: 'smooth' });
+  }
 </script>
 
 <div class="carousel relative w-full overflow-hidden">
@@ -43,12 +50,12 @@
         >
           <a
             on:click={goTo}
-            href={`#slide${mod(index - 1, mediaItems.length)}`}
+            href={`#slide${(index - 1 + mediaItems.length) % mediaItems.length}`}
             class="btn btn-circle">❮</a
           >
           <a
             on:click={goTo}
-            href={`#slide${mod(index + 1, mediaItems.length)}`}
+            href={`#slide${(index + 1) % mediaItems.length}`}
             class="btn btn-circle">❯</a
           >
         </div>
