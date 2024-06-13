@@ -16,6 +16,17 @@
       innerCarousel.style.transform = `translateX(-${index * 100}%)`;
     }
   }
+
+  const goTo = (event: Event) => {
+    event.preventDefault();
+    const btn = event.currentTarget as HTMLSelectElement;
+    const carousel = btn.parentElement!.parentElement!.parentElement!;
+    // EQUIVALENT: const carousel = document.querySelector('.carousel')
+    const href = btn.getAttribute('href')!;
+    const target = carousel.querySelector<HTMLDivElement>(href)!;
+    const left = target.offsetLeft;
+    carousel.scrollTo({ left: left });
+  };
 </script>
 
 <div class="card w-2/5 bg-base-100 shadow-2xl">
@@ -30,52 +41,62 @@
       <div class="badge badge-primary">{exercise.equipment}</div>
     </div>
     <div class="carousel relative w-full overflow-hidden">
-      <div class="carousel-inner flex transition-transform duration-500">
-        <div id="slide1" class="carousel-item relative w-full flex-shrink-0">
-          <!-- svelte-ignore a11y-img-redundant-alt -->
-          <img
-            src="https://training.fit/wp-content/uploads/2019/07/bankdruecken-kurzhantel-flachbank.png"
-            alt="Exercise Image"
-            class="w-full"
+      <div id="slide1" class="carousel-item relative w-full">
+        <img
+          src="https://training.fit/wp-content/uploads/2019/07/bankdruecken-kurzhantel-flachbank.png"
+          alt="Exercise Image"
+          class="w-full"
+        />
+        <div
+          class="carousel-nav absolute left-3 right-1 top-1/2 flex -translate-y-1/2 transform justify-between opacity-0 transition-opacity duration-300 hover:opacity-100"
+        >
+          <a on:click={goTo} href="#slide4" class="btn btn-circle">❮</a>
+          <a on:click={goTo} href="#slide2" class="btn btn-circle">❯</a>
+        </div>
+      </div>
+      <div id="slide2" class="carousel-item relative w-full">
+        <img
+          alt="alt"
+          src="https://s3.ap-south-1.amazonaws.com/litekart.in/img/untitled-360-190px-1500-380px-vzlc6ffmy4ej.png"
+          class="w-full"
+        />
+        <div
+          class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
+        >
+          <a on:click={goTo} href="#slide1" class="btn btn-circle">❮</a>
+          <a on:click={goTo} href="#slide3" class="btn btn-circle">❯</a>
+        </div>
+      </div>
+      <div id="slide3" class="carousel-item relative w-full">
+        <img
+          alt="alt"
+          src="https://s3.ap-south-1.amazonaws.com/litekart.in/img/untitled-360-190px-1500-380px-vzlc6ffmy4ej.png"
+          class="w-full"
+        />
+        <div
+          class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
+        >
+          <a on:click={goTo} href="#slide2" class="btn btn-circle">❮</a>
+          <a on:click={goTo} href="#slide4" class="btn btn-circle">❯</a>
+        </div>
+      </div>
+      <div id="slide4" class="carousel-item relative w-full">
+        <!-- svelte-ignore a11y-media-has-caption -->
+        <video class="w-full" controls>
+          <source
+            src="https://www.w3schools.com/html/mov_bbb.mp4"
+            type="video/mp4"
           />
-          <div
-            class="carousel-nav absolute left-3 right-1 top-1/2 flex -translate-y-1/2 transform justify-between opacity-0 transition-opacity duration-300 hover:opacity-100"
-          >
-            <a href="#slide4" class="btn btn-circle" on:click={() => slideTo(3)}
-              >❮</a
-            >
-            <a href="#slide2" class="btn btn-circle" on:click={() => slideTo(1)}
-              >❯</a
-            >
-          </div>
-          <div id="slide2" class="carousel-item relative w-full flex-shrink-0">
-            <!-- svelte-ignore a11y-media-has-caption -->
-            <video class="w-full" controls>
-              <source
-                src="https://www.w3schools.com/html/mov_bbb.mp4"
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
-            <div
-              class="carousel-nav absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between opacity-0 transition-opacity duration-300 hover:opacity-100"
-            >
-              <a
-                href="#slide2"
-                class="btn btn-circle"
-                on:click={() => slideTo(1)}>❮</a
-              >
-              <a
-                href="#slide1"
-                class="btn btn-circle"
-                on:click={() => slideTo(1)}>❯</a
-              >
-            </div>
-          </div>
+          Your browser does not support the video tag.
+        </video>
+        <div
+          class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between"
+        >
+          <a on:click={goTo} href="#slide3" class="btn btn-circle">❮</a>
+          <a on:click={goTo} href="#slide1" class="btn btn-circle">❯</a>
         </div>
       </div>
     </div>
-
     <h3 class="text-xl font-bold">Beschreibung</h3>
     <p>{exercise.instructions}</p>
     <div>
