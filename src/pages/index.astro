@@ -12,7 +12,6 @@ export const filter_fields: (keyof Exercise)[] = [
   'level',
   'mechanic',
   'equipment',
-
   'category',
 ];
 const filters: Map<keyof Exercise, Set<string>> = generateFilters(
@@ -23,7 +22,6 @@ const filters: Map<keyof Exercise, Set<string>> = generateFilters(
 
 <Layout title="Welcome to Astro.">
   <main class="container mx-auto p-4">
-    <ExtendedCard exercise={exercises[0]} client:load />
     <ExercisePage exercises={exercises} filters={filters} client:load />
   </main>
 </Layout>
