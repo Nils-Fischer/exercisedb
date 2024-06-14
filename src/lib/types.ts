@@ -4,7 +4,6 @@ export interface FilterableItem {
 
 export interface Exercise extends FilterableItem {
   name: string;
-  force: string;
   level: string;
   mechanic: string;
   equipment: string;
@@ -18,4 +17,11 @@ export interface Exercise extends FilterableItem {
 
 export interface Filters {
   [key: string]: string | null;
+}
+
+export type MediaType = 'image' | 'video';
+
+export interface MediaItem {
+  type: MediaType;
+  src: string;
 }
