@@ -91,7 +91,8 @@
     "category": "Brust",
     "images": [],
     "id": "Schrägbankdrücken_Langhantel",
-    "tag": ["Brust", "obere", "push"]
+    "tag": ["Brust", "obere", "push"],
+    "priority": "1"
   },
   {
     "name": "Schrägbankdrücken Kurzhantel",
@@ -109,7 +110,8 @@
     "category": "Brust",
     "images": [],
     "id": "Schrägbankdrücken_Kurzhantel",
-    "tag": ["Brust", "obere", "push"]
+    "tag": ["Brust", "obere", "push"],
+    "priority": "2"
   },
   {
     "name": "Schrägbankdrücken Smithmachine",
@@ -127,7 +129,8 @@
     "category": "Brust",
     "images": [],
     "id": "Schrägbankdrücken_Smithmachine",
-    "tag": ["Brust", "obere", "push"]
+    "tag": ["Brust", "obere", "push"],
+    "priority": "3"
   },
   {
     "name": "Schrägbankdrücken Gerät",
@@ -144,7 +147,8 @@
     "category": "Brust",
     "images": [],
     "id": "Schrägbankdrücken_Gerät",
-    "tag": ["Brust", "obere", "push"]
+    "tag": ["Brust", "obere", "push"],
+    "priority": "4"
   },
   {
     "name": "Dips",
@@ -162,7 +166,8 @@
     "category": "Brust",
     "images": [],
     "id": "Dips",
-    "tag": ["Brust", "untere", "push"]
+    "tag": ["Brust", "untere", "push"],
+    "priority": "1"
   },
   {
     "name": "Bankdrücken negativ Langhantel",
@@ -180,7 +185,8 @@
     "category": "Brust",
     "images": [],
     "id": "Bankdrücken_negativ_Langhantel",
-    "tag": ["Brust", "untere", "push"]
+    "tag": ["Brust", "untere", "push"],
+    "priority": "2"
   },
   {
     "name": "Bankdrücken negativ Kurzhantel",
@@ -198,24 +204,26 @@
     "category": "Brust",
     "images": [],
     "id": "Bankdrücken_negativ_Kurzhantel",
-    "tag": ["Brust", "untere", "push"]
+    "tag": ["Brust", "untere", "push"],
+    "priority": "3"
   },
   {
     "name": "Bankdrücken negativ Gerät",
     "level": "Anfänger",
     "mechanic": "Grundübung",
-    "equipment": "Negativ-Bankdrückgerät",
+    "equipment": "Negativ-Bankdrücken-Gerät",
     "primaryMuscles": ["Pectoralis major (untere Fasern)"],
     "secondaryMuscles": ["Trizeps", "Deltoideus anterior"],
     "instructions": [
-      "Setze dich auf das Negativ-Bankdrückgerät und greife die Griffe.",
+      "Setze dich auf das Negativ-Bankdrücken-Gerät und greife die Griffe.",
       "Drücke die Griffe nach oben, bis die Arme gestreckt sind.",
-      "Senke die Griffe langsam wieder ab."
+      "Senke die Griffe langsam wieder auf Brusthöhe ab."
     ],
     "category": "Brust",
     "images": [],
     "id": "Bankdrücken_negativ_Gerät",
-    "tag": ["Brust", "untere", "push"]
+    "tag": ["Brust", "untere", "push"],
+    "priority": "4"
   },
   {
     "name": "Butterfly",
@@ -233,7 +241,8 @@
     "category": "Brust",
     "images": [],
     "id": "Butterfly",
-    "tag": ["Brust", "mittlere", "abduktion"]
+    "tag": ["Brust", "mittlere", "abduktion"],
+    "priority": "1"
   },
   {
     "name": "Butterfly Kabelzug",
@@ -250,7 +259,8 @@
     "category": "Brust",
     "images": [],
     "id": "Butterfly_Kabelzug",
-    "tag": ["Brust", "mittlere", "abduktion"]
+    "tag": ["Brust", "mittlere", "abduktion"],
+    "priority": "2"
   },
   {
     "name": "Butterfly Kurzhantel",
@@ -268,7 +278,8 @@
     "category": "Brust",
     "images": [],
     "id": "Butterfly_Kurzhantel",
-    "tag": ["Brust", "mittlere", "abduktion"]
+    "tag": ["Brust", "mittlere", "abduktion"],
+    "priority": "3"
   },
   {
     "name": "Butterfly Kabelzug hoch",
@@ -278,14 +289,15 @@
     "primaryMuscles": ["Pectoralis major (obere Fasern)"],
     "secondaryMuscles": [],
     "instructions": [
-      "Stelle dich in die Mitte einer Kabelzugmaschine und greife die Griffe hoch über deinem Kopf.",
+      "Stelle dich in die Mitte einer Kabelzugmaschine und greife die Griffe oben.",
       "Führe die Griffe vor deiner oberen Brust zusammen, die Arme leicht gebeugt.",
       "Lasse die Griffe langsam wieder in die Ausgangsposition zurückkehren."
     ],
     "category": "Brust",
     "images": [],
     "id": "Butterfly_Kabelzug_hoch",
-    "tag": ["Brust", "obere", "abduktion"]
+    "tag": ["Brust", "obere", "abduktion"],
+    "priority": "1"
   },
   {
     "name": "Butterfly Kabelzug unten",
@@ -302,7 +314,8 @@
     "category": "Brust",
     "images": [],
     "id": "Butterfly_Kabelzug_unten",
-    "tag": ["Brust", "untere", "abduktion"]
+    "tag": ["Brust", "untere", "abduktion"],
+    "priority": "1"
   },
   {
     "name": "Latzug Breit",
@@ -319,7 +332,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Latzug_Breit",
-    "tag": ["Rücken", "vertikal", "wide"]
+    "tag": ["Rücken", "vertikal", "wide"],
+    "priority": "1"
   },
   {
     "name": "Klimmzug Breit",
@@ -336,7 +350,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Klimmzug_Breit",
-    "tag": ["Rücken", "vertikal", "wide"]
+    "tag": ["Rücken", "vertikal", "wide"],
+    "priority": "2"
   },
   {
     "name": "Latzug Eng",
@@ -353,7 +368,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Latzug_Eng",
-    "tag": ["Rücken", "vertikal", "close"]
+    "tag": ["Rücken", "vertikal", "close"],
+    "priority": "1"
   },
   {
     "name": "Klimmzug Eng",
@@ -370,7 +386,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Klimmzug_Eng",
-    "tag": ["Rücken", "vertikal", "close"]
+    "tag": ["Rücken", "vertikal", "close"],
+    "priority": "2"
   },
   {
     "name": "T-Bar Row Breit",
@@ -387,7 +404,8 @@
     "category": "Rücken",
     "images": [],
     "id": "T-Bar_Row_Breit",
-    "tag": ["Rücken", "horizontal", "wide"]
+    "tag": ["Rücken", "horizontal", "wide"],
+    "priority": "1"
   },
   {
     "name": "Ruderzug Breit",
@@ -404,7 +422,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Ruderzug_Breit",
-    "tag": ["Rücken", "horizontal", "wide"]
+    "tag": ["Rücken", "horizontal", "wide"],
+    "priority": "2"
   },
   {
     "name": "Ruderzug",
@@ -421,7 +440,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Ruderzug",
-    "tag": ["Rücken", "horizontal", "close"]
+    "tag": ["Rücken", "horizontal", "close"],
+    "priority": "1"
   },
   {
     "name": "Ruderzug Maschine",
@@ -438,7 +458,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Ruderzug_Maschine",
-    "tag": ["Rücken", "horizontal", "close"]
+    "tag": ["Rücken", "horizontal", "close"],
+    "priority": "2"
   },
   {
     "name": "Ruderzug Langhantel",
@@ -456,7 +477,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Ruderzug_Langhantel",
-    "tag": ["Rücken", "horizontal", "close"]
+    "tag": ["Rücken", "horizontal", "close"],
+    "priority": "3"
   },
   {
     "name": "Ruderzug Kabelturm",
@@ -473,7 +495,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Ruderzug_Kabelturm",
-    "tag": ["Rücken", "horizontal", "close"]
+    "tag": ["Rücken", "horizontal", "close"],
+    "priority": "4"
   },
   {
     "name": "Shrugs Kurzhantel",
@@ -490,7 +513,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Shrugs_Kurzhantel",
-    "tag": ["Rücken", "Nacken"]
+    "tag": ["Rücken", "Nacken"],
+    "priority": "1"
   },
   {
     "name": "Shrugs Langhantel",
@@ -507,7 +531,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Shrugs_Langhantel",
-    "tag": ["Rücken", "Nacken"]
+    "tag": ["Rücken", "Nacken"],
+    "priority": "2"
   },
   {
     "name": "Hyperextensions",
@@ -524,7 +549,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Hyperextensions",
-    "tag": ["Rücken", "unterer Rücken"]
+    "tag": ["Rücken", "unterer Rücken"],
+    "priority": "1"
   },
   {
     "name": "Deadlifts",
@@ -543,7 +569,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Deadlifts",
-    "tag": ["Rücken", "unterer Rücken"]
+    "tag": ["Rücken", "unterer Rücken"],
+    "priority": "2"
   },
   {
     "name": "Romanian Deadlifts",
@@ -561,7 +588,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Romanian_Deadlifts",
-    "tag": ["Rücken", "unterer Rücken"]
+    "tag": ["Rücken", "unterer Rücken"],
+    "priority": "3"
   },
   {
     "name": "Pullovers Kabelzug",
@@ -578,7 +606,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Pullovers_Kabelzug",
-    "tag": ["Rücken", "Adduktion"]
+    "tag": ["Rücken", "Adduktion"],
+    "priority": "1"
   },
   {
     "name": "Pullovers Gerät",
@@ -595,7 +624,8 @@
     "category": "Rücken",
     "images": [],
     "id": "Pullovers_Gerät",
-    "tag": ["Rücken", "Adduktion"]
+    "tag": ["Rücken", "Adduktion"],
+    "priority": "2"
   },
   {
     "name": "Kniebeugen",
@@ -614,7 +644,8 @@
     "category": "Beine",
     "images": [],
     "id": "Kniebeugen",
-    "tag": ["Beine", "Push"]
+    "tag": ["Beine", "Push"],
+    "priority": "1"
   },
   {
     "name": "Deadlifts",
@@ -633,7 +664,8 @@
     "category": "Beine",
     "images": [],
     "id": "Deadlifts",
-    "tag": ["Beine", "Push"]
+    "tag": ["Beine", "Push"],
+    "priority": "2"
   },
   {
     "name": "Beinpresse",
@@ -650,7 +682,8 @@
     "category": "Beine",
     "images": [],
     "id": "Beinpresse",
-    "tag": ["Beine", "Push"]
+    "tag": ["Beine", "Push"],
+    "priority": "3"
   },
   {
     "name": "Kniebeuge Maschine",
@@ -668,7 +701,8 @@
     "category": "Beine",
     "images": [],
     "id": "Kniebeuge_Maschine",
-    "tag": ["Beine", "Push"]
+    "tag": ["Beine", "Push"],
+    "priority": "4"
   },
   {
     "name": "Ausfallschritte",
@@ -685,7 +719,8 @@
     "category": "Beine",
     "images": [],
     "id": "Ausfallschritte",
-    "tag": ["Beine", "Push"]
+    "tag": ["Beine", "Push"],
+    "priority": "5"
   },
   {
     "name": "Bulgarische Splitsquats",
@@ -702,7 +737,8 @@
     "category": "Beine",
     "images": [],
     "id": "Bulgarische_Splitsquats",
-    "tag": ["Beine", "Push"]
+    "tag": ["Beine", "Push"],
+    "priority": "6"
   },
   {
     "name": "Beinstrecker",
@@ -719,7 +755,8 @@
     "category": "Beine",
     "images": [],
     "id": "Beinstrecker",
-    "tag": ["Beine", "Quadrizeps"]
+    "tag": ["Beine", "Quadrizeps"],
+    "priority": "1"
   },
   {
     "name": "Beinpresse tief",
@@ -736,7 +773,8 @@
     "category": "Beine",
     "images": [],
     "id": "Beinpresse_tief",
-    "tag": ["Beine", "Quadrizeps"]
+    "tag": ["Beine", "Quadrizeps"],
+    "priority": "2"
   },
   {
     "name": "Beinbeuger",
@@ -753,7 +791,8 @@
     "category": "Beine",
     "images": [],
     "id": "Beinbeuger",
-    "tag": ["Beine", "Hamstrings"]
+    "tag": ["Beine", "Hamstrings"],
+    "priority": "1"
   },
   {
     "name": "Hyperextensions",
@@ -770,7 +809,8 @@
     "category": "Beine",
     "images": [],
     "id": "Hyperextensions",
-    "tag": ["Beine", "Hamstrings"]
+    "tag": ["Beine", "Hamstrings"],
+    "priority": "2"
   },
   {
     "name": "Wadenheben Maschine",
@@ -787,7 +827,8 @@
     "category": "Beine",
     "images": [],
     "id": "Wadenheben_Maschine",
-    "tag": ["Beine", "Waden"]
+    "tag": ["Beine", "Waden"],
+    "priority": "1"
   },
   {
     "name": "Wadenheben sitzen",
@@ -804,7 +845,8 @@
     "category": "Beine",
     "images": [],
     "id": "Wadenheben_sitzen",
-    "tag": ["Beine", "Waden"]
+    "tag": ["Beine", "Waden"],
+    "priority": "2"
   },
   {
     "name": "Wadenheben Kurzhantel",
@@ -821,7 +863,8 @@
     "category": "Beine",
     "images": [],
     "id": "Wadenheben_Kurzhantel",
-    "tag": ["Beine", "Waden"]
+    "tag": ["Beine", "Waden"],
+    "priority": "3"
   },
   {
     "name": "Schulterdrücken Kurzhantel",
@@ -838,7 +881,8 @@
     "category": "Schulter",
     "images": [],
     "id": "Schulterdrücken_Kurzhantel",
-    "tag": ["Schulter", "vordere", "push"]
+    "tag": ["Schulter", "vordere", "push"],
+    "priority": "1"
   },
   {
     "name": "Schulterdrücken Langhantel",
@@ -855,7 +899,8 @@
     "category": "Schulter",
     "images": [],
     "id": "Schulterdrücken_Langhantel",
-    "tag": ["Schulter", "vordere", "push"]
+    "tag": ["Schulter", "vordere", "push"],
+    "priority": "2"
   },
   {
     "name": "Schulterdrücken Smithmachine",
@@ -872,7 +917,8 @@
     "category": "Schulter",
     "images": [],
     "id": "Schulterdrücken_Smithmachine",
-    "tag": ["Schulter", "vordere", "push"]
+    "tag": ["Schulter", "vordere", "push"],
+    "priority": "3"
   },
   {
     "name": "Schulterdrücken Gerät",
@@ -889,7 +935,8 @@
     "category": "Schulter",
     "images": [],
     "id": "Schulterdrücken_Gerät",
-    "tag": ["Schulter", "vordere", "push"]
+    "tag": ["Schulter", "vordere", "push"],
+    "priority": "4"
   },
   {
     "name": "Seitheben Gerät",
@@ -906,7 +953,8 @@
     "category": "Schulter",
     "images": [],
     "id": "Seitheben_Gerät",
-    "tag": ["Schulter", "seitliche", "abduktion"]
+    "tag": ["Schulter", "seitliche", "abduktion"],
+    "priority": "1"
   },
   {
     "name": "Seitheben Kurzhantel",
@@ -923,7 +971,8 @@
     "category": "Schulter",
     "images": [],
     "id": "Seitheben_Kurzhantel",
-    "tag": ["Schulter", "seitliche", "abduktion"]
+    "tag": ["Schulter", "seitliche", "abduktion"],
+    "priority": "2"
   },
   {
     "name": "Seitheben Kabelzug",
@@ -940,7 +989,8 @@
     "category": "Schulter",
     "images": [],
     "id": "Seitheben_Kabelzug",
-    "tag": ["Schulter", "seitliche", "abduktion"]
+    "tag": ["Schulter", "seitliche", "abduktion"],
+    "priority": "3"
   },
   {
     "name": "Reverse Butterfly Gerät",
@@ -957,7 +1007,8 @@
     "category": "Schulter",
     "images": [],
     "id": "Reverse_Butterfly_Gerät",
-    "tag": ["Schulter", "hintere", "abduktion"]
+    "tag": ["Schulter", "hintere", "abduktion"],
+    "priority": "1"
   },
   {
     "name": "Reverse Butterfly Kabelzug",
@@ -974,7 +1025,8 @@
     "category": "Schulter",
     "images": [],
     "id": "Reverse_Butterfly_Kabelzug",
-    "tag": ["Schulter", "hintere", "abduktion"]
+    "tag": ["Schulter", "hintere", "abduktion"],
+    "priority": "2"
   },
   {
     "name": "Reverse Butterfly Kurzhantel",
@@ -991,7 +1043,8 @@
     "category": "Schulter",
     "images": [],
     "id": "Reverse_Butterfly_Kurzhantel",
-    "tag": ["Schulter", "hintere", "abduktion"]
+    "tag": ["Schulter", "hintere", "abduktion"],
+    "priority": "3"
   },
   {
     "name": "Face Pulls",
@@ -1008,7 +1061,8 @@
     "category": "Schulter",
     "images": [],
     "id": "Face_Pulls",
-    "tag": ["Schulter", "hintere", "adduktion"]
+    "tag": ["Schulter", "hintere", "adduktion"],
+    "priority": "1"
   },
   {
     "name": "Hammercurls Kurzhantel",
@@ -1025,7 +1079,8 @@
     "category": "Bizeps",
     "images": [],
     "id": "Hammercurls_Kurzhantel",
-    "tag": ["Bizeps", "breit"]
+    "tag": ["Bizeps", "breit"],
+    "priority": "1"
   },
   {
     "name": "Hammercurls Kabelzug",
@@ -1042,7 +1097,8 @@
     "category": "Bizeps",
     "images": [],
     "id": "Hammercurls_Kabelzug",
-    "tag": ["Bizeps", "breit"]
+    "tag": ["Bizeps", "breit"],
+    "priority": "2"
   },
   {
     "name": "Reverse Curls",
@@ -1059,7 +1115,8 @@
     "category": "Bizeps",
     "images": [],
     "id": "Reverse_Curls",
-    "tag": ["Bizeps", "breit"]
+    "tag": ["Bizeps", "breit"],
+    "priority": "3"
   },
   {
     "name": "Cablecurls",
@@ -1076,7 +1133,8 @@
     "category": "Bizeps",
     "images": [],
     "id": "Cablecurls",
-    "tag": ["Bizeps", "eng"]
+    "tag": ["Bizeps", "eng"],
+    "priority": "1"
   },
   {
     "name": "Bizepscurls Kurzhantel",
@@ -1093,7 +1151,8 @@
     "category": "Bizeps",
     "images": [],
     "id": "Bizepscurls_Kurzhantel",
-    "tag": ["Bizeps", "eng"]
+    "tag": ["Bizeps", "eng"],
+    "priority": "2"
   },
   {
     "name": "Bizepscurls Langhantel",
@@ -1110,7 +1169,8 @@
     "category": "Bizeps",
     "images": [],
     "id": "Bizepscurls_Langhantel",
-    "tag": ["Bizeps", "eng"]
+    "tag": ["Bizeps", "eng"],
+    "priority": "3"
   },
   {
     "name": "Bizepscurls Gerät",
@@ -1127,7 +1187,8 @@
     "category": "Bizeps",
     "images": [],
     "id": "Bizepscurls_Gerät",
-    "tag": ["Bizeps", "eng"]
+    "tag": ["Bizeps", "eng"],
+    "priority": "4"
   },
   {
     "name": "Spidercurls",
@@ -1144,7 +1205,8 @@
     "category": "Bizeps",
     "images": [],
     "id": "Spidercurls",
-    "tag": ["Bizeps", "eng"]
+    "tag": ["Bizeps", "eng"],
+    "priority": "5"
   },
   {
     "name": "Overhead extension",
@@ -1161,7 +1223,8 @@
     "category": "Trizeps",
     "images": [],
     "id": "Overhead_extension",
-    "tag": ["Trizeps", "groß"]
+    "tag": ["Trizeps", "groß"],
+    "priority": "1"
   },
   {
     "name": "Skullcrusher",
@@ -1178,7 +1241,8 @@
     "category": "Trizeps",
     "images": [],
     "id": "Skullcrusher",
-    "tag": ["Trizeps", "groß"]
+    "tag": ["Trizeps", "groß"],
+    "priority": "2"
   },
   {
     "name": "Kickbacks",
@@ -1195,7 +1259,8 @@
     "category": "Trizeps",
     "images": [],
     "id": "Kickbacks",
-    "tag": ["Trizeps", "groß"]
+    "tag": ["Trizeps", "groß"],
+    "priority": "3"
   },
   {
     "name": "Overhead extensions Kurzhantel",
@@ -1212,7 +1277,8 @@
     "category": "Trizeps",
     "images": [],
     "id": "Overhead_extensions_Kurzhantel",
-    "tag": ["Trizeps", "groß"]
+    "tag": ["Trizeps", "groß"],
+    "priority": "4"
   },
   {
     "name": "Cable Pushdowns",
@@ -1229,7 +1295,8 @@
     "category": "Trizeps",
     "images": [],
     "id": "Cable_Pushdowns",
-    "tag": ["Trizeps", "klein"]
+    "tag": ["Trizeps", "klein"],
+    "priority": "1"
   },
   {
     "name": "Cable Pushdowns einarmig",
@@ -1246,7 +1313,8 @@
     "category": "Trizeps",
     "images": [],
     "id": "Cable_Pushdowns_einarmig",
-    "tag": ["Trizeps", "klein"]
+    "tag": ["Trizeps", "klein"],
+    "priority": "2"
   },
   {
     "name": "Pushdowns Gerät",
@@ -1263,7 +1331,8 @@
     "category": "Trizeps",
     "images": [],
     "id": "Pushdowns_Gerät",
-    "tag": ["Trizeps", "klein"]
+    "tag": ["Trizeps", "klein"],
+    "priority": "3"
   },
   {
     "name": "Enges Bankdrücken",
@@ -1280,7 +1349,8 @@
     "category": "Trizeps",
     "images": [],
     "id": "Enges_Bankdrücken",
-    "tag": ["Trizeps", "klein"]
+    "tag": ["Trizeps", "klein"],
+    "priority": "4"
   },
   {
     "name": "Diamond Pushups",
@@ -1297,7 +1367,8 @@
     "category": "Trizeps",
     "images": [],
     "id": "Diamond_Pushups",
-    "tag": ["Trizeps", "klein"]
+    "tag": ["Trizeps", "klein"],
+    "priority": "5"
   },
   {
     "name": "Crunches",
@@ -1314,7 +1385,8 @@
     "category": "Bauch",
     "images": [],
     "id": "Crunches",
-    "tag": ["Bauch", "oberer"]
+    "tag": ["Bauch", "oberer"],
+    "priority": "1"
   },
   {
     "name": "Situps",
@@ -1331,7 +1403,8 @@
     "category": "Bauch",
     "images": [],
     "id": "Situps",
-    "tag": ["Bauch", "oberer"]
+    "tag": ["Bauch", "oberer"],
+    "priority": "2"
   },
   {
     "name": "Situps Gerät",
@@ -1348,7 +1421,8 @@
     "category": "Bauch",
     "images": [],
     "id": "Situps_Gerät",
-    "tag": ["Bauch", "oberer"]
+    "tag": ["Bauch", "oberer"],
+    "priority": "3"
   },
   {
     "name": "Crunches am Seil",
@@ -1365,7 +1439,8 @@
     "category": "Bauch",
     "images": [],
     "id": "Crunches_am_Seil",
-    "tag": ["Bauch", "oberer"]
+    "tag": ["Bauch", "oberer"],
+    "priority": "4"
   },
   {
     "name": "Leg raises",
@@ -1382,7 +1457,8 @@
     "category": "Bauch",
     "images": [],
     "id": "Leg_raises",
-    "tag": ["Bauch", "unterer"]
+    "tag": ["Bauch", "unterer"],
+    "priority": "1"
   },
   {
     "name": "Leg raises Maschine",
@@ -1399,7 +1475,8 @@
     "category": "Bauch",
     "images": [],
     "id": "Leg_raises_Maschine",
-    "tag": ["Bauch", "unterer"]
+    "tag": ["Bauch", "unterer"],
+    "priority": "2"
   },
   {
     "name": "Planks",
@@ -1416,7 +1493,8 @@
     "category": "Bauch",
     "images": [],
     "id": "Planks",
-    "tag": ["Bauch", "core"]
+    "tag": ["Bauch", "core"],
+    "priority": "1"
   },
   {
     "name": "Bicycle crunches",
@@ -1433,6 +1511,7 @@
     "category": "Bauch",
     "images": [],
     "id": "Bicycle_crunches",
-    "tag": ["Bauch", "core"]
+    "tag": ["Bauch", "core"],
+    "priority": "2"
   }
 ]
