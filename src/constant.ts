@@ -11,7 +11,7 @@ export function generateFilters(
       filterFields.forEach((field) => {
         let set = map.get(field);
         const result = exercise[field];
-        const values = Array.isArray(result) ? result : [result];
+        const values = Array.isArray(result) ? result : [result.toString()];
         if (set !== undefined) {
           values.forEach((str) => set.add(str));
         } else {
