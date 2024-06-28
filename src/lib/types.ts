@@ -27,3 +27,8 @@ export interface MediaItem {
   type: MediaType;
   src: string;
 }
+
+export interface ExerciseDescription {
+  priority: number;
+  tags: string[];
+}
