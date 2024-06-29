@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import type { Exercise } from './lib/types';
+import type { Exercise, ExerciseDescription } from './lib/types';
 
 export function generateFilters(
   exercises: Exercise[],
@@ -11,7 +11,7 @@ export function generateFilters(
       filterFields.forEach((field) => {
         let set = map.get(field);
         const result = exercise[field];
-        const values = Array.isArray(result) ? result : [result];
+        const values = Array.isArray(result) ? result : [result.toString()];
         if (set !== undefined) {
           values.forEach((str) => set.add(str));
         } else {
@@ -33,89 +33,90 @@ export function generateExercises(json_file_path: string): Exercise[] {
   });
 }
 
-const PUSH2 = [
-  [1, ['brust', 'mittlere', 'push']],
-  [8, ['brust', 'mittlere', 'abduktion']],
-  [3, ['brust', 'obere', 'push']],
-  [7, ['schulter', 'vordere', 'push']],
-  [4, ['brust', 'untere', 'abduktion']],
-  [9, ['brust', 'untere', 'push']],
-  [5, ['schulter', 'seitliche', 'abduktion']],
-  [2, ['trizeps', 'großer', 'push']],
-  [6, ['trizeps', 'kleiner', 'push']],
-  [10, ['trizeps', 'kleiner', 'push']],
-];
-const PULL2 = [
-  [1, ['rücken', 'vertikal', 'wide']],
-  [3, ['rücken', 'horizontal', 'close']],
-  [7, ['rücken', 'vertikal', 'close']],
-  [8, ['rücken', 'horizontal', 'wide']],
-  [6, ['rücken', 'adduktion']],
-  [4, ['schulter', 'hintere', 'abduktion']],
-  [2, ['bizeps', 'breiter']],
-  [5, ['bizeps', 'enger']],
-  [9, ['bizeps', 'enger']],
+export const PUSH: ExerciseDescription[] = [
+  { priority: 1, tags: ['brust', 'mittlere', 'push'] },
+  { priority: 8, tags: ['brust', 'mittlere', 'abduktion'] },
+  { priority: 3, tags: ['brust', 'obere', 'push'] },
+  { priority: 7, tags: ['schulter', 'vordere', 'push'] },
+  { priority: 4, tags: ['brust', 'untere', 'abduktion'] },
+  { priority: 9, tags: ['brust', 'untere', 'push'] },
+  { priority: 5, tags: ['schulter', 'seitliche', 'abduktion'] },
+  { priority: 2, tags: ['trizeps', 'großer', 'push'] },
+  { priority: 6, tags: ['trizeps', 'kleiner', 'push'] },
+  { priority: 10, tags: ['trizeps', 'kleiner', 'push'] },
 ];
 
-const BEINE2 = [
-  [1, ['beine', 'push']],
-  [5, ['beine', 'pull']],
-  [2, ['beine', 'abduktion']],
-  [3, ['beine', 'adduktion']],
-  [4, ['beine', 'waden']],
-  [7, ['beine', 'push']],
-  [6, ['bauch', 'unterer']],
-  [8, ['rücken', 'unterer']],
-  [9, ['bauch', 'ober']],
+export const PULL: ExerciseDescription[] = [
+  { priority: 1, tags: ['rücken', 'vertikal', 'wide'] },
+  { priority: 3, tags: ['rücken', 'horizontal', 'close'] },
+  { priority: 7, tags: ['rücken', 'vertikal', 'close'] },
+  { priority: 8, tags: ['rücken', 'horizontal', 'wide'] },
+  { priority: 6, tags: ['rücken', 'adduktion'] },
+  { priority: 4, tags: ['schulter', 'hintere', 'abduktion'] },
+  { priority: 2, tags: ['bizeps', 'breiter'] },
+  { priority: 5, tags: ['bizeps', 'enger'] },
+  { priority: 9, tags: ['bizeps', 'enger'] },
 ];
 
-const OBERKOERPER2 = [
-  [1, ['brust', 'mittlere', 'push']],
-  [2, ['rücken', 'vertikal', 'pull']],
-  [4, ['brust', 'obere', 'push']],
-  [8, ['rücken', 'horizontal', 'pull']],
-  [9, ['brust', 'untere', 'abduktion']],
-  [12, ['rücken', 'abduktion']],
-  [13, ['schulter', 'vordere', 'push']],
-  [3, ['schulter', 'seitliche', 'abduktion']],
-  [5, ['schulter', 'hintere', 'abduktion']],
-  [6, ['bizeps', 'breiter']],
-  [7, ['trizeps', 'großer']],
-  [10, ['bizeps', 'enger']],
-  [11, ['trizeps', 'enger']],
+export const BEINE: ExerciseDescription[] = [
+  { priority: 1, tags: ['beine', 'push'] },
+  { priority: 5, tags: ['beine', 'pull'] },
+  { priority: 2, tags: ['beine', 'abduktion'] },
+  { priority: 3, tags: ['beine', 'adduktion'] },
+  { priority: 4, tags: ['beine', 'waden'] },
+  { priority: 7, tags: ['beine', 'push'] },
+  { priority: 6, tags: ['bauch', 'unterer'] },
+  { priority: 8, tags: ['rücken', 'unterer'] },
+  { priority: 9, tags: ['bauch', 'ober'] },
 ];
 
-const UNTERKOERPER2 = [
-  [1, ['beine', 'push']],
-  [2, ['beine', 'pull']],
-  [3, ['beine', 'abduktion']],
-  [4, ['beine', 'adduktion']],
-  [5, ['waden']],
-  [9, ['beine', 'abduktion']],
-  [10, ['beine', 'adduktion']],
-  [7, ['beine', 'push']],
-  [6, ['bauch', 'unter']],
-  [8, ['bauch', 'ober']],
+export const OBERKOERPER: ExerciseDescription[] = [
+  { priority: 1, tags: ['brust', 'mittlere', 'push'] },
+  { priority: 2, tags: ['rücken', 'vertikal', 'pull'] },
+  { priority: 4, tags: ['brust', 'obere', 'push'] },
+  { priority: 8, tags: ['rücken', 'horizontal', 'pull'] },
+  { priority: 9, tags: ['brust', 'untere', 'abduktion'] },
+  { priority: 12, tags: ['rücken', 'abduktion'] },
+  { priority: 13, tags: ['schulter', 'vordere', 'push'] },
+  { priority: 3, tags: ['schulter', 'seitliche', 'abduktion'] },
+  { priority: 5, tags: ['schulter', 'hintere', 'abduktion'] },
+  { priority: 6, tags: ['bizeps', 'breiter'] },
+  { priority: 7, tags: ['trizeps', 'großer'] },
+  { priority: 10, tags: ['bizeps', 'enger'] },
+  { priority: 11, tags: ['trizeps', 'enger'] },
 ];
 
-const GANZKOERPER2 = [
-  [1, ['beine', 'push']],
-  [11, ['beine', 'pull']],
-  [13, ['beine', 'adduktoren']],
-  [14, ['beine', 'abduktoren']],
-  [15, ['waden']],
-  [2, ['brust', 'mittlere', 'push']],
-  [4, ['brust', 'obere', 'brust']],
-  [3, ['rücken', 'vertikal', 'wide']],
-  [6, ['rücken', 'horizontal', 'close']],
-  [10, ['brust', 'untere', 'abduktoren']],
-  [16, ['rücken', 'abduktoren']],
-  [17, ['schulter', 'vordere', 'push']],
-  [5, ['schulter', 'seitliche', 'abduktoren']],
-  [9, ['schulter', 'hintere', 'abduktoren']],
-  [7, ['bizeps', 'breit']],
-  [8, ['trizeps', 'groß']],
-  [19, ['bizeps', 'eng']],
-  [20, ['trizeps', 'klein']],
-  [18, ['bauch', 'untere']],
+export const UNTERKOERPER: ExerciseDescription[] = [
+  { priority: 1, tags: ['beine', 'push'] },
+  { priority: 2, tags: ['beine', 'pull'] },
+  { priority: 3, tags: ['beine', 'abduktion'] },
+  { priority: 4, tags: ['beine', 'adduktion'] },
+  { priority: 5, tags: ['waden'] },
+  { priority: 9, tags: ['beine', 'abduktion'] },
+  { priority: 10, tags: ['beine', 'adduktion'] },
+  { priority: 7, tags: ['beine', 'push'] },
+  { priority: 6, tags: ['bauch', 'unter'] },
+  { priority: 8, tags: ['bauch', 'ober'] },
+];
+
+export const GANZKOERPER: ExerciseDescription[] = [
+  { priority: 1, tags: ['beine', 'push'] },
+  { priority: 11, tags: ['beine', 'pull'] },
+  { priority: 13, tags: ['beine', 'adduktoren'] },
+  { priority: 14, tags: ['beine', 'abduktoren'] },
+  { priority: 15, tags: ['waden'] },
+  { priority: 2, tags: ['brust', 'mittlere', 'push'] },
+  { priority: 4, tags: ['brust', 'obere', 'brust'] },
+  { priority: 3, tags: ['rücken', 'vertikal', 'wide'] },
+  { priority: 6, tags: ['rücken', 'horizontal', 'close'] },
+  { priority: 10, tags: ['brust', 'untere', 'abduktoren'] },
+  { priority: 16, tags: ['rücken', 'abduktoren'] },
+  { priority: 17, tags: ['schulter', 'vordere', 'push'] },
+  { priority: 5, tags: ['schulter', 'seitliche', 'abduktoren'] },
+  { priority: 9, tags: ['schulter', 'hintere', 'abduktoren'] },
+  { priority: 7, tags: ['bizeps', 'breit'] },
+  { priority: 8, tags: ['trizeps', 'groß'] },
+  { priority: 19, tags: ['bizeps', 'eng'] },
+  { priority: 20, tags: ['trizeps', 'klein'] },
+  { priority: 18, tags: ['bauch', 'untere'] },
 ];

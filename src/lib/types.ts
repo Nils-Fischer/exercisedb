@@ -1,5 +1,5 @@
 export interface FilterableItem {
-  [key: string]: string | string[];
+  [key: string]: string | string[] | number;
 }
 
 export interface Exercise extends FilterableItem {
@@ -13,6 +13,8 @@ export interface Exercise extends FilterableItem {
   category: string;
   images: string[];
   id: string;
+  tag: string[];
+  priority: number;
 }
 
 export interface Filters {
@@ -24,4 +26,9 @@ export type MediaType = 'image' | 'video';
 export interface MediaItem {
   type: MediaType;
   src: string;
+}
+
+export interface ExerciseDescription {
+  priority: number;
+  tags: string[];
 }
