@@ -22,6 +22,7 @@ const filters: Map<keyof Exercise, Set<string>> = generateFilters(
 
 <Layout title="Welcome to Astro.">
   <main class="container mx-auto p-4">
+    <a href="/workout">Go to Workout Page</a>
     <ExercisePage exercises={exercises} filters={filters} client:load />
   </main>
 </Layout>
