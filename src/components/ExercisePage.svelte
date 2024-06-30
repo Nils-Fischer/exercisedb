@@ -1,9 +1,9 @@
 <!-- src/components/ExercisesPage.svelte -->
 <script lang="ts">
-  import { writable } from 'svelte/store';
-  import FilterMenu from './FilterMenu.svelte';
-  import ExerciseGrid from './ExerciseGrid.svelte';
-  import type { Exercise } from '../lib/types';
+  import { writable } from "svelte/store";
+  import FilterMenu from "./FilterMenu.svelte";
+  import ExerciseGrid from "./ExerciseGrid.svelte";
+  import type { Exercise } from "../lib/types";
 
   export let exercises: Exercise[];
   export let filters: Map<keyof Exercise, Set<string>>;

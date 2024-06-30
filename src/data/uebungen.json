@@ -1177,7 +1177,7 @@
   {
     "name": "Hanging Leg Raises",
     "level": "Fortgeschritten",
-    "mechanic": "Isolation", 
+    "mechanic": "Isolation",
     "equipment": "Klimmzugstange",
     "primaryMuscles": ["Rectus abdominis"],
     "secondaryMuscles": ["Obliques", "Hip flexors"],

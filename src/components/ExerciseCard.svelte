@@ -1,6 +1,6 @@
 <!-- src/components/ExerciseCard.svelte -->
 <script lang="ts">
-  import type { Exercise } from '../lib/types';
+  import type { Exercise } from "../lib/types";
 
   export let exercise: Exercise;
 </script>

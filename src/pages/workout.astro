@@ -1,10 +1,10 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import WorkoutForm from '../components/WorkoutForm.svelte';
-import { generateExercises } from '../constant';
-import type { Exercise } from '../lib/types';
+import Layout from "../layouts/Layout.astro";
+import WorkoutForm from "../components/WorkoutForm.svelte";
+import { generateExercises } from "../constant";
+import type { Exercise } from "../lib/types";
 
-const exercises_file_path = './src/data/exercises.json';
+const exercises_file_path = "./src/data/exercises.json";
 const exercises: Exercise[] = generateExercises(exercises_file_path);
 ---
 

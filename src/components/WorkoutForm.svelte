@@ -1,32 +1,32 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
-  import { createSplit } from '../lib/utils';
-  import type { Exercise } from '../lib/types';
+  import { onMount } from "svelte";
+  import { createSplit } from "../lib/utils";
+  import type { Exercise } from "../lib/types";
 
   export let exercises: Exercise[];
 
   let frequency = 4;
   let duration = 60;
-  let goal = '';
-  let subGoal = '';
+  let goal = "";
+  let subGoal = "";
 
   onMount(() => {
-    const restDayHint = document.getElementById('restDayHint');
+    const restDayHint = document.getElementById("restDayHint");
     updateFrequency(frequency, restDayHint);
   });
 
   function updateFrequency(value: number, restDayHint: HTMLElement | null) {
     if (value === 7 && restDayHint) {
-      restDayHint.classList.remove('hidden');
+      restDayHint.classList.remove("hidden");
     } else if (restDayHint) {
-      restDayHint.classList.add('hidden');
+      restDayHint.classList.add("hidden");
     }
   }
 
   function handleFrequencyChange(event: Event) {
     const target = event.target as HTMLInputElement;
     frequency = parseInt(target.value);
-    const restDayHint = document.getElementById('restDayHint');
+    const restDayHint = document.getElementById("restDayHint");
     updateFrequency(frequency, restDayHint);
   }
 
@@ -37,7 +37,7 @@
 
   function handleSubmit(event: Event) {
     event.preventDefault();
-    const result = createSplit(exercises, frequency, duration, 'Experte');
+    const result = createSplit(exercises, frequency, duration, "Experte");
     console.log(result);
   }
 </script>

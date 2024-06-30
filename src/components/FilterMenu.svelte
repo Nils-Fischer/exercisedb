@@ -1,7 +1,7 @@
 <!-- src/components/FilterMenu.svelte -->
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
-  import type { Exercise } from '../lib/types';
+  import { createEventDispatcher } from "svelte";
+  import type { Exercise } from "../lib/types";
 
   export let filters: Map<keyof Exercise, Set<string>>;
   const dispatch = createEventDispatcher();
@@ -23,7 +23,7 @@
 
   function toggleFilter(category: keyof Exercise, value: string) {
     updateActiveFilter(category, value);
-    dispatch('updateFilter', { value: activeFilters });
+    dispatch("updateFilter", { value: activeFilters });
   }
 </script>
 
@@ -39,7 +39,7 @@
               <button
                 type="button"
                 on:click={() => toggleFilter(category, filter)}
-                class={activeFilters.get(category)?.has(filter) ? 'active' : ''}
+                class={activeFilters.get(category)?.has(filter) ? "active" : ""}
                 >{filter}</button
               >
             </li>

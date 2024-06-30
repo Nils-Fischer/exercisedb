@@ -1,20 +1,20 @@
 <script lang="ts">
-  import type { Exercise, MediaItem } from '../lib/types';
-  import MediaCarousel from './MediaCarousel.svelte';
+  import type { Exercise, MediaItem } from "../lib/types";
+  import MediaCarousel from "./MediaCarousel.svelte";
 
   export let exercise: Exercise;
 
   // TODO remove
   const media: MediaItem[] = [
     {
-      type: 'image',
-      src: 'https://training.fit/wp-content/uploads/2019/07/bankdruecken-kurzhantel-flachbank.png',
+      type: "image",
+      src: "https://training.fit/wp-content/uploads/2019/07/bankdruecken-kurzhantel-flachbank.png",
     },
     {
-      type: 'image',
-      src: 'https://s3.ap-south-1.amazonaws.com/litekart.in/img/untitled-360-190px-1500-380px-vzlc6ffmy4ej.png',
+      type: "image",
+      src: "https://s3.ap-south-1.amazonaws.com/litekart.in/img/untitled-360-190px-1500-380px-vzlc6ffmy4ej.png",
     },
-    { type: 'video', src: 'https://www.w3schools.com/html/mov_bbb.mp4' },
+    { type: "video", src: "https://www.w3schools.com/html/mov_bbb.mp4" },
   ];
 </script>
 
@@ -32,7 +32,7 @@
     <MediaCarousel mediaItems={media} />
 
     <h3 class="text-xl font-bold">Beschreibung</h3>
-    <p>{exercise.instructions.join(' ')}</p>
+    <p>{exercise.instructions.join(" ")}</p>
     <div>
       <h5 class="pt-3 text-xl font-bold">Muskel:</h5>
     </div>

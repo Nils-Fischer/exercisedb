@@ -1,6 +1,6 @@
-import { type ClassValue, clsx } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-import type { Exercise, ExerciseDescription } from './types';
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+import type { Exercise, ExerciseDescription } from "./types";
 import {
   BEINE,
   GANZKOERPER,
@@ -8,7 +8,7 @@ import {
   PUSH,
   PULL,
   UNTERKOERPER,
-} from '../constant';
+} from "../constant";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -161,8 +161,9 @@ function selectExercises(
   });
   let numExercises = 0;
   let timeInGym = 0;
+  console.log(results);
   for (const [_, exercise] of results.sort((a, b) => b[0] - a[0])) {
-    const restTime = exercise.mechanic == 'Isolation' ? 3 : 4;
+    const restTime = exercise.mechanic == "Isolation" ? 3 : 4;
     timeInGym += restTime + 1;
     if (timeInGym <= availableTime) numExercises++;
     else break;

@@ -1,7 +1,7 @@
 <!-- src/components/ExerciseGrid.svelte -->
 <script lang="ts">
-  import ExerciseCard from './ExerciseCard.svelte';
-  import type { Exercise } from '../lib/types';
+  import ExerciseCard from "./ExerciseCard.svelte";
+  import type { Exercise } from "../lib/types";
 
   export let exercises: Exercise[];
 </script>

@@ -21,7 +21,7 @@ export interface Filters {
   [key: string]: string | null;
 }
 
-export type MediaType = 'image' | 'video';
+export type MediaType = "image" | "video";
 
 export interface MediaItem {
   type: MediaType;
