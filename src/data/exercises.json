@@ -399,7 +399,7 @@
     "instructions": [
       "Stehe auf die Plattform der T-Bar Rudermaschine und greife die Griffe mit einem breiten Griff.",
       "Ziehe die Griffe zu deinem unteren Brustbereich.",
-      "Lasse die Griffe langsam wieder nach unten gleiten, bis deine Arme gestreckt sind."
+      "Lasse die Griffe langsam wiedgit er nach unten gleiten, bis deine Arme gestreckt sind."
     ],
     "category": "Rücken",
     "images": [],
@@ -569,7 +569,7 @@
     "category": "Rücken",
     "images": [],
     "id": "deadlifts",
-    "tag": ["rücken", "unterer rücken"],
+    "tag": ["beine", "pull"],
     "priority": 2
   },
   {
@@ -588,7 +588,7 @@
     "category": "Rücken",
     "images": [],
     "id": "romanian_deadlifts",
-    "tag": ["rücken", "unterer rücken"],
+    "tag": ["beine", "pull"],
     "priority": 3
   },
   {
@@ -596,7 +596,7 @@
     "level": "Fortgeschritten",
     "mechanic": "Isolation",
     "equipment": "Kabelzugmaschine",
-    "primaryMuscles": ["Latissimus dorsi", "Trizeps"],
+    "primaryMuscles": ["Latissimus dorsi"],
     "secondaryMuscles": ["Brustmuskeln"],
     "instructions": [
       "Stelle dich vor eine Kabelzugmaschine und greife die Stange mit beiden Händen.",
@@ -614,7 +614,7 @@
     "level": "Fortgeschritten",
     "mechanic": "Isolation",
     "equipment": "Pullover-Maschine",
-    "primaryMuscles": ["Latissimus dorsi", "Trizeps"],
+    "primaryMuscles": ["Latissimus dorsi"],
     "secondaryMuscles": ["Brustmuskeln"],
     "instructions": [
       "Setze dich an die Pullover-Maschine und greife die Griffe.",
@@ -646,26 +646,6 @@
     "id": "kniebeugen",
     "tag": ["beine", "push"],
     "priority": 1
-  },
-  {
-    "name": "Deadlifts",
-    "level": "Experte",
-    "mechanic": "Grundübung",
-    "equipment": "Langhantel",
-    "primaryMuscles": ["Latissimus dorsi", "Erector spinae"],
-    "secondaryMuscles": ["Gluteus", "Beinbizeps", "Trapez"],
-    "instructions": [
-      "Stelle dich mit den Füßen schulterbreit auseinander vor eine Langhantel.",
-      "Beuge dich an den Hüften und greife die Langhantel mit beiden Händen.",
-      "Hebe die Langhantel an, indem du dich aufrichtest und die Hüften streckst.",
-      "Halte während der Ausführung ein Hohlkreuz.",
-      "Senke die Langhantel langsam wieder ab, bis sie den Boden berührt."
-    ],
-    "category": "Beine",
-    "images": [],
-    "id": "deadlifts",
-    "tag": ["beine", "push"],
-    "priority": 2
   },
   {
     "name": "Beinpresse",
