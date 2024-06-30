@@ -154,9 +154,7 @@ function selectExercises(
     const tags = description.tags;
     const matches = exercises
       .filter(
-        (exercise) =>
-          tags.every((tag) => exercise.tag.includes(tag)) &&
-          exercise.level == level
+        (exercise) => tags.every((tag) => exercise.tag.includes(tag)) // && exercise.level == level
       )
       .sort((a, b) => b.priority - a.priority);
     return [description.priority, matches[0]];

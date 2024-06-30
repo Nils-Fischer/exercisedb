@@ -1,5 +1,9 @@
 <script lang="ts">
   import { onMount } from 'svelte';
+  import { createSplit } from '../lib/utils';
+  import type { Exercise } from '../lib/types';
+
+  export let exercises: Exercise[];
 
   let frequency = 4;
   let duration = 60;
@@ -30,6 +34,12 @@
     const target = event.target as HTMLInputElement;
     duration = parseInt(target.value);
   }
+
+  function handleSubmit(event: Event) {
+    event.preventDefault();
+    const result = createSplit(exercises, frequency, duration, 'Experte');
+    console.log(result);
+  }
 </script>
 
 <main
@@ -37,7 +47,10 @@
 >
   <h1 class="mb-6 text-3xl font-bold text-blue-700">Workout Planner</h1>
 
-  <form class="space-y-8 rounded-lg bg-white p-6 shadow-md">
+  <form
+    on:submit={handleSubmit}
+    class="space-y-8 rounded-lg bg-white p-6 shadow-md"
+  >
     <!-- Training Frequency -->
     <div class="space-y-2">
       <label class="text-xl font-bold text-blue-600" for="frequency">
