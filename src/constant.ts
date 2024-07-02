@@ -71,11 +71,11 @@ export const BEINE: ExerciseDescription[] = [
 
 export const OBERKOERPER: ExerciseDescription[] = [
   { priority: 1, tags: ["brust", "mittlere", "push"] },
-  { priority: 2, tags: ["rücken", "vertikal", "pull"] },
+  { priority: 2, tags: ["rücken", "vertikal", "wide"] },
   { priority: 4, tags: ["brust", "obere", "push"] },
-  { priority: 8, tags: ["rücken", "horizontal", "pull"] },
+  { priority: 8, tags: ["rücken", "horizontal", "close"] },
   { priority: 9, tags: ["brust", "untere", "abduktion"] },
-  { priority: 12, tags: ["rücken", "abduktion"] },
+  { priority: 12, tags: ["rücken", "adduktion"] },
   { priority: 13, tags: ["schulter", "vordere", "push"] },
   { priority: 3, tags: ["schulter", "seitliche", "abduktion"] },
   { priority: 5, tags: ["schulter", "hintere", "abduktion"] },
@@ -94,7 +94,7 @@ export const UNTERKOERPER: ExerciseDescription[] = [
   { priority: 9, tags: ["beine", "hamstrings"] },
   { priority: 10, tags: ["beine", "quadrizeps"] },
   { priority: 7, tags: ["beine", "push"] },
-  { priority: 6, tags: ["bauch", "unter"] },
+  { priority: 6, tags: ["bauch", "unterer"] },
   { priority: 8, tags: ["bauch", "oberer"] },
 ];
 
@@ -109,7 +109,7 @@ export const GANZKOERPER: ExerciseDescription[] = [
   { priority: 3, tags: ["rücken", "vertikal", "wide"] },
   { priority: 6, tags: ["rücken", "horizontal", "close"] },
   { priority: 10, tags: ["brust", "untere", "abduktion"] },
-  { priority: 16, tags: ["rücken", "abduktoren"] },
+  { priority: 16, tags: ["rücken", "adduktion"] },
   { priority: 17, tags: ["schulter", "vordere", "push"] },
   { priority: 5, tags: ["schulter", "seitliche", "abduktion"] },
   { priority: 9, tags: ["schulter", "hintere", "abduktion"] },
@@ -117,5 +117,5 @@ export const GANZKOERPER: ExerciseDescription[] = [
   { priority: 8, tags: ["trizeps", "groß"] },
   { priority: 19, tags: ["bizeps", "eng"] },
   { priority: 20, tags: ["trizeps", "klein"] },
-  { priority: 18, tags: ["bauch", "untere"] },
+  { priority: 18, tags: ["bauch", "unterer"] },
 ];
