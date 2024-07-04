@@ -19,7 +19,7 @@
         for (const [category, values] of filterMap) {
           const result = exercise[category];
           const result_arr = Array.isArray(result) ? result : [result];
-          if (!result_arr.some((item) => values.has(item))) {
+          if (!result_arr.some((item) => values.has(item.toString()))) {
             return false;
           }
         }
