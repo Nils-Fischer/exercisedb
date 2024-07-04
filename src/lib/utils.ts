@@ -1,6 +1,7 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import type { Exercise, ExerciseDescription } from "./types";
+import { Level } from "./types";
 import {
   BEINE,
   GANZKOERPER,
@@ -24,28 +25,29 @@ export function createSplit(
   availableTime: number,
   level: string
 ): [number, Exercise[][]][] {
+  const lvl = levelFromString(level);
   switch (daysAWeek) {
     case 1:
-      return oneDaySplit(exercises, availableTime, level);
+      return oneDaySplit(exercises, availableTime, lvl);
     case 2:
-      return twoDaySplit(exercises, availableTime, level);
+      return twoDaySplit(exercises, availableTime, lvl);
     case 3:
-      return threeDaySplit(exercises, availableTime, level);
+      return threeDaySplit(exercises, availableTime, lvl);
     case 4:
-      return fourDaySplit(exercises, availableTime, level);
+      return fourDaySplit(exercises, availableTime, lvl);
     case 5:
-      return fiveDaySplit(exercises, availableTime, level);
+      return fiveDaySplit(exercises, availableTime, lvl);
     case 6:
-      return sixDaySplit(exercises, availableTime, level);
+      return sixDaySplit(exercises, availableTime, lvl);
     default:
-      return sevenDaySplit(exercises, availableTime, level);
+      return sevenDaySplit(exercises, availableTime, lvl);
   }
 }
 
 function oneDaySplit(
   exercises: Exercise[],
   time: number,
-  level: string
+  level: Level
 ): [number, Exercise[][]][] {
   const fullBody = selectExercises(exercises, GANZKOERPER, time, level);
   return [[1, fullBody]];
@@ -54,7 +56,7 @@ function oneDaySplit(
 function twoDaySplit(
   exercises: Exercise[],
   time: number,
-  level: string
+  level: Level
 ): [number, Exercise[][]][] {
   const lowerBody = selectExercises(exercises, UNTERKOERPER, time, level);
   const upperBody = selectExercises(exercises, OBERKOERPER, time, level);
@@ -67,7 +69,7 @@ function twoDaySplit(
 function threeDaySplit(
   exercises: Exercise[],
   time: number,
-  level: string
+  level: Level
 ): [number, Exercise[][]][] {
   const push = selectExercises(exercises, PUSH, time, level);
   const pull = selectExercises(exercises, PULL, time, level);
@@ -82,7 +84,7 @@ function threeDaySplit(
 function fourDaySplit(
   exercises: Exercise[],
   time: number,
-  level: string
+  level: Level
 ): [number, Exercise[][]][] {
   const lowerBody = selectExercises(exercises, UNTERKOERPER, time, level);
   const upperBody = selectExercises(exercises, OBERKOERPER, time, level);
@@ -95,7 +97,7 @@ function fourDaySplit(
 function fiveDaySplit(
   exercises: Exercise[],
   time: number,
-  level: string
+  level: Level
 ): [number, Exercise[][]][] {
   const lowerBody = selectExercises(exercises, UNTERKOERPER, time, level);
   const upperBody = selectExercises(exercises, OBERKOERPER, time, level);
@@ -114,7 +116,7 @@ function fiveDaySplit(
 function sixDaySplit(
   exercises: Exercise[],
   time: number,
-  level: string
+  level: Level
 ): [number, Exercise[][]][] {
   const push = selectExercises(exercises, PUSH, time, level);
   const pull = selectExercises(exercises, PULL, time, level);
@@ -129,7 +131,7 @@ function sixDaySplit(
 function sevenDaySplit(
   exercises: Exercise[],
   time: number,
-  level: string
+  level: Level
 ): [number, Exercise[][]][] {
   const push = selectExercises(exercises, PUSH, time, level);
   const pull = selectExercises(exercises, PULL, time, level);
@@ -148,13 +150,15 @@ function selectExercises(
   exercises: Exercise[],
   split: ExerciseDescription[],
   availableTime: number,
-  level: string
+  level: Level
 ): Exercise[][] {
   const results: [number, Exercise[]][] = split.map((description) => {
     const tags = description.tags;
     const matches = exercises
       .filter(
-        (exercise) => tags.every((tag) => exercise.tag.includes(tag)) // && exercise.level == level
+        (exercise) =>
+          tags.every((tag) => exercise.tag.includes(tag)) &&
+          levelFromString(exercise.level) <= level
       )
       .sort((a, b) => a.priority - b.priority);
     return [description.priority, matches];
@@ -171,4 +175,20 @@ function selectExercises(
     .filter(([prio, _]) => prio <= numExercises)
     .map(([_, exercises]) => exercises);
   return selectedExercises;
+}
+
+function levelFromString(level: string): Level {
+  switch (level.toLowerCase()) {
+    case "beginner":
+    case "anfänger":
+      return Level.Beginner;
+    case "intermediate":
+    case "fortgeschritten":
+      return Level.Intermediate;
+    case "expert":
+    case "experte":
+      return Level.Expert;
+    default:
+      throw new Error(`level: ${level}, is not defined`);
+  }
 }
