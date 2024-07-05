@@ -7,7 +7,7 @@
 </script>
 
 <div
-  class="navbar sticky top-0 z-50 mb-10 bg-base-100 px-20 opacity-95 shadow-lg"
+  class="navbar sticky top-0 z-50 mb-8 bg-base-100 px-20 opacity-95 shadow-lg"
 >
   <div class="navbar-start">
     <a

@@ -2,6 +2,7 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
   import type { Exercise } from "../lib/types";
+  import { capitalize } from "../lib/utils";
 
   export let filters: Map<keyof Exercise, Set<string>>;
   const dispatch = createEventDispatcher();
@@ -27,20 +28,21 @@
   }
 </script>
 
-<ul class="menu w-56 rounded-box bg-base-200">
+<ul class="menu sticky top-28 w-56 rounded-box bg-neutral-content shadow-xl">
   <h2 class="menu-title">Filters</h2>
   {#each filters as [category, values]}
     <li>
       <details>
-        <summary>{category.toString()}</summary>
+        <summary>{capitalize(category.toString())}</summary>
         <ul>
           {#each values as filter}
             <li>
               <button
                 type="button"
                 on:click={() => toggleFilter(category, filter)}
-                class={activeFilters.get(category)?.has(filter) ? "active" : ""}
-                >{filter}</button
+                class="{activeFilters.get(category)?.has(filter)
+                  ? 'active'
+                  : ''} rounded-none">{capitalize(filter)}</button
               >
             </li>
           {/each}
