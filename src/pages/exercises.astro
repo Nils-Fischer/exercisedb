@@ -11,8 +11,6 @@ export const filter_fields: (keyof Exercise)[] = [
   "category",
   "level",
   "mechanic",
-  "equipment",
-  "category",
 ];
 const filters: Map<keyof Exercise, Set<string>> = generateFilters(
   exercises,

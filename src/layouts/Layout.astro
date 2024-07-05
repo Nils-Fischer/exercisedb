@@ -1,37 +1,20 @@
 ---
+import Navbar from "../components/Navbar.svelte";
+
 const { title } = Astro.props;
+const { pathname } = Astro.url;
 ---
 
 <!doctype html>
-<html lang="en" data-theme="emerald">
+<html lang="de" data-theme="emerald">
   <head>
     <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
   </head>
   <body>
-    <div class="navbar bg-base-100">
-      <div class="navbar-start">
-        <a href="/" class="btn btn-ghost text-xl font-black hover:bg-inherit"
-          >ExerciseDB</a
-        >
-      </div>
-      <div class="navbar-center hidden lg:flex">
-        <a
-          class="btn btn-ghost rounded-md font-medium hover:bg-inherit"
-          href="/workout"
-        >
-          Traininsplan erstellen
-        </a>
-        <a
-          class="btn btn-ghost rounded-md font-medium hover:bg-inherit"
-          href="/exercises"
-        >
-          Übungsübersicht
-        </a>
-      </div>
-      <div class="navbar-end hiden"></div>
-    </div>
+    <Navbar client:load currentPath={pathname} />
     <slot />
   </body>
 </html>
