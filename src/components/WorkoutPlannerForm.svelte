@@ -57,7 +57,7 @@
   }
 </script>
 
-<main class="container m-auto">
+<main class="container m-auto px-4">
   <form on:submit={handleSubmit}>
     <h1 class="mb-6 text-left text-3xl font-bold text-neutral">
       Workout Planner

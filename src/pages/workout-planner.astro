@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import WorkoutForm from "../components/WorkoutForm.svelte";
+import WorkoutPlannerForm from "../components/WorkoutPlannerForm.svelte";
 import { generateExercises } from "../constant";
 import type { Exercise } from "../lib/types";
 
@@ -9,5 +9,5 @@ const exercises: Exercise[] = generateExercises(exercises_file_path);
 ---
 
 <Layout title="Workout Planner">
-  <WorkoutForm client:load exercises={exercises} />
+  <WorkoutPlannerForm client:load exercises={exercises} />
 </Layout>
