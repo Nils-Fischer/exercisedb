@@ -1,7 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { createSplit } from "../lib/utils";
+  import { createSplit, generateRandomSHA256Hash } from "../lib/utils";
   import type { Exercise } from "../lib/types";
+  import { setWorkoutSplit } from "../lib/storage";
 
   export let exercises: Exercise[];
 
@@ -41,15 +42,25 @@
     isLoading = true;
     progress = 0;
 
-    // Simulate a loading process
     const interval = setInterval(
       () => {
         progress += Math.pow(20, Math.random()) - 1;
-        if (progress >= 100) {
+        if (true) {
           clearInterval(interval);
           isLoading = false;
           const result = createSplit(exercises, frequency, duration, level);
           console.log(result);
+          generateRandomSHA256Hash()
+            .then((id) => {
+              setWorkoutSplit(id, result);
+              window.location.href = `/custom-workout?id=${id}`;
+            })
+            .catch((error) => {
+              console.error(
+                "Failed to generate hash or set workout split:",
+                error
+              );
+            });
         }
       },
       ((Math.random() * 1000) % 300) + 100
