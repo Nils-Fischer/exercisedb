@@ -8,7 +8,8 @@
   let frequency = 4;
   let duration = 60;
   let level = "anfänger";
-  let subGoal = "";
+  let isLoading = false;
+  let progress = 0;
 
   onMount(() => {
     const restDayHint = document.getElementById("restDayHint");
@@ -37,8 +38,22 @@
 
   function handleSubmit(event: Event) {
     event.preventDefault();
-    const result = createSplit(exercises, frequency, duration, level);
-    console.log(result);
+    isLoading = true;
+    progress = 0;
+
+    // Simulate a loading process
+    const interval = setInterval(
+      () => {
+        progress += Math.pow(20, Math.random()) - 1;
+        if (progress >= 100) {
+          clearInterval(interval);
+          isLoading = false;
+          const result = createSplit(exercises, frequency, duration, level);
+          console.log(result);
+        }
+      },
+      ((Math.random() * 1000) % 300) + 100
+    );
   }
 </script>
 
@@ -123,13 +138,20 @@
         <label for="expert">Experte</label>
       </div>
     </div>
-    <div class="mt-10 text-center">
-      <button
-        type="submit"
-        class="rounded bg-blue-500 px-4 py-2 text-white transition duration-300 hover:bg-blue-600"
-      >
-        Submit
-      </button>
-    </div>
+    {#if isLoading}
+      <div class="mt-10 justify-center text-center">
+        <progress class="progress w-56" value={progress} max="100"></progress>
+        <p>Generating your workout plan...</p>
+      </div>
+    {:else}
+      <div class="mt-10 text-center">
+        <button
+          type="submit"
+          class="rounded bg-blue-500 px-4 py-2 text-white transition duration-300 hover:bg-blue-600"
+        >
+          Submit
+        </button>
+      </div>
+    {/if}
   </form>
 </main>
