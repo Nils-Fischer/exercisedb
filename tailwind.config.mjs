@@ -10,6 +10,22 @@ export default {
     },
   },
   plugins: [require("daisyui"), require("@tailwindcss/typography")],
+  extend: {
+    utilities: {
+      ".scrollbar-hide": {
+        /* IE and Edge */
+        "-ms-overflow-style": "none",
+
+        /* Firefox */
+        "scrollbar-width": "none",
+
+        /* Safari and Chrome */
+        "&::-webkit-scrollbar": {
+          display: "none",
+        },
+      },
+    },
+  },
   daisyui: {
     themes: [
       {
