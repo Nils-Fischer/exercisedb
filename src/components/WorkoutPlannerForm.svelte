@@ -1,8 +1,8 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { createSplit, generateRandomSHA256Hash } from "../lib/utils";
   import type { Exercise } from "../lib/types";
-  import { setWorkoutSplit } from "../lib/storage";
+  import CustomWorkout from "./CustomWorkout.svelte";
+  import { createSplit } from "../lib/utils";
 
   export let exercises: Exercise[];
 
@@ -10,7 +10,8 @@
   let duration = 60;
   let level = "anfänger";
   let isLoading = false;
-  let progress = 0;
+  let progress: number = 0;
+  let customSplit: [number, Exercise[][]][] = [];
 
   onMount(() => {
     const restDayHint = document.getElementById("restDayHint");
@@ -45,22 +46,10 @@
     const interval = setInterval(
       () => {
         progress += Math.pow(20, Math.random()) - 1;
-        if (true) {
+        if (progress >= 100) {
           clearInterval(interval);
           isLoading = false;
-          const result = createSplit(exercises, frequency, duration, level);
-          console.log(result);
-          generateRandomSHA256Hash()
-            .then((id) => {
-              setWorkoutSplit(id, result);
-              window.location.href = `/custom-workout?id=${id}`;
-            })
-            .catch((error) => {
-              console.error(
-                "Failed to generate hash or set workout split:",
-                error
-              );
-            });
+          customSplit = createSplit(exercises, frequency, duration, level);
         }
       },
       ((Math.random() * 1000) % 300) + 100
@@ -69,100 +58,104 @@
 </script>
 
 <main class="container m-auto px-4">
-  <form on:submit={handleSubmit}>
-    <h1 class="mb-6 text-left text-3xl font-bold text-neutral">
-      Workout Planner
-    </h1>
-    <div class="m-2 space-y-2">
-      <label class="text-xl font-bold text-neutral" for="frequency">
-        1. Wie oft hast du vor zu trainieren?
-      </label>
-      <input
-        type="range"
-        class="range range-error"
-        min="1"
-        max="7"
-        bind:value={frequency}
-        on:input={handleFrequencyChange}
-      />
-      <div class="mt-3 text-center">
-        <span class="text-2xl text-neutral">{frequency}x</span>
-        <span class="text-neutral">Woche</span>
-      </div>
-      <div id="restDayHint" class="mt-2 hidden text-center text-error">
-        Es wird empfohlen, mindestens 1 Ruhetag pro Woche zu haben.
-      </div>
-    </div>
-
-    <div class="m-2 space-y-2">
-      <label class="text-xl font-bold text-neutral" for="duration">
-        2. Wie lange hast du vor zu trainieren?
-      </label>
-      <input
-        type="range"
-        class="range range-error"
-        min="30"
-        max="180"
-        step="10"
-        bind:value={duration}
-        on:input={handleDurationChange}
-      />
-      <div class="mt-3 text-center">
-        <span class="text-2xl text-neutral">{duration} min</span>
-      </div>
-    </div>
-
-    <div class="m-2">
-      <label class="text-xl font-bold text-neutral" for="level">
-        3. Wie viel Erfahrung hast du?
-      </label>
-      <div class="mt-3 flex space-x-4">
+  {#if customSplit.length === 0}
+    <form on:submit={handleSubmit}>
+      <h1 class="mb-6 text-left text-3xl font-bold text-neutral">
+        Workout Planner
+      </h1>
+      <div class="m-2 space-y-2">
+        <label class="text-xl font-bold text-neutral" for="frequency">
+          1. Wie oft hast du vor zu trainieren?
+        </label>
         <input
-          type="radio"
-          id="beginner"
-          name="level"
-          value="anfänger"
-          class="radio"
-          checked={true}
-          bind:group={level}
+          type="range"
+          class="range range-error"
+          min="1"
+          max="7"
+          bind:value={frequency}
+          on:input={handleFrequencyChange}
         />
-        <label for="beginner">Anfänger</label>
+        <div class="mt-3 text-center">
+          <span class="text-2xl text-neutral">{frequency}x</span>
+          <span class="text-neutral">Woche</span>
+        </div>
+        <div id="restDayHint" class="mt-2 hidden text-center text-error">
+          Es wird empfohlen, mindestens 1 Ruhetag pro Woche zu haben.
+        </div>
+      </div>
 
+      <div class="m-2 space-y-2">
+        <label class="text-xl font-bold text-neutral" for="duration">
+          2. Wie lange hast du vor zu trainieren?
+        </label>
         <input
-          type="radio"
-          id="intermediate"
-          name="level"
-          value="fortgeschritten"
-          class="radio"
-          bind:group={level}
+          type="range"
+          class="range range-error"
+          min="30"
+          max="180"
+          step="10"
+          bind:value={duration}
+          on:input={handleDurationChange}
         />
-        <label for="intermediate">Fortgeschritten</label>
+        <div class="mt-3 text-center">
+          <span class="text-2xl text-neutral">{duration} min</span>
+        </div>
+      </div>
 
-        <input
-          type="radio"
-          id="expert"
-          name="level"
-          value="experte"
-          class="radio"
-          bind:group={level}
-        />
-        <label for="expert">Experte</label>
+      <div class="m-2">
+        <label class="text-xl font-bold text-neutral" for="level">
+          3. Wie viel Erfahrung hast du?
+        </label>
+        <div class="mt-3 flex space-x-4">
+          <input
+            type="radio"
+            id="beginner"
+            name="level"
+            value="anfänger"
+            class="radio"
+            checked={true}
+            bind:group={level}
+          />
+          <label for="beginner">Anfänger</label>
+
+          <input
+            type="radio"
+            id="intermediate"
+            name="level"
+            value="fortgeschritten"
+            class="radio"
+            bind:group={level}
+          />
+          <label for="intermediate">Fortgeschritten</label>
+
+          <input
+            type="radio"
+            id="expert"
+            name="level"
+            value="experte"
+            class="radio"
+            bind:group={level}
+          />
+          <label for="expert">Experte</label>
+        </div>
       </div>
-    </div>
-    {#if isLoading}
-      <div class="mt-10 justify-center text-center">
-        <progress class="progress w-56" value={progress} max="100"></progress>
-        <p>Generating your workout plan...</p>
-      </div>
-    {:else}
-      <div class="mt-10 text-center">
-        <button
-          type="submit"
-          class="rounded bg-blue-500 px-4 py-2 text-white transition duration-300 hover:bg-blue-600"
-        >
-          Submit
-        </button>
-      </div>
-    {/if}
-  </form>
+      {#if isLoading}
+        <div class="mt-10 justify-center text-center">
+          <progress class="progress w-56" value={progress} max="100"></progress>
+          <p>Generating your workout plan...</p>
+        </div>
+      {:else}
+        <div class="mt-10 text-center">
+          <button
+            type="submit"
+            class="rounded bg-blue-500 px-4 py-2 text-white transition duration-300 hover:bg-blue-600"
+          >
+            Submit
+          </button>
+        </div>
+      {/if}
+    </form>
+  {:else}
+    <CustomWorkout workoutSplit={customSplit} />
+  {/if}
 </main>

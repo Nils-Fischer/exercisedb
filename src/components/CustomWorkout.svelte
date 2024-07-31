@@ -1,22 +1,7 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import type { Exercise } from "../lib/types";
-  import { getWorkoutSplit } from "../lib/storage";
 
-  let workoutSplit: [number, Exercise[][]][];
-
-  onMount(() => {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
-    console.log(id);
-    const split = getWorkoutSplit(id || "");
-    console.log(split);
-    if (!workoutSplit) {
-      window.location.href = "/404";
-    } else {
-      workoutSplit = split || [];
-    }
-  });
+  export let workoutSplit: [number, Exercise[][]][];
 
   function getExerciseName(exercise: Exercise): string {
     return exercise.name;
