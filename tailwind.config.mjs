@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require("tailwindcss/plugin");
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
@@ -9,23 +10,7 @@ export default {
       },
     },
   },
-  plugins: [require("daisyui"), require("@tailwindcss/typography")],
-  extend: {
-    utilities: {
-      ".scrollbar-hide": {
-        /* IE and Edge */
-        "-ms-overflow-style": "none",
-
-        /* Firefox */
-        "scrollbar-width": "none",
-
-        /* Safari and Chrome */
-        "&::-webkit-scrollbar": {
-          display: "none",
-        },
-      },
-    },
-  },
+  extend: {},
   daisyui: {
     themes: [
       {
@@ -53,4 +38,24 @@ export default {
     logs: true, // Shows info about daisyUI version and used config in the console when building your CSS
     themeRoot: ":root", // The element that receives theme color CSS variables
   },
+  plugins: [
+    require("daisyui"),
+    require("@tailwindcss/typography"),
+    plugin(function ({ addUtilities }) {
+      addUtilities({
+        ".scrollbar-hidden": {
+          /* IE and Edge */
+          "-ms-overflow-style": "none",
+
+          /* Firefox */
+          "scrollbar-width": "none",
+
+          /* Safari and Chrome */
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        },
+      });
+    }),
+  ],
 };
