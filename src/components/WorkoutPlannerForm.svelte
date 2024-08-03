@@ -74,6 +74,7 @@
           max="7"
           bind:value={frequency}
           on:input={handleFrequencyChange}
+          disabled={isLoading}
         />
         <div class="mt-3 text-center">
           <span class="text-2xl text-neutral">{frequency}x</span>
@@ -96,6 +97,7 @@
           step="10"
           bind:value={duration}
           on:input={handleDurationChange}
+          disabled={isLoading}
         />
         <div class="mt-3 text-center">
           <span class="text-2xl text-neutral">{duration} min</span>
@@ -115,6 +117,7 @@
             class="radio"
             checked={true}
             bind:group={level}
+            disabled={isLoading}
           />
           <label for="beginner">Anfänger</label>
 
@@ -125,6 +128,7 @@
             value="fortgeschritten"
             class="radio"
             bind:group={level}
+            disabled={isLoading}
           />
           <label for="intermediate">Fortgeschritten</label>
 
@@ -135,6 +139,7 @@
             value="experte"
             class="radio"
             bind:group={level}
+            disabled={isLoading}
           />
           <label for="expert">Experte</label>
         </div>
