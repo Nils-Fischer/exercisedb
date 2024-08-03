@@ -13,7 +13,20 @@
           "wheel",
           (evt: WheelEvent) => {
             evt.preventDefault();
-            container.scrollLeft += evt.deltaY;
+
+            const cardWidth = 256; // 16 * 16, assuming w-64 translates to 16rem
+            const scrollAmount = Math.sign(evt.deltaY) * cardWidth;
+
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            const newScrollPosition = Math.max(
+              0,
+              Math.min(container.scrollLeft + scrollAmount, maxScroll)
+            );
+
+            container.scrollTo({
+              left: newScrollPosition,
+              behavior: "smooth",
+            });
           },
           { passive: false }
         );
@@ -30,15 +43,31 @@
       <h2 class="mb-4 text-2xl font-bold">
         Split #{splitIndex + 1} - {frequency}x pro Woche
       </h2>
-      <div class="horizontal-scroll scrollbar-hidden overflow-x-auto">
-        <div class="flex space-x-4 pb-4">
+      <div
+        class="scrollbar-hidden horizontal-scroll snap-container overflow-x-auto"
+      >
+        <div class="card-wrapper mb-8 flex">
           {#each exercises as alternatives}
-            <div class="w-64 flex-none">
+            <div class="snap-item w-auto flex-none px-4">
               <ExerciseCard exercise={alternatives[0]} />
             </div>
           {/each}
+          <div class="snap-item w-16 flex-none"></div>
         </div>
       </div>
     </div>
   {/each}
 </div>
+
+<style>
+  .snap-container {
+    scroll-snap-type: x mandatory;
+    scroll-behavior: auto;
+  }
+  .snap-item {
+    scroll-snap-align: start;
+  }
+  .card-wrapper {
+    width: calc(100% + 1rem);
+  }
+</style>
