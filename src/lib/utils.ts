@@ -1,6 +1,11 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import type { Exercise, ExerciseDescription } from "./types";
+import type {
+  ExerciseWithAlternatives,
+  Exercise,
+  ExerciseDescription,
+  ExercisePlan,
+} from "./types";
 import { Level } from "./types";
 import {
   BEINE,
@@ -24,7 +29,7 @@ export function createSplit(
   daysAWeek: number,
   availableTime: number,
   level: string
-): [number, Exercise[][]][] {
+): ExercisePlan[] {
   const lvl = levelFromString(level);
   switch (daysAWeek) {
     case 1:
@@ -48,21 +53,21 @@ function oneDaySplit(
   exercises: Exercise[],
   time: number,
   level: Level
-): [number, Exercise[][]][] {
+): ExercisePlan[] {
   const fullBody = selectExercises(exercises, GANZKOERPER, time, level);
-  return [[1, fullBody]];
+  return [{ name: "Ganzkörper", frequency: 1, exercises: fullBody }];
 }
 
 function twoDaySplit(
   exercises: Exercise[],
   time: number,
   level: Level
-): [number, Exercise[][]][] {
+): ExercisePlan[] {
   const lowerBody = selectExercises(exercises, UNTERKOERPER, time, level);
   const upperBody = selectExercises(exercises, OBERKOERPER, time, level);
   return [
-    [1, lowerBody],
-    [1, upperBody],
+    { name: "Unterkörper", frequency: 2, exercises: lowerBody },
+    { name: "Oberkörper", frequency: 2, exercises: upperBody },
   ];
 }
 
@@ -70,14 +75,14 @@ function threeDaySplit(
   exercises: Exercise[],
   time: number,
   level: Level
-): [number, Exercise[][]][] {
+): ExercisePlan[] {
   const push = selectExercises(exercises, PUSH, time, level);
   const pull = selectExercises(exercises, PULL, time, level);
   const beine = selectExercises(exercises, BEINE, time, level);
   return [
-    [1, push],
-    [1, pull],
-    [1, beine],
+    { name: "Push", frequency: 1, exercises: push },
+    { name: "Pull", frequency: 1, exercises: pull },
+    { name: "Beine", frequency: 1, exercises: beine },
   ];
 }
 
@@ -85,12 +90,12 @@ function fourDaySplit(
   exercises: Exercise[],
   time: number,
   level: Level
-): [number, Exercise[][]][] {
+): ExercisePlan[] {
   const lowerBody = selectExercises(exercises, UNTERKOERPER, time, level);
   const upperBody = selectExercises(exercises, OBERKOERPER, time, level);
   return [
-    [2, lowerBody],
-    [2, upperBody],
+    { name: "Unterkörper", frequency: 2, exercises: lowerBody },
+    { name: "Oberkörper", frequency: 2, exercises: upperBody },
   ];
 }
 
@@ -98,18 +103,18 @@ function fiveDaySplit(
   exercises: Exercise[],
   time: number,
   level: Level
-): [number, Exercise[][]][] {
+): ExercisePlan[] {
   const lowerBody = selectExercises(exercises, UNTERKOERPER, time, level);
   const upperBody = selectExercises(exercises, OBERKOERPER, time, level);
   const push = selectExercises(exercises, PUSH, time, level);
   const pull = selectExercises(exercises, PULL, time, level);
   const beine = selectExercises(exercises, BEINE, time, level);
   return [
-    [1, push],
-    [1, pull],
-    [1, beine],
-    [1, lowerBody],
-    [1, upperBody],
+    { name: "Push", frequency: 1, exercises: push },
+    { name: "Pull", frequency: 1, exercises: pull },
+    { name: "Beine", frequency: 1, exercises: beine },
+    { name: "Unterkörper", frequency: 1, exercises: lowerBody },
+    { name: "Oberkörper", frequency: 1, exercises: upperBody },
   ];
 }
 
@@ -117,14 +122,14 @@ function sixDaySplit(
   exercises: Exercise[],
   time: number,
   level: Level
-): [number, Exercise[][]][] {
+): ExercisePlan[] {
   const push = selectExercises(exercises, PUSH, time, level);
   const pull = selectExercises(exercises, PULL, time, level);
   const beine = selectExercises(exercises, BEINE, time, level);
   return [
-    [2, push],
-    [2, pull],
-    [2, beine],
+    { name: "Push", frequency: 2, exercises: push },
+    { name: "Pull", frequency: 2, exercises: pull },
+    { name: "Beine", frequency: 2, exercises: beine },
   ];
 }
 
@@ -132,17 +137,16 @@ function sevenDaySplit(
   exercises: Exercise[],
   time: number,
   level: Level
-): [number, Exercise[][]][] {
+): ExercisePlan[] {
   const push = selectExercises(exercises, PUSH, time, level);
   const pull = selectExercises(exercises, PULL, time, level);
   const beine = selectExercises(exercises, BEINE, time, level);
   const fullBody = selectExercises(exercises, GANZKOERPER, time, level);
   return [
-    [2, push],
-    [2, pull],
-    [2, beine],
-    [1, fullBody],
-    [1, fullBody],
+    { name: "Push", frequency: 2, exercises: push },
+    { name: "Pull", frequency: 2, exercises: pull },
+    { name: "Beine", frequency: 2, exercises: beine },
+    { name: "Ganzkörper", frequency: 1, exercises: fullBody },
   ];
 }
 
@@ -151,22 +155,28 @@ function selectExercises(
   split: ExerciseDescription[],
   availableTime: number,
   level: Level
-): Exercise[][] {
-  const results: [number, Exercise[]][] = split.map((description) => {
-    const tags = description.tags;
-    const matches = exercises
-      .filter(
-        (exercise) =>
-          tags.every((tag) => exercise.tag.includes(tag)) &&
-          levelFromString(exercise.level) <= level
-      )
-      .sort((a, b) => a.priority - b.priority);
-    return [description.priority, matches];
-  });
+): ExerciseWithAlternatives[] {
+  const results: [number, ExerciseWithAlternatives][] = split.map(
+    (description) => {
+      const tags = description.tags;
+      const matches = exercises
+        .filter(
+          (exercise) =>
+            tags.every((tag) => exercise.tag.includes(tag)) &&
+            levelFromString(exercise.level) <= level
+        )
+        .sort((a, b) => a.priority - b.priority);
+      const exercise: ExerciseWithAlternatives = {
+        primaryExercise: matches[0],
+        alternatives: matches.slice(1),
+      };
+      return [description.priority, exercise];
+    }
+  );
   let numExercises = 0;
   let timeInGym = 0;
   for (const [_, exercise] of results.sort((a, b) => a[0] - b[0])) {
-    const restTime = exercise[0].mechanic == "Isolation" ? 3 : 4;
+    const restTime = exercise.primaryExercise.mechanic == "Isolation" ? 3 : 4;
     timeInGym += restTime + 1;
     if (timeInGym <= availableTime) numExercises++;
     else break;

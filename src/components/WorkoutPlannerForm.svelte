@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { Exercise } from "../lib/types";
+  import type { Exercise, ExercisePlan } from "../lib/types";
   import CustomWorkout from "./CustomWorkout.svelte";
   import { createSplit } from "../lib/utils";
 
@@ -11,7 +11,7 @@
   let level = "anfänger";
   let isLoading = false;
   let progress: number = 0;
-  let customSplit: [number, Exercise[][]][] = [];
+  let customSplit: ExercisePlan[] = [];
 
   onMount(() => {
     const restDayHint = document.getElementById("restDayHint");

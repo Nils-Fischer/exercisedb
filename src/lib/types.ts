@@ -38,3 +38,14 @@ export enum Level {
   Intermediate = 2,
   Expert = 3,
 }
+
+export interface ExercisePlan {
+  name: string;
+  frequency: number;
+  exercises: ExerciseWithAlternatives[];
+}
+
+export interface ExerciseWithAlternatives {
+  primaryExercise: Exercise;
+  alternatives: Exercise[];
+}
