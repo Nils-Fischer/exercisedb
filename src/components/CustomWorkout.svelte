@@ -12,9 +12,10 @@
         container.addEventListener(
           "wheel",
           (evt: WheelEvent) => {
-            evt.preventDefault();
+            if (Math.abs(evt.deltaX) > Math.abs(evt.deltaY)) return;
 
-            const cardWidth = 256; // 16 * 16, assuming w-64 translates to 16rem
+            evt.preventDefault();
+            const cardWidth = 256;
             const scrollAmount = Math.sign(evt.deltaY) * cardWidth;
 
             const maxScroll = container.scrollWidth - container.clientWidth;
@@ -44,7 +45,7 @@
         Split #{splitIndex + 1} - {frequency}x pro Woche
       </h2>
       <div
-        class="scrollbar-hidden horizontal-scroll snap-container overflow-x-auto"
+        class="horizontal-scroll snap-container overflow-x-auto scrollbar-hidden"
       >
         <div class="card-wrapper mb-8 flex">
           {#each exercises as alternatives}
