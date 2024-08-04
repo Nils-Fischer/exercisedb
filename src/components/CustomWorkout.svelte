@@ -2,6 +2,7 @@
   import { onMount } from "svelte";
   import type { Exercise, ExercisePlan } from "../lib/types";
   import ExerciseCard from "./ExerciseCard.svelte";
+  import ExerciseCardWithAlternatives from "./ExerciseCardWithAlternatives.svelte";
 
   export let workoutSplit: ExercisePlan[];
 
@@ -51,8 +52,11 @@
       >
         <div class="card-wrapper mb-8 flex">
           {#each split.exercises as exercise}
-            <div class="snap-item w-auto flex-none px-4">
-              <ExerciseCard exercise={exercise.primaryExercise} />
+            <div class="snap-item stack w-auto flex-none px-4">
+              <ExerciseCardWithAlternatives {exercise} />
+              {#each exercise.alternatives as alternative}
+                <ExerciseCard exercise={alternative} />
+              {/each}
             </div>
           {/each}
           <div class="snap-item w-16 flex-none"></div>
