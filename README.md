@@ -2,5 +2,7 @@
 
 - [x] Exercise Database
 - [x] Exercise Filtering
+- [ ] Cards highlight on hover
+- [ ] User accounts
 - [ ] Detailed Cards that expand on click
-- [ ] Workout plan generator site
+- [x] Workout plan generator site
