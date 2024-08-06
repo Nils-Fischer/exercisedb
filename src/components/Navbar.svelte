@@ -11,7 +11,7 @@
 >
   <div class="navbar-start">
     <a
-      href="/"
+      href="/start"
       class="btn btn-ghost flex items-center text-xl font-black hover:bg-inherit"
     >
       <img src="../../images/logo.svg" alt="Logo" class="mr-2 h-8" width="32" />
