@@ -283,7 +283,7 @@
   },
   {
     "name": "Butterfly Kabelzug hoch",
-    "level": "Fortgeschritten",
+    "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Kabelzugmaschine",
     "primaryMuscles": ["Pectoralis major (obere Fasern)"],
@@ -301,7 +301,7 @@
   },
   {
     "name": "Butterfly Kabelzug unten",
-    "level": "Fortgeschritten",
+    "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Kabelzugmaschine",
     "primaryMuscles": ["Pectoralis major (untere Fasern)"],
