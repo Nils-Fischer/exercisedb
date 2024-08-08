@@ -318,6 +318,24 @@
     "priority": 1
   },
   {
+    "name": "Chest Press Maschine",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Chest Press Maschine",
+    "primaryMuscles": ["Pectoralis major (untere Fasern)"],
+    "secondaryMuscles": ["Trizeps", "Deltoideus anterior"],
+    "instructions": [
+      "Setze dich auf die Chest Press Maschine und stelle den Sitz so ein, dass die Griffe auf Höhe deiner unteren Brust sind.",
+      "Greife die Griffe und drücke sie nach vorne, bis deine Arme fast gestreckt sind.",
+      "Lasse die Griffe langsam wieder in die Ausgangsposition zurückkehren."
+    ],
+    "category": "Brust",
+    "images": [],
+    "id": "chest_press_maschine",
+    "tag": ["brust", "untere", "drücken"],
+    "priority": 4
+  },
+  {
     "name": "Latzug Breit",
     "level": "Anfänger",
     "mechanic": "Grundübung",
@@ -570,7 +588,27 @@
     "images": [],
     "id": "deadlifts",
     "tag": ["beine", "pull"],
-    "priority": 2
+    "priority": 1
+  },
+  {
+    "name": "Kurzhantel-Deadlifts",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Kurzhanteln",
+    "primaryMuscles": ["Latissimus dorsi", "Erector spinae"],
+    "secondaryMuscles": ["Gluteus", "Beinbizeps", "Trapez"],
+    "instructions": [
+      "Stelle dich mit den Füßen schulterbreit auseinander und halte eine Kurzhantel in jeder Hand.",
+      "Beuge dich an den Hüften und lasse die Kurzhanteln vor deinen Beinen nach unten gleiten.",
+      "Hebe die Kurzhanteln an, indem du dich aufrichtest und die Hüften streckst.",
+      "Halte während der Ausführung ein Hohlkreuz.",
+      "Senke die Kurzhanteln langsam wieder ab, bis sie fast den Boden berühren."
+    ],
+    "category": "Rücken",
+    "images": [],
+    "id": "kurzhantel-deadlifts",
+    "tag": ["beine", "pull"],
+    "priority": 3
   },
   {
     "name": "Romanian Deadlifts",
@@ -589,11 +627,11 @@
     "images": [],
     "id": "romanian_deadlifts",
     "tag": ["beine", "pull"],
-    "priority": 3
+    "priority": 2
   },
   {
     "name": "Pullovers Kabelzug",
-    "level": "Fortgeschritten",
+    "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Kabelzugmaschine",
     "primaryMuscles": ["Latissimus dorsi"],
@@ -611,7 +649,7 @@
   },
   {
     "name": "Pullovers Gerät",
-    "level": "Fortgeschritten",
+    "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Pullover-Maschine",
     "primaryMuscles": ["Latissimus dorsi"],
@@ -1190,15 +1228,18 @@
   },
   {
     "name": "Overhead extension",
-    "level": "Fortgeschritten",
+    "level": "Anfänger",
     "mechanic": "Isolation",
-    "equipment": "Kurzhantel",
+    "equipment": "Kabelzugmaschine",
     "primaryMuscles": ["Caput longum"],
     "secondaryMuscles": [],
     "instructions": [
-      "Setze dich auf eine Bank und halte eine Kurzhantel mit beiden Händen über deinem Kopf.",
-      "Senke die Kurzhantel hinter deinem Kopf ab, bis die Arme einen 90-Grad-Winkel bilden.",
-      "Drücke die Kurzhantel wieder nach oben, bis die Arme vollständig gestreckt sind."
+      "Stelle dich vor den Kabelzugturm und befestige den Seilgriff am oberen Kabelzug.",
+      "Greife den Seilgriff mit beiden Händen und stelle dich einen Schritt zurück.",
+      "Beuge dich leicht nach vorne und strecke die Arme über deinen Kopf.",
+      "Senke den Seilgriff hinter deinen Kopf ab.",
+      "Drücke das Seilgriff wieder nach oben, bis die Arme gestreckt sind.",
+      "Alternativ kannst du die Übung auch einarmig, ohne Seil, durchführen."
     ],
     "category": "Trizeps",
     "images": [],
@@ -1244,7 +1285,7 @@
   },
   {
     "name": "Overhead extensions Kurzhantel",
-    "level": "Fortgeschritten",
+    "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Kurzhantel",
     "primaryMuscles": ["Caput longum"],
@@ -1270,7 +1311,8 @@
     "instructions": [
       "Stelle dich vor die Kabelzugmaschine und greife die Stange mit beiden Händen.",
       "Drücke die Stange nach unten, bis die Arme vollständig gestreckt sind.",
-      "Lasse die Stange langsam wieder nach oben gleiten, bis die Arme leicht gebeugt sind."
+      "Lasse die Stange langsam wieder nach oben gleiten, bis die Arme leicht gebeugt sind.",
+      "Wähle einen beliebigen Griff, deiner Vorwahl aus."
     ],
     "category": "Trizeps",
     "images": [],
@@ -1316,7 +1358,7 @@
   },
   {
     "name": "Enges Bankdrücken",
-    "level": "Fortgeschritten",
+    "level": "Experte",
     "mechanic": "Grundübung",
     "equipment": "Langhantel",
     "primaryMuscles": ["Caput longum", "Caput laterale", "Caput mediale"],
@@ -1442,7 +1484,7 @@
   },
   {
     "name": "Leg raises Maschine",
-    "level": "Fortgeschritten",
+    "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Beinhebe-Maschine",
     "primaryMuscles": ["Rectus abdominis"],

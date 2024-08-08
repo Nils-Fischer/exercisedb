@@ -54,6 +54,7 @@ export const PULL: ExerciseDescription[] = [
   { priority: 6, tags: ["rücken", "adduktion"] },
   { priority: 4, tags: ["schulter", "hintere", "abduktion"] },
   { priority: 2, tags: ["bizeps", "breit"] },
+  { priority: 10, tags: ["bizeps", "breit"] },
   { priority: 5, tags: ["bizeps", "eng"] },
   { priority: 9, tags: ["bizeps", "eng"] },
 ];
