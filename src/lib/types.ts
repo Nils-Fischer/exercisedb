@@ -31,6 +31,9 @@ export interface MediaItem {
 export interface ExerciseDescription {
   priority: number;
   tags: string[];
+  sets: number;
+  reps: [number, number];
+  warmup: boolean;
 }
 
 export enum Level {
