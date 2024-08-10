@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout Title="Password reset">
+  <div class="flex flex-col gap-6 rounded-box bg-base-200 p-6 max-w-md text-center rounded-md">
+    <!-- Hier rounded-md hinzugefügt -->
+    <h1 class="text-2xl font-bold">Forgot password?</h1>
+
+    <span>
+      Remember your password?
+      <a href="/signin" class="link link-secondary">Log in here</a>
+    </span>
+
+    <label class="form-control">
+      <div class="label">
+        <span class="label-text">Email</span>
+      </div>
+
+      <input type="email" class="input input-bordered rounded-md" />
+      <!-- Hier rounded-md hinzugefügt -->
+    </label>
+
+    <button class="btn btn-primary rounded-md">Reset password</button>
+    <!-- Hier rounded-md hinzugefügt -->
+  </div>
+</Layout>
