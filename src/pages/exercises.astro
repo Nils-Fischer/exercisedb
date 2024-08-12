@@ -6,15 +6,8 @@ import type { Exercise } from "../lib/types";
 
 const exercises_file_path = "./src/data/exercises.json";
 const exercises: Exercise[] = generateExercises(exercises_file_path);
-export const filter_fields: (keyof Exercise)[] = [
-  "category",
-  "level",
-  "mechanic",
-];
-const filters: Map<keyof Exercise, Set<string>> = generateFilters(
-  exercises,
-  filter_fields
-);
+export const filter_fields: (keyof Exercise)[] = ["category", "level", "mechanic"];
+const filters: Map<keyof Exercise, Set<string>> = generateFilters(exercises, filter_fields);
 ---
 
 <Layout title="ExerciseDB">

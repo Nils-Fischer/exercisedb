@@ -1,20 +1,8 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import type {
-  ExerciseWithAlternatives,
-  Exercise,
-  ExerciseDescription,
-  ExercisePlan,
-} from "./types";
+import type { ExerciseWithAlternatives, Exercise, ExerciseDescription, ExercisePlan } from "./types";
 import { Level } from "./types";
-import {
-  BEINE,
-  GANZKOERPER,
-  OBERKOERPER,
-  PUSH,
-  PULL,
-  UNTERKOERPER,
-} from "../constant";
+import { BEINE, GANZKOERPER, OBERKOERPER, PUSH, PULL, UNTERKOERPER } from "../constant";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -49,20 +37,12 @@ export function createSplit(
   }
 }
 
-function oneDaySplit(
-  exercises: Exercise[],
-  time: number,
-  level: Level
-): ExercisePlan[] {
+function oneDaySplit(exercises: Exercise[], time: number, level: Level): ExercisePlan[] {
   const fullBody = selectExercises(exercises, GANZKOERPER, time, level);
   return [{ name: "Ganzkörper", frequency: 1, exercises: fullBody }];
 }
 
-function twoDaySplit(
-  exercises: Exercise[],
-  time: number,
-  level: Level
-): ExercisePlan[] {
+function twoDaySplit(exercises: Exercise[], time: number, level: Level): ExercisePlan[] {
   const lowerBody = selectExercises(exercises, UNTERKOERPER, time, level);
   const upperBody = selectExercises(exercises, OBERKOERPER, time, level);
   return [
@@ -71,11 +51,7 @@ function twoDaySplit(
   ];
 }
 
-function threeDaySplit(
-  exercises: Exercise[],
-  time: number,
-  level: Level
-): ExercisePlan[] {
+function threeDaySplit(exercises: Exercise[], time: number, level: Level): ExercisePlan[] {
   const push = selectExercises(exercises, PUSH, time, level);
   const pull = selectExercises(exercises, PULL, time, level);
   const beine = selectExercises(exercises, BEINE, time, level);
@@ -86,11 +62,7 @@ function threeDaySplit(
   ];
 }
 
-function fourDaySplit(
-  exercises: Exercise[],
-  time: number,
-  level: Level
-): ExercisePlan[] {
+function fourDaySplit(exercises: Exercise[], time: number, level: Level): ExercisePlan[] {
   const lowerBody = selectExercises(exercises, UNTERKOERPER, time, level);
   const upperBody = selectExercises(exercises, OBERKOERPER, time, level);
   return [
@@ -99,11 +71,7 @@ function fourDaySplit(
   ];
 }
 
-function fiveDaySplit(
-  exercises: Exercise[],
-  time: number,
-  level: Level
-): ExercisePlan[] {
+function fiveDaySplit(exercises: Exercise[], time: number, level: Level): ExercisePlan[] {
   const lowerBody = selectExercises(exercises, UNTERKOERPER, time, level);
   const upperBody = selectExercises(exercises, OBERKOERPER, time, level);
   const push = selectExercises(exercises, PUSH, time, level);
@@ -118,11 +86,7 @@ function fiveDaySplit(
   ];
 }
 
-function sixDaySplit(
-  exercises: Exercise[],
-  time: number,
-  level: Level
-): ExercisePlan[] {
+function sixDaySplit(exercises: Exercise[], time: number, level: Level): ExercisePlan[] {
   const push = selectExercises(exercises, PUSH, time, level);
   const pull = selectExercises(exercises, PULL, time, level);
   const beine = selectExercises(exercises, BEINE, time, level);
@@ -133,11 +97,7 @@ function sixDaySplit(
   ];
 }
 
-function sevenDaySplit(
-  exercises: Exercise[],
-  time: number,
-  level: Level
-): ExercisePlan[] {
+function sevenDaySplit(exercises: Exercise[], time: number, level: Level): ExercisePlan[] {
   const push = selectExercises(exercises, PUSH, time, level);
   const pull = selectExercises(exercises, PULL, time, level);
   const beine = selectExercises(exercises, BEINE, time, level);
@@ -156,23 +116,17 @@ function selectExercises(
   availableTime: number,
   level: Level
 ): ExerciseWithAlternatives[] {
-  const results: [number, ExerciseWithAlternatives][] = split.map(
-    (description) => {
-      const tags = description.tags;
-      const matches = exercises
-        .filter(
-          (exercise) =>
-            tags.every((tag) => exercise.tag.includes(tag)) &&
-            levelFromString(exercise.level) <= level
-        )
-        .sort((a, b) => a.priority - b.priority);
-      const exercise: ExerciseWithAlternatives = {
-        primaryExercise: matches[0],
-        alternatives: matches.slice(1),
-      };
-      return [description.priority, exercise];
-    }
-  );
+  const results: [number, ExerciseWithAlternatives][] = split.map((description) => {
+    const tags = description.tags;
+    const matches = exercises
+      .filter((exercise) => tags.every((tag) => exercise.tag.includes(tag)) && levelFromString(exercise.level) <= level)
+      .sort((a, b) => a.priority - b.priority);
+    const exercise: ExerciseWithAlternatives = {
+      primaryExercise: matches[0],
+      alternatives: matches.slice(1),
+    };
+    return [description.priority, exercise];
+  });
   let numExercises = 0;
   let timeInGym = 0;
   for (const [_, exercise] of results.sort((a, b) => a[0] - b[0])) {
@@ -181,9 +135,7 @@ function selectExercises(
     if (timeInGym <= availableTime) numExercises++;
     else break;
   }
-  const selectedExercises = results
-    .filter(([prio, _]) => prio <= numExercises)
-    .map(([_, exercises]) => exercises);
+  const selectedExercises = results.filter(([prio, _]) => prio <= numExercises).map(([_, exercises]) => exercises);
   return selectedExercises;
 }
 

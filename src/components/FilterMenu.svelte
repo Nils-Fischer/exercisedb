@@ -40,9 +40,8 @@
               <button
                 type="button"
                 on:click={() => toggleFilter(category, filter)}
-                class="{activeFilters.get(category)?.has(filter)
-                  ? 'active'
-                  : ''} rounded-none">{capitalize(filter)}</button
+                class="{activeFilters.get(category)?.has(filter) ? 'active' : ''} rounded-none"
+                >{capitalize(filter)}</button
               >
             </li>
           {/each}

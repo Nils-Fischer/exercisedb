@@ -60,13 +60,9 @@
 <main class="container m-auto px-4">
   {#if customSplit.length === 0}
     <form on:submit={handleSubmit}>
-      <h1 class="mb-6 text-left text-3xl font-bold text-neutral">
-        Workout Planner
-      </h1>
+      <h1 class="mb-6 text-left text-3xl font-bold text-neutral">Workout Planner</h1>
       <div class="m-2 space-y-2">
-        <label class="text-xl font-bold text-neutral" for="frequency">
-          1. Wie oft hast du vor zu trainieren?
-        </label>
+        <label class="text-xl font-bold text-neutral" for="frequency"> 1. Wie oft hast du vor zu trainieren? </label>
         <input
           type="range"
           class="range range-error"
@@ -86,9 +82,7 @@
       </div>
 
       <div class="m-2 space-y-2">
-        <label class="text-xl font-bold text-neutral" for="duration">
-          2. Wie lange hast du vor zu trainieren?
-        </label>
+        <label class="text-xl font-bold text-neutral" for="duration"> 2. Wie lange hast du vor zu trainieren? </label>
         <input
           type="range"
           class="range range-error"
@@ -105,9 +99,7 @@
       </div>
 
       <div class="m-2">
-        <label class="text-xl font-bold text-neutral" for="level">
-          3. Wie viel Erfahrung hast du?
-        </label>
+        <label class="text-xl font-bold text-neutral" for="level"> 3. Wie viel Erfahrung hast du? </label>
         <div class="mt-3 flex space-x-4">
           <input
             type="radio"

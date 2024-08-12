@@ -10,9 +10,7 @@
 
   const filteredExercises = writable<Exercise[]>(exercises);
 
-  function filterExercises(
-    event: CustomEvent<{ value: Map<keyof Exercise, Set<string>> }>
-  ) {
+  function filterExercises(event: CustomEvent<{ value: Map<keyof Exercise, Set<string>> }>) {
     const filterMap = event.detail.value;
     filteredExercises.set(
       exercises.filter((exercise) => {
