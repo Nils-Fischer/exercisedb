@@ -25,7 +25,7 @@ export function generateFilters(
 export function generateExercises(json_file_path: string): Exercise[] {
   const filePath = path.resolve(json_file_path);
   const fileContent = fs.readFileSync(filePath, "utf-8");
-  return JSON.parse(fileContent, (key: string, value: string | null) => {
+  return JSON.parse(fileContent, (_key: string, value: string | null) => {
     return value === null ? "other" : value;
   });
 }
