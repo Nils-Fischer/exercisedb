@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
+  import { supabase } from "../db/supabase";
 
   export let showModal: boolean = false;
 
@@ -20,8 +21,23 @@
   }
 
   async function handleSignIn() {
-    return;
-    closeModal();
+    if (!isEmailValid) {
+      return;
+    }
+
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+      });
+
+      if (error) throw error;
+
+      console.log("Erfolgreich angemeldet:", data.user);
+      closeModal();
+    } catch (error) {
+      errorMessage = "Anmeldung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten.";
+    }
   }
 
   function handleGoogleSignIn() {
@@ -78,14 +94,14 @@
               required
             />
           </div>
-          {#if errorMessage}
-            <div class="alert alert-error">
-              <span>{errorMessage}</span>
-            </div>
-          {/if}
-          <div class="form-control">
+          <div class="form-control" id="submit-button">
             <button type="submit" class="btn btn-primary" disabled={!isEmailValid}>Anmelden</button>
           </div>
+          {#if errorMessage}
+            <label class="label" for="submit-button">
+              <span class="label-text-alt text-error">{errorMessage}</span>
+            </label>
+          {/if}
         </form>
         <div class="divider">ODER</div>
         <button on:click={handleGoogleSignIn} class="btn btn-outline"> Mit Google anmelden </button>
