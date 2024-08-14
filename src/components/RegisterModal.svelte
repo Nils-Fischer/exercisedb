@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
+  import { supabase } from "../db/supabase";
 
   export let showModal: boolean = false;
 
@@ -39,8 +40,20 @@
     if (!isEmailValid || !passwordsMatch) {
       return;
     }
-    console.log("Registrierung mit:", email, password);
-    closeModal();
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+      });
+
+      if (error) throw error;
+
+      console.log("Erfolgreich registriert:", data);
+      closeModal();
+    } catch (error) {
+      errorMessage = "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.";
+    }
   }
 
   function closeModal() {
@@ -118,16 +131,16 @@
                 </label>
               {/if}
             </div>
-            {#if errorMessage}
-              <div class="alert alert-error">
-                <span>{errorMessage}</span>
-              </div>
-            {/if}
             <div class="form-control">
               <button type="submit" class="btn btn-primary" disabled={!isEmailValid || !passwordsMatch}
                 >Registrieren</button
               >
             </div>
+            {#if errorMessage}
+              <label class="label" for="submit-button">
+                <span class="label-text-alt text-error">{errorMessage}</span>
+              </label>
+            {/if}
           </div>
         </form>
         <div class="mt-4 text-center">
