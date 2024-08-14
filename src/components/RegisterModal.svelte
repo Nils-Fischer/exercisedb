@@ -6,12 +6,37 @@
   let email = "";
   let password = "";
   let confirmPassword = "";
+  let isEmailValid = true;
+  let isPasswordValid = true;
+  let passwordsMatch = true;
+  let errorMessage = "";
 
   const dispatch = createEventDispatcher();
 
-  function handleRegister() {
-    if (password !== confirmPassword) {
-      alert("Passwörter stimmen nicht überein!");
+  function validateEmail(email: string) {
+    const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    return re.test(email.toLowerCase()) && email.includes("@") && email.includes(".");
+  }
+
+  function validatePassword(password: string) {
+    return password.length >= 8 && /[A-Z]/.test(password) && /\d/.test(password);
+  }
+
+  function handleEmailInput() {
+    isEmailValid = validateEmail(email);
+  }
+
+  function handlePasswordInput() {
+    isPasswordValid = validatePassword(password);
+    passwordsMatch = password === confirmPassword;
+  }
+
+  function handleConfirmPasswordInput() {
+    passwordsMatch = password === confirmPassword;
+  }
+
+  async function handleRegister() {
+    if (!isEmailValid || !passwordsMatch) {
       return;
     }
     console.log("Registrierung mit:", email, password);
@@ -33,49 +58,76 @@
     <div class="absolute inset-0 bg-black opacity-50"></div>
     <div class="card z-[101] w-96 bg-base-100 shadow-xl">
       <div class="card-body bg-opacity-100">
-        <h1 class="card-title">Registrieren</h1>
+        <h2 class="card-title">Registrieren</h2>
         <form on:submit|preventDefault={handleRegister} class="space-y-4">
-          <div class="form-control">
-            <label for="email" class="label">
+          <div class="form-control mb-5">
+            <label for="register-email" class="label">
               <span class="label-text">E-Mail</span>
             </label>
             <input
               type="email"
-              id="email"
+              id="register-email"
               bind:value={email}
+              on:input={handleEmailInput}
               placeholder="Geben Sie Ihre E-Mail ein"
-              class="input input-bordered w-full"
+              class="input input-bordered w-full {!isEmailValid && email ? 'input-error' : ''}"
               required
             />
+            {#if !isEmailValid && email}
+              <label class="label" for="register-email">
+                <span class="label-text-alt text-error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span>
+              </label>
+            {/if}
           </div>
-          <div class="form-control">
-            <label for="password" class="label">
+          <div class="form-control my-5">
+            <label for="register-password" class="label">
               <span class="label-text">Passwort</span>
             </label>
             <input
               type="password"
-              id="password"
+              id="register-password"
               bind:value={password}
+              on:input={handlePasswordInput}
               placeholder="Geben Sie Ihr Passwort ein"
-              class="input input-bordered w-full"
+              class="input input-bordered w-full {!isPasswordValid && password ? 'input-error' : ''}"
               required
             />
-          </div>
-          <div class="form-control">
-            <label for="confirmPassword" class="label">
-              <span class="label-text">Passwort bestätigen</span>
-            </label>
-            <input
-              type="password"
-              id="confirmPassword"
-              bind:value={confirmPassword}
-              placeholder="Bestätigen Sie Ihr Passwort"
-              class="input input-bordered w-full"
-              required
-            />
-          </div>
-          <div class="form-control">
-            <button type="submit" class="btn btn-primary">Registrieren</button>
+            {#if !isPasswordValid && password}
+              <label class="label" for="register-password">
+                <span class="label-text-alt text-error"
+                  >Das Passwort muss mindestens 8 Zeichen lang sein, einen Großbuchstaben und eine Zahl enthalten.</span
+                >
+              </label>
+            {/if}
+            <div class="form-control my-5">
+              <label for="register-confirm-password" class="label">
+                <span class="label-text">Passwort bestätigen</span>
+              </label>
+              <input
+                type="password"
+                id="register-confirm-password"
+                bind:value={confirmPassword}
+                on:input={handleConfirmPasswordInput}
+                placeholder="Bestätigen Sie Ihr Passwort"
+                class="input input-bordered w-full {!passwordsMatch && confirmPassword ? 'input-error' : ''}"
+                required
+              />
+              {#if !passwordsMatch && confirmPassword}
+                <label class="label" for="register-confirm-password">
+                  <span class="label-text-alt text-error">Die Passwörter stimmen nicht überein.</span>
+                </label>
+              {/if}
+            </div>
+            {#if errorMessage}
+              <div class="alert alert-error">
+                <span>{errorMessage}</span>
+              </div>
+            {/if}
+            <div class="form-control">
+              <button type="submit" class="btn btn-primary" disabled={!isEmailValid || !passwordsMatch}
+                >Registrieren</button
+              >
+            </div>
           </div>
         </form>
         <div class="mt-4 text-center">
