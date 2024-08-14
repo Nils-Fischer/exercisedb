@@ -2,8 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
+<head>
+  <script src="https://accounts.google.com/gsi/client" async></script>
+</head>
+
 <Layout title="ExerciseDB">
-  <div class="flex flex-col gap-4 rounded-box bg-base-200 p-6 max-w-md rounded-md">
+  <div class="flex flex-col gap-4 bg-base-200 p-6 max-w-md rounded-md">
     <!-- Hier rounded-md hinzugefügt -->
     <h1 class="text-3xl font-bold self-center">Log in</h1>
 

@@ -3,8 +3,16 @@
   import type { Exercise, ExercisePlan } from "../lib/types";
   import ExerciseCard from "./ExerciseCard.svelte";
   import ExerciseCardWithAlternatives from "./ExerciseCardWithAlternatives.svelte";
+  import { fade } from "svelte/transition"; // Import fade transition
 
   export let workoutSplit: ExercisePlan[];
+
+  let alternatives: Exercise[] | null = null;
+
+  function triggerAlternatives(event: CustomEvent<{ alternatives: Exercise[] }>) {
+    const exerciseAlternatives = event.detail.alternatives;
+    alternatives = alternatives === null ? exerciseAlternatives : null;
+  }
 
   onMount(() => {
     const scrollContainers = document.querySelectorAll(".horizontal-scroll");
@@ -46,7 +54,7 @@
         <div class="card-wrapper mb-8 flex">
           {#each split.exercises as exercise}
             <div class="snap-item stack w-auto flex-none px-4">
-              <ExerciseCardWithAlternatives {exercise} />
+              <ExerciseCardWithAlternatives {exercise} on:showAlternatives={triggerAlternatives} />
               {#each exercise.alternatives as alternative}
                 <ExerciseCard exercise={alternative} />
               {/each}
@@ -55,6 +63,17 @@
           <div class="snap-item w-16 flex-none"></div>
         </div>
       </div>
+
+      {#if alternatives !== null}
+        <div class="alternatives-wrapper mt-4" transition:fade>
+          <h3 class="mb-2 text-xl font-bold">Alternative Übungen</h3>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {#each alternatives as alternative}
+              <ExerciseCard exercise={alternative} />
+            {/each}
+          </div>
+        </div>
+      {/if}
     </div>
   {/each}
 </div>
@@ -69,5 +88,8 @@
   }
   .card-wrapper {
     width: calc(100% + 1rem);
+  }
+  .alternatives-wrapper {
+    margin-top: 1rem;
   }
 </style>
