@@ -1,8 +1,20 @@
 <script lang="ts">
+  import SignInModal from "./SignInModal.svelte";
+
   export let currentPath: string;
 
   function isActive(path: string) {
     return currentPath === path ? "font-bold border-b-2 border-neutral" : "";
+  }
+
+  let showSignInModal = false;
+
+  function openSignInModal() {
+    showSignInModal = true;
+  }
+
+  function handleCloseModal() {
+    showSignInModal = false;
   }
 </script>
 
@@ -43,6 +55,8 @@
       </svg>
     </label>
     <!-- svelte-ignore a11y-missing-attribute -->
-    <a href="/signin" class="btn btn-secondary btn-sm rounded-md">Sign in</a>
+    <button on:click={openSignInModal} class="btn btn-secondary btn-sm rounded-md">Anmelden</button>
   </div>
 </div>
+
+<SignInModal bind:showModal={showSignInModal} on:close={handleCloseModal} />
