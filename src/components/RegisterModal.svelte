@@ -1,5 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
+  import { fade } from "svelte/transition";
   import { supabase } from "../db/supabase";
 
   export let showModal: boolean = false;
@@ -67,9 +68,9 @@
 </script>
 
 {#if showModal}
-  <div class="fixed inset-0 z-[100] flex items-center justify-center">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="card z-[101] w-96 bg-base-100 shadow-xl">
+  <div class="fixed inset-0 z-[100] flex items-center justify-center" transition:fade={{ duration: 200 }}>
+    <div class="absolute inset-0 bg-black opacity-50" transition:fade={{ duration: 200 }}></div>
+    <div class="card z-[101] w-96 bg-base-100 shadow-xl" transition:fade={{ duration: 200 }}>
       <div class="card-body bg-opacity-100">
         <h2 class="card-title">Registrieren</h2>
         <form on:submit|preventDefault={handleRegister} class="space-y-4">

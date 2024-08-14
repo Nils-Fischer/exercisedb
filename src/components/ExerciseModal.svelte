@@ -17,16 +17,20 @@
 
 {#if showModal && exercise}
   <!-- Hintergrund über gesamte Fläche -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <!-- svelte-ignore a11y-no-static-element-interactions -->
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div
     class="fixed inset-0 z-[100] flex items-center justify-center"
     on:click={closeModal}
     transition:fade={{ duration: 300 }}
   >
     <!-- Modal und Bereich um die Karte herum -->
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div
       class="relative z-[101] h-full w-full bg-black opacity-50"
       on:click={closeModal}
-      transition:fade={{ duration: 300 }}
+      transition:fade={{ duration: 100 }}
     ></div>
 
     <!-- Der eigentliche Modal-Content, der die Karte enthält -->
