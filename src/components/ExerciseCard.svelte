@@ -1,11 +1,17 @@
-<!-- src/components/ExerciseCard.svelte -->
 <script lang="ts">
   import type { Exercise } from "../lib/types";
+  import { createEventDispatcher } from "svelte";
 
   export let exercise: Exercise;
+
+  const dispatch = createEventDispatcher();
+
+  function handleClick() {
+    dispatch("openModal", { exercise });
+  }
 </script>
 
-<div class="max-h-lg card max-w-72 bg-neutral-content shadow-xl">
+<div class="max-h-lg card max-w-72 bg-neutral-content shadow-xl cursor-pointer" on:click={handleClick}>
   <div class="card-body">
     <h2 class="card-title">{exercise.name}</h2>
     <div class="flex flex-wrap space-x-1">

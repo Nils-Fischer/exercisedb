@@ -1,44 +1,31 @@
-<!-- src/components/ExercisesPage.svelte -->
 <script lang="ts">
-  import { writable } from "svelte/store";
-  import FilterMenu from "./FilterMenu.svelte";
-  import ExerciseGrid from "./ExerciseGrid.svelte";
+  import ExerciseCard from "./ExerciseCard.svelte";
+  import ExerciseModal from "./ExerciseModal.svelte";
   import type { Exercise } from "../lib/types";
 
   export let exercises: Exercise[];
   export let filters: Map<keyof Exercise, Set<string>>;
 
-  const filteredExercises = writable<Exercise[]>(exercises);
+  let selectedExercise: Exercise | null = null;
+  let showModal = false;
 
-  function filterExercises(event: CustomEvent<{ value: Map<keyof Exercise, Set<string>> }>) {
-    const filterMap = event.detail.value;
-    filteredExercises.set(
-      exercises.filter((exercise) => {
-        for (const [category, values] of filterMap) {
-          const result = exercise[category];
-          const result_arr = Array.isArray(result) ? result : [result];
-          if (!result_arr.some((item) => values.has(item.toString()))) {
-            return false;
-          }
-        }
-        return true;
-      })
-    );
-    console.log(filteredExercises);
+  function openModal(event: { detail: { exercise: Exercise | null } }) {
+    selectedExercise = event.detail.exercise;
+    showModal = true;
   }
 
-  let filteredExercisesArray: Exercise[] = [];
-
-  $: filteredExercises.subscribe((value) => {
-    filteredExercisesArray = value;
-  });
+  function closeModal() {
+    showModal = false;
+    selectedExercise = null;
+  }
 </script>
 
-<div class="flex">
-  <div class="flex-shrink-0 p-8">
-    <FilterMenu {filters} on:updateFilter={filterExercises} />
-  </div>
-  <div class="flex-grow">
-    <ExerciseGrid exercises={filteredExercisesArray} />
-  </div>
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+  {#each exercises as exercise}
+    <ExerciseCard {exercise} on:openModal={openModal} />
+  {/each}
 </div>
+
+<!-- Modal zum Anzeigen der ExtendedCard -->
+<!-- Modal zum Anzeigen der ExtendedCard -->
+<ExerciseModal {showModal} exercise={selectedExercise} on:close={closeModal} />

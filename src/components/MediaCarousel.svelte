@@ -33,9 +33,9 @@
 <div class="carousel relative w-full overflow-hidden">
   <div class="carousel-inner flex transition-transform duration-500">
     {#each mediaItems as media, index}
-      <div id={`slide${index}`} class="carousel-item relative w-full flex-none">
+      <div id={"slide" + index} class="carousel-item relative w-full flex-none">
         {#if media.type === "image"}
-          <img src={media.src} alt={`Slide ${index}`} class="w-full" />
+          <img src={media.src} alt={"Slide " + index} class="w-full" />
         {:else if media.type === "video"}
           <!-- svelte-ignore a11y-media-has-caption -->
           <video class="w-full" controls>
@@ -46,10 +46,18 @@
         <div class="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
           <a
             on:click={goTo}
-            href={`#slide${(index - 1 + mediaItems.length) % mediaItems.length}`}
-            class="btn btn-circle">❮</a
+            href={"#slide" + ((index - 1 + mediaItems.length) % mediaItems.length)}
+            class="btn btn-circle opacity-50 transition-opacity duration-300 hover:opacity-100"
           >
-          <a on:click={goTo} href={`#slide${(index + 1) % mediaItems.length}`} class="btn btn-circle">❯</a>
+            ❮
+          </a>
+          <a
+            on:click={goTo}
+            href={"#slide" + ((index + 1) % mediaItems.length)}
+            class="btn btn-circle opacity-50 transition-opacity duration-300 hover:opacity-100"
+          >
+            ❯
+          </a>
         </div>
       </div>
     {/each}
