@@ -139,8 +139,7 @@ function selectExercises(
   });
   let numExercises = 0;
   let timeInGym = 0;
-  for (const [_, exercise] of results.sort((a, b) => a[0] - b[0])) {
-    const restTime = exercise.primaryExercise.mechanic == "Isolation" ? 3 : 4;
+  for (const [_, exercise] of [...results].sort((a, b) => a[0] - b[0])) {
     timeInGym += exercise.totalTime;
     if (timeInGym <= Math.ceil(availableTime)) numExercises++;
     else break;
