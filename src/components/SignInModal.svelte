@@ -20,23 +20,8 @@
   }
 
   async function handleSignIn() {
-    if (!isEmailValid) {
-      return;
-    }
-
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password,
-      });
-
-      if (error) throw error;
-
-      console.log("Erfolgreich angemeldet:", data.user);
-      closeModal();
-    } catch (error) {
-      errorMessage = "Anmeldung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten.";
-    }
+    return;
+    closeModal();
   }
 
   function handleGoogleSignIn() {
