@@ -1,6 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { Exercise, ExercisePlan } from "../lib/types";
+  import { Level, TrainingGoal, type Exercise, type ExercisePlan } from "../lib/types";
   import CustomWorkout from "./CustomWorkout.svelte";
   import { createSplit } from "../lib/utils";
 
@@ -8,9 +8,10 @@
 
   let frequency = 4;
   let duration = 60;
-  let level = "anfänger";
+  let level: Level = Level.Beginner;
   let isLoading = false;
   let progress: number = 0;
+  let goal: TrainingGoal = TrainingGoal.Hypertrophy;
   let customSplit: ExercisePlan[] = [];
 
   onMount(() => {
@@ -49,7 +50,7 @@
         if (progress >= 100) {
           clearInterval(interval);
           isLoading = false;
-          customSplit = createSplit(exercises, frequency, duration, level);
+          customSplit = createSplit(exercises, frequency, duration, level, goal);
         }
       },
       ((Math.random() * 1000) % 300) + 100
@@ -98,14 +99,14 @@
         </div>
       </div>
 
-      <div class="m-2">
+      <div class="m-2 mb-10">
         <label class="text-xl font-bold text-neutral" for="level"> 3. Wie viel Erfahrung hast du? </label>
         <div class="mt-3 flex space-x-4">
           <input
             type="radio"
             id="beginner"
             name="level"
-            value="anfänger"
+            value={Level.Beginner}
             class="radio"
             checked={true}
             bind:group={level}
@@ -117,7 +118,7 @@
             type="radio"
             id="intermediate"
             name="level"
-            value="fortgeschritten"
+            value={Level.Intermediate}
             class="radio"
             bind:group={level}
             disabled={isLoading}
@@ -128,7 +129,7 @@
             type="radio"
             id="expert"
             name="level"
-            value="experte"
+            value={Level.Expert}
             class="radio"
             bind:group={level}
             disabled={isLoading}
@@ -136,13 +137,53 @@
           <label for="expert">Experte</label>
         </div>
       </div>
+
+      <div class="m-2 mb-10">
+        <label class="text-xl font-bold text-neutral" for="goal"> 4. Was ist dein Ziel? </label>
+        <div class="mt-3 flex space-x-4">
+          <input
+            type="radio"
+            id="hyperthrophy"
+            name="goal"
+            value={TrainingGoal.Hypertrophy}
+            class="radio"
+            checked={true}
+            bind:group={goal}
+            disabled={isLoading}
+          />
+          <label for="hyperthrophy">Muskeln</label>
+
+          <input
+            type="radio"
+            id="strength"
+            name="goal"
+            value={TrainingGoal.Strength}
+            class="radio"
+            bind:group={goal}
+            disabled={isLoading}
+          />
+          <label for="strength">Kraft</label>
+
+          <input
+            type="radio"
+            id="endurance"
+            name="goal"
+            value={TrainingGoal.Endurance}
+            class="radio"
+            bind:group={goal}
+            disabled={isLoading}
+          />
+          <label for="endurance">Ausdauer</label>
+        </div>
+      </div>
+
       {#if isLoading}
-        <div class="mt-10 justify-center text-center">
+        <div class="justify-center text-center">
           <progress class="progress w-56" value={progress} max="100"></progress>
           <p>Generating your workout plan...</p>
         </div>
       {:else}
-        <div class="mt-10 text-center">
+        <div class="text-center">
           <button
             type="submit"
             class="rounded bg-blue-500 px-4 py-2 text-white transition duration-300 hover:bg-blue-600"

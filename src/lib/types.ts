@@ -42,6 +42,12 @@ export enum Level {
   Expert = 3,
 }
 
+export enum TrainingGoal {
+  Endurance,
+  Hypertrophy,
+  Strength,
+}
+
 export interface ExercisePlan {
   name: string;
   frequency: number;
@@ -51,4 +57,9 @@ export interface ExercisePlan {
 export interface ExerciseWithAlternatives {
   primaryExercise: Exercise;
   alternatives: Exercise[];
+  sets: number;
+  warmupSet: boolean;
+  repetitions: number[];
+  restTime: number;
+  totalTime: number;
 }
