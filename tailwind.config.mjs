@@ -25,12 +25,15 @@ export default {
           "--border-btn": "2px", // border width of buttons
           "--tab-border": "1px", // border width of tabs
           "--tab-radius": "0.1rem", // border radius of tabs
+          neutral: "#f9fafb",
+          "neutral-content": "#1c212b",
         },
       },
       "light",
       "sunset",
+      "dim",
     ], // false: only light + dark | true: all themes | array: specific themes like this ["light", "dark", "cupcake"]
-    darkTheme: "dark", // name of one of the included themes for dark mode
+    darkTheme: "dim", // name of one of the included themes for dark mode
     base: true, // applies background color and foreground color for root element by default
     styled: true, // include daisyUI colors and design decisions for all components
     utils: true, // adds responsive and modifier utility classes

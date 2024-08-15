@@ -32,7 +32,7 @@
   </div>
   <div class="navbar-end flex items-center space-x-4">
     <label class="swap swap-rotate">
-      <input type="checkbox" class="theme-controller" value="sunset" />
+      <input type="checkbox" class="theme-controller" value="dim" />
       <!-- sun icon -->
       <svg class="swap-off h-10 w-10 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path

@@ -61,9 +61,11 @@
 <main class="container m-auto px-4">
   {#if customSplit.length === 0}
     <form on:submit={handleSubmit}>
-      <h1 class="mb-6 text-left text-3xl font-bold text-neutral">Workout Planner</h1>
+      <h1 class="text-neutral-content-content mb-6 text-left text-3xl font-bold">Workout Planner</h1>
       <div class="m-2 space-y-2">
-        <label class="text-xl font-bold text-neutral" for="frequency"> 1. Wie oft hast du vor zu trainieren? </label>
+        <label class="text-xl font-bold text-neutral-content" for="frequency">
+          1. Wie oft hast du vor zu trainieren?
+        </label>
         <input
           type="range"
           class="range range-error"
@@ -74,8 +76,8 @@
           disabled={isLoading}
         />
         <div class="mt-3 text-center">
-          <span class="text-2xl text-neutral">{frequency}x</span>
-          <span class="text-neutral">Woche</span>
+          <span class="text-neutral-content-content text-2xl">{frequency}x</span>
+          <span class="text-neutral-content">Woche</span>
         </div>
         <div id="restDayHint" class="mt-2 hidden text-center text-error">
           Es wird empfohlen, mindestens 1 Ruhetag pro Woche zu haben.
@@ -83,7 +85,9 @@
       </div>
 
       <div class="m-2 space-y-2">
-        <label class="text-xl font-bold text-neutral" for="duration"> 2. Wie lange hast du vor zu trainieren? </label>
+        <label class="text-xl font-bold text-neutral-content" for="duration">
+          2. Wie lange hast du vor zu trainieren?
+        </label>
         <input
           type="range"
           class="range range-error"
@@ -95,12 +99,12 @@
           disabled={isLoading}
         />
         <div class="mt-3 text-center">
-          <span class="text-2xl text-neutral">{duration} min</span>
+          <span class="text-2xl text-neutral-content">{duration} min</span>
         </div>
       </div>
 
       <div class="m-2 mb-10">
-        <label class="text-xl font-bold text-neutral" for="level"> 3. Wie viel Erfahrung hast du? </label>
+        <label class="text-xl font-bold text-neutral-content" for="level"> 3. Wie viel Erfahrung hast du? </label>
         <div class="mt-3 flex space-x-4">
           <input
             type="radio"
@@ -139,7 +143,7 @@
       </div>
 
       <div class="m-2 mb-10">
-        <label class="text-xl font-bold text-neutral" for="goal"> 4. Was ist dein Ziel? </label>
+        <label class="text-xl font-bold text-neutral-content" for="goal"> 4. Was ist dein Ziel? </label>
         <div class="mt-3 flex space-x-4">
           <input
             type="radio"

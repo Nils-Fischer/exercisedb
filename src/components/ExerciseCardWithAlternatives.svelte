@@ -11,7 +11,7 @@
   }
 </script>
 
-<div class="max-h-lg card max-w-72 bg-neutral-content shadow-xl">
+<div class="max-h-lg card max-w-72 bg-neutral shadow-xl">
   <div class="card-body">
     <h2 class="card-title">{exercise.primaryExercise.name}</h2>
     <div class="flex flex-wrap space-x-1">
