@@ -40,7 +40,7 @@
 <div class="navbar sticky top-0 z-50 mb-8 bg-base-100 px-20 opacity-95 shadow-lg">
   <div class="navbar-start">
     <a href="/start" class="btn btn-ghost flex items-center text-xl font-black hover:bg-inherit">
-      <img src="../../images/logo.svg" alt="Logo" class="mr-2 h-8" width="32" />
+      <img src="images/logo.svg" alt="Logo" class="mr-2 h-8" width="32" />
       ExerciseDB
     </a>
   </div>
