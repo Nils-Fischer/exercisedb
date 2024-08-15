@@ -17,7 +17,7 @@ export default {
         emerald: {
           ...require("daisyui/src/theming/themes")["emerald"],
           "--rounded-box": "0.7rem", // border radius rounded-box utility class, used in card and other large boxes
-          "--rounded-btn": "0.1rem", // border radius rounded-btn utility class, used in buttons and similar element
+          "--rounded-btn": "0.6rem", // border radius rounded-btn utility class, used in buttons and similar element
           "--rounded-badge": "0.6rem", // border radius rounded-badge utility class, used in badges and similar
           "--animation-btn": "0.01s", // duration of animation when you click on button
           "--animation-input": "0.1s", // duration of animation for inputs like checkbox, toggle, radio, etc

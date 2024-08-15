@@ -9,6 +9,7 @@
   let password = "";
   let isEmailValid = true;
   let errorMessage = "";
+  let rememberMe = false;
 
   const dispatch = createEventDispatcher();
 
@@ -41,9 +42,19 @@
     }
   }
 
-  function handleGoogleSignIn() {
-    console.log("Anmelden mit Google");
-    closeModal();
+  async function handleGoogleSignIn() {
+    try {
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+      });
+
+      if (error) throw error;
+
+      console.log("Google Anmeldung initiiert");
+    } catch (error) {
+      console.error("Fehler bei der Google-Anmeldung:", error);
+      errorMessage = "Google-Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.";
+    }
   }
 
   function closeModal() {
@@ -54,63 +65,79 @@
   function switchToRegister() {
     dispatch("switchToRegister");
   }
+
+  function handleForgotPassword() {
+    // Implement forgot password functionality
+    console.log("Passwort vergessen Funktion aufgerufen");
+  }
+
+  function handleOverlayKeydown(event: KeyboardEvent) {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  }
 </script>
 
 {#if showModal}
   <div class="fixed inset-0 z-[100] flex items-center justify-center" transition:fade={{ duration: 100 }}>
-    <div class="absolute inset-0 bg-black opacity-50" transition:fade={{ duration: 100 }}></div>
-    <div class="card z-[101] w-96 bg-base-100 shadow-xl" transition:fade={{ duration: 100 }}>
-      <div class="card-body bg-opacity-100">
-        <h2 class="card-title">Anmelden</h2>
-        <form on:submit|preventDefault={handleSignIn} class="space-y-4">
-          <div class="form-control mb-5">
-            <label for="signin-email" class="label">
-              <span class="label-text">E-Mail</span>
-            </label>
-            <input
-              type="email"
-              id="signin-email"
-              bind:value={email}
-              on:input={handleEmailInput}
-              placeholder="Geben Sie Ihre E-Mail ein"
-              class="input input-bordered w-full {!isEmailValid && email ? 'input-error' : ''}"
-              required
-            />
-            {#if !isEmailValid && email}
-              <label class="label" for="signin-email">
-                <span class="label-text-alt text-error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span>
-              </label>
-            {/if}
-          </div>
-          <div class="form-control my-5">
-            <label for="signin-password" class="label">
-              <span class="label-text">Passwort</span>
-            </label>
-            <input
-              type="password"
-              id="signin-password"
-              bind:value={password}
-              placeholder="Geben Sie Ihr Passwort ein"
-              class="input input-bordered w-full"
-              required
-            />
-          </div>
-          <div class="form-control" id="submit-button">
-            <button type="submit" class="btn btn-primary" disabled={!isEmailValid}>Anmelden</button>
-          </div>
-          {#if errorMessage}
-            <label class="label" for="submit-button">
-              <span class="label-text-alt text-error">{errorMessage}</span>
-            </label>
-          {/if}
-        </form>
-        <div class="divider">ODER</div>
-        <button on:click={handleGoogleSignIn} class="btn btn-outline"> Mit Google anmelden </button>
-        <div class="mt-4 text-center">
-          <p>Noch kein Konto?</p>
-          <button on:click={switchToRegister} class="btn btn-link">Registrieren</button>
+    <button
+      class="absolute inset-0 h-full w-full cursor-default bg-black opacity-50"
+      on:click={closeModal}
+      on:keydown={handleOverlayKeydown}
+      aria-label="Close modal"
+      transition:fade={{ duration: 100 }}
+    ></button>
+    <div class="z-[101] flex w-96 flex-col gap-4 rounded-box bg-base-100 p-6" transition:fade={{ duration: 100 }}>
+      <h1 class="self-center text-3xl font-bold">Anmelden</h1>
+      <label class="form-control">
+        <div class="label">
+          <span class="label-text">E-Mail</span>
         </div>
-        <button on:click={closeModal} class="btn btn-circle btn-ghost btn-sm absolute right-2 top-2">✕</button>
+        <input
+          type="email"
+          bind:value={email}
+          on:input={handleEmailInput}
+          class="input input-bordered w-full {!isEmailValid && email ? 'input-error' : ''}"
+          placeholder="Geben Sie Ihre E-Mail ein"
+          required
+        />
+        {#if !isEmailValid && email}
+          <span class="label-text-alt mt-1 text-error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span>
+        {/if}
+      </label>
+      <label class="form-control">
+        <div class="label">
+          <span class="label-text">Passwort</span>
+          <button on:click={handleForgotPassword} class="link label-text link-accent">Passwort vergessen?</button>
+        </div>
+        <input
+          type="password"
+          bind:value={password}
+          class="input input-bordered w-full"
+          placeholder="Geben Sie Ihr Passwort ein"
+          required
+        />
+      </label>
+      <div class="form-control">
+        <label class="label cursor-pointer gap-2 self-start">
+          <input type="checkbox" class="checkbox" bind:checked={rememberMe} />
+          <span class="label-text">Angemeldet bleiben</span>
+        </label>
+      </div>
+      {#if errorMessage}
+        <span class="text-sm text-error">{errorMessage}</span>
+      {/if}
+      <button class="btn btn-primary w-full" on:click={handleSignIn} disabled={!isEmailValid || email === ""}
+        >Anmelden</button
+      >
+      <div class="divider">ODER</div>
+      <button class="btn btn-outline w-full" on:click={handleGoogleSignIn}>
+        <i class="fa-brands fa-google mr-2"></i>
+        Mit Google anmelden
+      </button>
+      <div class="mt-4 text-center">
+        <span>Noch kein Konto?</span>
+        <button on:click={switchToRegister} class="link link-secondary ml-1">Registrieren</button>
       </div>
     </div>
   </div>
