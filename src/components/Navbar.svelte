@@ -1,39 +1,17 @@
 <script lang="ts">
-  import SignInModal from "./SignInModal.svelte";
-  import RegisterModal from "./RegisterModal.svelte";
+  import AuthController from "./AuthController.svelte";
+  import type { AuthModal } from "../lib/types";
 
   export let currentPath: string;
 
-  let showSignInModal = false;
-  let showRegisterModal = false;
+  let modalState: AuthModal = null;
+
+  function toggleModal() {
+    modalState = modalState === null ? "signIn" : null;
+  }
 
   function isActive(path: string) {
     return currentPath === path ? "font-bold border-b-2 border-neutral" : "";
-  }
-
-  function openSignInModal() {
-    showSignInModal = true;
-    showRegisterModal = false;
-  }
-
-  function openRegisterModal() {
-    showRegisterModal = true;
-    showSignInModal = false;
-  }
-
-  function handleCloseModal() {
-    showSignInModal = false;
-    showRegisterModal = false;
-  }
-
-  function handleSwitchToRegister() {
-    showSignInModal = false;
-    showRegisterModal = true;
-  }
-
-  function handleSwitchToSignIn() {
-    showRegisterModal = false;
-    showSignInModal = true;
   }
 </script>
 
@@ -68,20 +46,10 @@
         />
       </svg>
     </label>
-    <button on:click={openSignInModal} class="btn btn-secondary btn-sm rounded-md">Anmelden</button>
+    <button on:click={toggleModal} class="btn btn-secondary btn-sm rounded-md">Anmelden</button>
   </div>
 </div>
 
-<SignInModal
-  bind:showModal={showSignInModal}
-  on:close={handleCloseModal}
-  on:switchToRegister={handleSwitchToRegister}
-/>
-
-<RegisterModal
-  bind:showModal={showRegisterModal}
-  on:close={handleCloseModal}
-  on:switchToSignIn={handleSwitchToSignIn}
-/>
+<AuthController bind:modalState />
 
 <slot />

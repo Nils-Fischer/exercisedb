@@ -92,7 +92,7 @@
     </form>
     <span>
       Erinnern Sie sich an Ihr Passwort?
-      <button type="button" on:click={switchToSignIn} class="link link-secondary">Hier anmelden</button>
+      <button type="button" on:click={switchToSignIn} class="link link-primary">Hier anmelden</button>
     </span>
   </div>
 </div>

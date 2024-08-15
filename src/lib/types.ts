@@ -63,3 +63,5 @@ export interface ExerciseWithAlternatives {
   restTime: number;
   totalTime: number;
 }
+
+export type AuthModal = "signIn" | "register" | "forgotPassword" | null;
