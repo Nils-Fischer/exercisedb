@@ -11,7 +11,12 @@
   }
 </script>
 
-<div class="max-h-lg card max-w-72 bg-neutral-content shadow-xl cursor-pointer" on:click={handleClick}>
+<button
+  class="max-h-lg card w-full max-w-72 cursor-pointer bg-neutral-content text-left shadow-xl"
+  on:click={handleClick}
+  on:keydown={(e) => e.key === "Enter" && handleClick()}
+  aria-label={`View details for ${exercise.name}`}
+>
   <div class="card-body">
     <h2 class="card-title">{exercise.name}</h2>
     <div class="flex flex-wrap space-x-1">
@@ -30,4 +35,4 @@
       <div class="badge badge-accent">{exercise.category}</div>
     </div>
   </div>
-</div>
+</button>

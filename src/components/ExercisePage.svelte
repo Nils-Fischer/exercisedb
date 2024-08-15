@@ -4,7 +4,6 @@
   import type { Exercise } from "../lib/types";
 
   export let exercises: Exercise[];
-  export let filters: Map<keyof Exercise, Set<string>>;
 
   let selectedExercise: Exercise | null = null;
   let showModal = false;
@@ -26,6 +25,4 @@
   {/each}
 </div>
 
-<!-- Modal zum Anzeigen der ExtendedCard -->
-<!-- Modal zum Anzeigen der ExtendedCard -->
 <ExerciseModal {showModal} exercise={selectedExercise} on:close={closeModal} />
