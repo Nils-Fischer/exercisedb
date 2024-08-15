@@ -28,7 +28,7 @@
   }
 </script>
 
-<ul class="menu sticky top-28 w-56 rounded-box bg-neutral-content shadow-xl">
+<ul class="menu sticky top-28 w-56 rounded-box bg-neutral shadow-xl">
   <h2 class="menu-title">Filters</h2>
   {#each filters as [category, values]}
     <li>

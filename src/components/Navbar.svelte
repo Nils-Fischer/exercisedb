@@ -1,5 +1,5 @@
 <script lang="ts">
-  import AuthController from "./AuthController.svelte";
+  import AuthController from "./Authentication/AuthControllerModal.svelte";
   import type { AuthModal } from "../lib/types";
 
   export let currentPath: string;
