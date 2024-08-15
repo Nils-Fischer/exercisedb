@@ -110,7 +110,7 @@
         <label class="form-control">
           <div class="label">
             <span class="label-text">Passwort</span>
-            <button type="button" on:click={handleForgotPassword} class="link label-text link-accent"
+            <button type="button" on:click={handleForgotPassword} class="link label-text link-error"
               >Passwort vergessen?</button
             >
           </div>
@@ -140,7 +140,7 @@
       </button>
       <div class="mt-4 text-center">
         <span>Noch kein Konto?</span>
-        <button type="button" on:click={switchToRegister} class="link link-secondary ml-1">Registrieren</button>
+        <button type="button" on:click={switchToRegister} class="link link-primary ml-1">Registrieren</button>
       </div>
     </div>
   </div>
