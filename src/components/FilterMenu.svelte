@@ -28,25 +28,44 @@
   }
 </script>
 
-<ul class="menu sticky top-28 w-56 rounded-box bg-neutral shadow-xl">
+<div class="menu sticky top-28 rounded-box bg-neutral p-4 shadow-xl">
   <h2 class="menu-title">Filters</h2>
-  {#each filters as [category, values]}
-    <li>
-      <details>
-        <summary>{capitalize(category.toString())}</summary>
-        <ul>
-          {#each values as filter}
-            <li>
-              <button
-                type="button"
-                on:click={() => toggleFilter(category, filter)}
-                class="{activeFilters.get(category)?.has(filter) ? 'active' : ''} rounded-none"
-                >{capitalize(filter)}</button
-              >
-            </li>
-          {/each}
-        </ul>
-      </details>
-    </li>
-  {/each}
-</ul>
+  <ul class="flex flex-wrap gap-4">
+    {#each filters as [category, values]}
+      <li>
+        <details>
+          <summary>{capitalize(category.toString())}</summary>
+          <ul>
+            {#each values as filter}
+              <li>
+                <button
+                  type="button"
+                  on:click={() => toggleFilter(category, filter)}
+                  class="{activeFilters.get(category)?.has(filter) ? 'active' : ''} rounded-none"
+                >
+                  {capitalize(filter)}
+                </button>
+              </li>
+            {/each}
+          </ul>
+        </details>
+      </li>
+    {/each}
+  </ul>
+</div>
+
+<style>
+  .menu {
+    width: auto;
+    min-width: 56px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  details > summary {
+    cursor: pointer;
+  }
+</style>

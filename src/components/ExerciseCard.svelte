@@ -12,7 +12,7 @@
 </script>
 
 <button
-  class="max-h-lg card w-full max-w-72 cursor-pointer bg-neutral text-left shadow-xl"
+  class="max-h-lg card w-full max-w-72 transform cursor-pointer bg-neutral text-left shadow-xl transition duration-200 ease-in-out hover:scale-105 hover:shadow-2xl"
   on:click={handleClick}
   on:keydown={(e) => e.key === "Enter" && handleClick()}
   aria-label={`View details for ${exercise.name}`}

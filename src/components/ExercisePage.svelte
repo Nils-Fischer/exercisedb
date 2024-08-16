@@ -54,11 +54,11 @@
   }
 </script>
 
-<div class="flex">
-  <div class="flex-shrink-0 p-8">
+<div class="flex flex-col items-center">
+  <div class="mb-8">
     <FilterMenu {filters} on:updateFilter={filterExercises} />
   </div>
-  <div class="flex-grow">
+  <div class="w-full">
     <div class="grid grid-cols-auto-fill gap-4">
       {#each $filteredExercises as exercise}
         <ExerciseCard {exercise} on:openModal={openModal} />
