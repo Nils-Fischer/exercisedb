@@ -3,13 +3,25 @@
   import { fade } from "svelte/transition";
   import { supabase } from "../../db/supabase";
 
+  // Import Font Awesome
+  import { library } from "@fortawesome/fontawesome-svg-core";
+  import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+  import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+  import Fa from "svelte-fa";
+
+  // Add icons to the library
+  library.add(faGoogle, faEye, faEyeSlash);
+
   let email = "";
   let password = "";
   let confirmPassword = "";
   let isEmailValid = true;
+  let isPasswordValid = true;
   let passwordsMatch = true;
   let acceptTerms = false;
   let errorMessage = "";
+  let showPassword = false;
+  let showConfirmPassword = false;
 
   const dispatch = createEventDispatcher();
 
@@ -23,7 +35,16 @@
   }
 
   function handlePasswordInput() {
+    isPasswordValid = password.length >= 8 && /[A-Z]/.test(password) && /[\d]/.test(password);
     passwordsMatch = password === confirmPassword;
+  }
+
+  function togglePasswordVisibility() {
+    showPassword = !showPassword;
+  }
+
+  function toggleConfirmPasswordVisibility() {
+    showConfirmPassword = !showConfirmPassword;
   }
 
   async function handleSubmit(event: Event) {
@@ -105,27 +126,78 @@
     <div class="label">
       <span class="label-text">Passwort</span>
     </div>
-    <input
-      type="password"
-      bind:value={password}
-      on:input={handlePasswordInput}
-      class="input input-bordered w-full"
-      placeholder="Geben Sie Ihr Passwort ein"
-      required
-    />
+    <div class="relative">
+      {#if showPassword}
+        <input
+          type="text"
+          bind:value={password}
+          on:input={handlePasswordInput}
+          class="input input-bordered w-full pr-10"
+          placeholder="Geben Sie Ihr Passwort ein"
+          required
+        />
+      {:else}
+        <input
+          type="password"
+          bind:value={password}
+          on:input={handlePasswordInput}
+          class="input input-bordered w-full pr-10"
+          placeholder="Geben Sie Ihr Passwort ein"
+          required
+        />
+      {/if}
+      <button
+        type="button"
+        class="absolute inset-y-0 right-0 flex items-center pr-3"
+        on:click={togglePasswordVisibility}
+      >
+        <Fa icon={showPassword ? faEyeSlash : faEye} />
+      </button>
+    </div>
   </label>
+  {#if !isPasswordValid && password}
+    <div class="label-text-alt mt-2 text-error">
+      <p>Das Passwort erfüllt nicht die Sicherheitsanforderungen. Bitte beachten Sie:</p>
+      <ul class="mt-1 list-disc pl-5">
+        <li>Mindestens 8 Zeichen lang</li>
+        <li>Mindestens ein Großbuchstabe (A-Z)</li>
+        <li>Mindestens eine Zahl (0-9)</li>
+      </ul>
+    </div>
+  {/if}
+
   <label class="form-control">
     <div class="label">
       <span class="label-text">Passwort bestätigen</span>
     </div>
-    <input
-      type="password"
-      bind:value={confirmPassword}
-      on:input={handlePasswordInput}
-      class="input input-bordered w-full {!passwordsMatch && confirmPassword ? 'input-error' : ''}"
-      placeholder="Bestätigen Sie Ihr Passwort"
-      required
-    />
+    <div class="relative">
+      {#if showConfirmPassword}
+        <input
+          type="text"
+          bind:value={confirmPassword}
+          on:input={handlePasswordInput}
+          class="input input-bordered w-full pr-10 {!passwordsMatch && confirmPassword ? 'input-error' : ''}"
+          placeholder="Bestätigen Sie Ihr Passwort"
+          required
+        />
+      {:else}
+        <input
+          type="password"
+          bind:value={confirmPassword}
+          on:input={handlePasswordInput}
+          class="input input-bordered w-full pr-10 {!passwordsMatch && confirmPassword ? 'input-error' : ''}"
+          placeholder="Bestätigen Sie Ihr Passwort"
+          required
+        />
+      {/if}
+      <button
+        type="button"
+        class="absolute inset-y-0 right-0 flex items-center pr-3"
+        on:click={toggleConfirmPasswordVisibility}
+      >
+        <Fa icon={showConfirmPassword ? faEyeSlash : faEye} />
+      </button>
+    </div>
     {#if !passwordsMatch && confirmPassword}
       <span class="label-text-alt mt-1 text-error">Die Passwörter stimmen nicht überein.</span>
     {/if}
@@ -141,8 +213,10 @@
       </span>
     </label>
   </div>
-  <button type="submit" class="btn btn-primary mt-2 w-full" disabled={!isEmailValid || !passwordsMatch || !acceptTerms}
-    >Konto erstellen</button
+  <button
+    type="submit"
+    class="btn btn-primary mt-2 w-full"
+    disabled={!isPasswordValid || !isEmailValid || !passwordsMatch || !acceptTerms}>Konto erstellen</button
   >
   {#if errorMessage}
     <span class="text-sm text-error">{errorMessage}</span>
@@ -150,7 +224,7 @@
 </form>
 <div class="divider my-2">ODER</div>
 <button type="button" class="btn btn-outline w-full" on:click={handleGoogleSignUp}>
-  <i class="fa-brands fa-google mr-2"></i>
+  <Fa icon={faGoogle} class="mr-2" />
   Mit Google registrieren
 </button>
 <div class="mt-4 text-center">

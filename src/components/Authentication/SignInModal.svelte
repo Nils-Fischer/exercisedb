@@ -2,11 +2,21 @@
   import { createEventDispatcher } from "svelte";
   import { supabase } from "../../db/supabase";
 
+  // Import Font Awesome
+  import { library } from "@fortawesome/fontawesome-svg-core";
+  import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+  import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+  import Fa from "svelte-fa";
+
+  // Add icons to the library
+  library.add(faEye, faEyeSlash, faGoogle);
+
   let email = "";
   let password = "";
   let isEmailValid = true;
   let errorMessage = "";
   let rememberMe = false;
+  let showPassword = false;
 
   const dispatch = createEventDispatcher();
 
@@ -19,20 +29,21 @@
     isEmailValid = validateEmail(email);
   }
 
+  function togglePasswordVisibility() {
+    showPassword = !showPassword;
+  }
+
   async function handleSubmit(event: Event) {
     event.preventDefault();
     if (!isEmailValid) {
       return;
     }
-
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
         email: email,
         password: password,
       });
-
       if (error) throw error;
-
       console.log("Erfolgreich angemeldet:", data.user);
       closeModal();
     } catch (error) {
@@ -45,9 +56,7 @@
       const { data, error } = await supabase.auth.signInWithOAuth({
         provider: "google",
       });
-
       if (error) throw error;
-
       console.log("Google Anmeldung initiiert");
     } catch (error) {
       console.error("Fehler bei der Google-Anmeldung:", error);
@@ -93,13 +102,32 @@
         >Passwort vergessen?</button
       >
     </div>
-    <input
-      type="password"
-      bind:value={password}
-      class="input input-bordered w-full"
-      placeholder="Geben Sie Ihr Passwort ein"
-      required
-    />
+    <div class="relative">
+      {#if showPassword}
+        <input
+          type="text"
+          bind:value={password}
+          class="input input-bordered w-full pr-10"
+          placeholder="Geben Sie Ihr Passwort ein"
+          required
+        />
+      {:else}
+        <input
+          type="password"
+          bind:value={password}
+          class="input input-bordered w-full pr-10"
+          placeholder="Geben Sie Ihr Passwort ein"
+          required
+        />
+      {/if}
+      <button
+        type="button"
+        class="absolute inset-y-0 right-0 flex items-center pr-3"
+        on:click={togglePasswordVisibility}
+      >
+        <Fa icon={showPassword ? faEyeSlash : faEye} />
+      </button>
+    </div>
   </label>
   <div class="form-control">
     <label class="label cursor-pointer gap-2 self-start">
@@ -114,7 +142,7 @@
 </form>
 <div class="divider">ODER</div>
 <button type="button" class="btn btn-outline w-full" on:click={handleGoogleSignIn}>
-  <i class="fa-brands fa-google mr-2"></i>
+  <Fa icon={faGoogle} class="mr-2" />
   Mit Google anmelden
 </button>
 <div class="mt-4 text-center">
