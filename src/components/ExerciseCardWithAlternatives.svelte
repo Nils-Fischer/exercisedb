@@ -31,11 +31,15 @@
     <div class="grid grid-cols-auto-fit gap-4">
       <div class="badge badge-accent">{exercise.primaryExercise.category}</div>
     </div>
-    <button
-      on:click={showAlternatives}
-      class="mt-4 w-full rounded-lg bg-gradient-to-r from-blue-500 to-indigo-600 px-4 py-2 font-semibold text-white shadow-md hover:from-blue-600 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-    >
-      Zeig Alternativen
-    </button>
+    <div class="mt-4 flex justify-center">
+      <!-- svelte-ignore a11y-click-events-have-key-events -->
+      <!-- svelte-ignore a11y-no-static-element-interactions -->
+      <span
+        on:click={showAlternatives}
+        class="cursor-pointer text-sm font-medium text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        Alternativen ↓
+      </span>
+    </div>
   </div>
 </div>
