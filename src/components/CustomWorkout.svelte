@@ -61,8 +61,8 @@
   </div>
 
   {#each workoutSplit as split, splitIndex}
-    <div class="mb-12 rounded-lg border border-gray-300 bg-gray-100 p-4 shadow-lg">
-      <h2 class="mb-6 border-b-2 border-gray-300 pb-2 text-2xl font-bold">
+    <div class="mb-12 rounded-lg border border-base-300 bg-base-200 p-4 shadow-lg">
+      <h2 class="border-base- mb-6 border-b-2 pb-2 text-2xl font-bold">
         {split.name} - {split.frequency}x pro Woche
       </h2>
 
@@ -86,7 +86,10 @@
         <ol class="list-inside list-decimal pl-5">
           {#each split.exercises as exercise}
             <li class="mb-2 text-lg">
-              {exercise.primaryExercise.name}
+              {exercise.primaryExercise.name} - {exercise.sets}
+              {exercise.sets > 1 ? "Sätze" : "Satz"},
+              {exercise.repetitions.join("-")}
+              {exercise.repetitions.length > 1 ? "Wiederholungen" : "Wiederholung"}
             </li>
           {/each}
         </ol>
