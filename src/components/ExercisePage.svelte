@@ -55,7 +55,7 @@
 </script>
 
 <div class="flex flex-col items-center">
-  <div class="z-50 mb-8">
+  <div class="z-30 mb-8">
     <FilterMenu {filters} on:updateFilter={filterExercises} />
   </div>
   <div class="w-full">
