@@ -57,7 +57,7 @@
     "priority": 3
   },
   {
-    "name": "Bankdrücken Smithmachine",
+    "name": "Bankdrücken Multipresse",
     "level": "Anfänger",
     "mechanic": "Grundübung",
     "equipment": "Smith-Maschine",
@@ -114,7 +114,7 @@
     "priority": 2
   },
   {
-    "name": "Schrägbankdrücken Smithmachine",
+    "name": "Schrägbankdrücken Multipresse",
     "level": "Anfänger",
     "mechanic": "Grundübung",
     "equipment": "Smith-Maschine",
@@ -318,7 +318,7 @@
     "priority": 1
   },
   {
-    "name": "Chest Press Maschine",
+    "name": "Brustpresse Maschine",
     "level": "Anfänger",
     "mechanic": "Grundübung",
     "equipment": "Chest Press Maschine",
@@ -408,7 +408,7 @@
     "priority": 2
   },
   {
-    "name": "T-Bar Row Breit",
+    "name": "T-Bar Rudern / Breit",
     "level": "Fortgeschritten",
     "mechanic": "Grundübung",
     "equipment": "T-Bar Rudermaschine",
@@ -553,7 +553,7 @@
     "priority": 2
   },
   {
-    "name": "Hyperextensions",
+    "name": "Rückenstrecken",
     "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Hyperextensionsbank",
@@ -571,7 +571,7 @@
     "priority": 1
   },
   {
-    "name": "Deadlifts",
+    "name": "Kreuzheben",
     "level": "Experte",
     "mechanic": "Grundübung",
     "equipment": "Langhantel",
@@ -591,7 +591,7 @@
     "priority": 1
   },
   {
-    "name": "Kurzhantel-Deadlifts",
+    "name": "Kreuzheben Kurzhantel",
     "level": "Anfänger",
     "mechanic": "Grundübung",
     "equipment": "Kurzhanteln",
@@ -611,7 +611,7 @@
     "priority": 3
   },
   {
-    "name": "Romanian Deadlifts",
+    "name": "Rumänisches Kreuzheben",
     "level": "Fortgeschritten",
     "mechanic": "Grundübung",
     "equipment": "Langhantel",
@@ -630,7 +630,7 @@
     "priority": 2
   },
   {
-    "name": "Pullovers Kabelzug",
+    "name": "Überzüge Kabelzug",
     "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Kabelzugmaschine",
@@ -648,7 +648,7 @@
     "priority": 1
   },
   {
-    "name": "Pullovers Gerät",
+    "name": "Überzüge Maschine",
     "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Pullover-Maschine",
@@ -741,7 +741,7 @@
     "priority": 5
   },
   {
-    "name": "Bulgarische Splitsquats",
+    "name": "Bulgarische Kniebeugen",
     "level": "Experte",
     "mechanic": "Grundübung",
     "equipment": "Kurzhanteln",
@@ -921,7 +921,7 @@
     "priority": 2
   },
   {
-    "name": "Schulterdrücken Smithmachine",
+    "name": "Schulterdrücken Multipresse",
     "level": "Anfänger",
     "mechanic": "Grundübung",
     "equipment": "Smith-Maschine",
@@ -1227,7 +1227,7 @@
     "priority": 5
   },
   {
-    "name": "Overhead extension",
+    "name": "Überkopfstreckung",
     "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Kabelzugmaschine",
@@ -1284,7 +1284,7 @@
     "priority": 3
   },
   {
-    "name": "Overhead extensions Kurzhantel",
+    "name": "Überkopfstreckungen Kurzhantel",
     "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Kurzhantel",
@@ -1302,7 +1302,7 @@
     "priority": 4
   },
   {
-    "name": "Cable Pushdowns",
+    "name": "Kabelzug Trizepsdrücken",
     "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Kabelzugmaschine",
@@ -1321,7 +1321,7 @@
     "priority": 1
   },
   {
-    "name": "Cable Pushdowns einarmig",
+    "name": "Einarmiges Kabeldrücken",
     "level": "Fortgeschritten",
     "mechanic": "Isolation",
     "equipment": "Kabelzugmaschine",
@@ -1375,7 +1375,7 @@
     "priority": 4
   },
   {
-    "name": "Diamond Pushups",
+    "name": "Diamond Liegestütze",
     "level": "Anfänger",
     "mechanic": "Grundübung",
     "equipment": "Körpergewicht",
@@ -1465,7 +1465,7 @@
     "priority": 4
   },
   {
-    "name": "Leg raises",
+    "name": "Beinhebens",
     "level": "Fortgeschritten",
     "mechanic": "Isolation",
     "equipment": "Körpergewicht",
@@ -1483,7 +1483,7 @@
     "priority": 1
   },
   {
-    "name": "Leg raises Maschine",
+    "name": "Beinhebe Maschine",
     "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Beinhebe-Maschine",
@@ -1501,7 +1501,7 @@
     "priority": 2
   },
   {
-    "name": "Planks",
+    "name": "Plank",
     "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Körpergewicht",
@@ -1519,7 +1519,7 @@
     "priority": 1
   },
   {
-    "name": "Bicycle crunches",
+    "name": "Fahrrad crunches",
     "level": "Fortgeschritten",
     "mechanic": "Isolation",
     "equipment": "Körpergewicht",
