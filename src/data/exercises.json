@@ -282,7 +282,7 @@
     "priority": 3
   },
   {
-    "name": "Butterfly Kabelzug hoch",
+    "name": "Kabelzug fliegende (hoch)",
     "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Kabelzugmaschine",
@@ -300,7 +300,7 @@
     "priority": 1
   },
   {
-    "name": "Butterfly Kabelzug unten",
+    "name": "Kabelzug fliegende (unten)",
     "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Kabelzugmaschine",
@@ -408,7 +408,25 @@
     "priority": 2
   },
   {
-    "name": "T-Bar Rudern / Breit",
+    "name": "Latzug am Kabelzug",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Kabelzugmaschine",
+    "primaryMuscles": ["Latissimus dorsi"],
+    "secondaryMuscles": ["Bizeps", "Rhomboideus"],
+    "instructions": [
+      "Setze dich an die Kabelzugmaschine und greife die Stange mit einem breiten Griff.",
+      "Ziehe die Stange zur Brust, indem du die Ellbogen nach unten und hinten ziehst.",
+      "Lasse die Stange kontrolliert wieder in die Ausgangsposition zurückkehren."
+    ],
+    "category": "Rücken",
+    "images": [],
+    "id": "latzug_kabelzug",
+    "tag": ["rücken", "vertikal", "close"],
+    "priority": 3
+  },
+  {
+    "name": "T-Bar Rudern",
     "level": "Fortgeschritten",
     "mechanic": "Grundübung",
     "equipment": "T-Bar Rudermaschine",
@@ -417,7 +435,7 @@
     "instructions": [
       "Stehe auf die Plattform der T-Bar Rudermaschine und greife die Griffe mit einem breiten Griff.",
       "Ziehe die Griffe zu deinem unteren Brustbereich.",
-      "Lasse die Griffe langsam wiedgit er nach unten gleiten, bis deine Arme gestreckt sind."
+      "Lasse die Griffe langsam wieder nach unten gleiten, bis deine Arme gestreckt sind."
     ],
     "category": "Rücken",
     "images": [],
@@ -496,25 +514,43 @@
     "images": [],
     "id": "ruderzug_langhantel",
     "tag": ["rücken", "horizontal", "close"],
-    "priority": 3
+    "priority": 5
   },
   {
-    "name": "Ruderzug Kabelturm",
+    "name": "Ruderzug am Kabelturm",
     "level": "Fortgeschritten",
     "mechanic": "Grundübung",
     "equipment": "Kabelzugmaschine",
     "primaryMuscles": ["Latissimus dorsi", "Trapez"],
     "secondaryMuscles": ["Bizeps"],
     "instructions": [
-      "Setze dich vor den Kabelturm und greife den Griff.",
-      "Ziehe den Griff zu deinem unteren Brustbereich.",
-      "Lasse den Griff langsam wieder nach vorne gleiten, bis deine Arme gestreckt sind."
+      "Positioniere dich vor den Kabelturm und greife den Griff.",
+      "Ziehe den Griff gestreckt zu deinem unteren Brustbereich.",
+      "Lasse den Griff langsam wieder nach vorne gleiten, bis dein Arm gestreckt ist."
     ],
     "category": "Rücken",
     "images": [],
     "id": "ruderzug_kabelturm",
     "tag": ["rücken", "horizontal", "close"],
     "priority": 4
+  },
+  {
+    "name": "Ruderzug Kurzhantel",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Kurzhantel",
+    "primaryMuscles": ["Latissimus dorsi", "Rhomboideus"],
+    "secondaryMuscles": ["Bizeps", "Trapezius"],
+    "instructions": [
+      "Stelle dich in eine gebeugte Position mit einer Kurzhantel in einer Hand.",
+      "Ziehe die Kurzhantel zur Hüfte, indem du den Ellbogen nach hinten ziehst.",
+      "Lasse die Kurzhantel kontrolliert wieder nach unten sinken."
+    ],
+    "category": "Rücken",
+    "images": [],
+    "id": "ruderzug_kurzhantel",
+    "tag": ["rücken", "horizontal", "close"],
+    "priority": 3
   },
   {
     "name": "Shrugs Kurzhantel",
@@ -571,6 +607,24 @@
     "priority": 1
   },
   {
+    "name": "Rückenstrecker Gerät",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Rückenstrecker-Maschine",
+    "primaryMuscles": ["Erector spinae"],
+    "secondaryMuscles": ["Gluteus maximus"],
+    "instructions": [
+      "Setze dich in das Rückenstrecker-Gerät und lege die Füße auf die vorgesehenen Stützen.",
+      "Beuge den Oberkörper nach vorne und drücke dich dann mit den Rückenstreckern wieder auf.",
+      "Kehre kontrolliert in die Ausgangsposition zurück."
+    ],
+    "category": "Rücken",
+    "images": [],
+    "id": "rückenstrecker_gerät",
+    "tag": ["rücken", "unterer rücken"],
+    "priority": "2"
+  },
+  {
     "name": "Kreuzheben",
     "level": "Experte",
     "mechanic": "Grundübung",
@@ -616,7 +670,7 @@
     "mechanic": "Grundübung",
     "equipment": "Langhantel",
     "primaryMuscles": ["Erector spinae", "Beinbizeps"],
-    "secondaryMuscles": ["Gluteus", "Trapez"],
+    "secondaryMuscles": ["Gluteus Maximus:", "Trapez"],
     "instructions": [
       "Stelle dich mit den Füßen schulterbreit auseinander vor eine Langhantel.",
       "Beuge dich an den Hüften und greife die Langhantel mit beiden Händen.",
@@ -628,6 +682,24 @@
     "id": "romanian_deadlifts",
     "tag": ["beine", "pull"],
     "priority": 2
+  },
+  {
+    "name": "Kurzhantel Rumänisches Kreuzheben",
+    "level": "Anfänger",
+    "mechanic": "Grundübung",
+    "equipment": "Kurzhantel",
+    "primaryMuscles": ["Erector spinae", "Beinbizeps"],
+    "secondaryMuscles": ["Gluteus Maximus:", "Trapez"],
+    "instructions": [
+      "Stehe aufrecht mit einer Kurzhantel in jeder Hand.",
+      "Beuge die Hüften nach hinten und senke die Kurzhanteln entlang der Beine.",
+      "Drücke die Hüften nach vorne, um wieder in die aufrechte Position zu gelangen."
+    ],
+    "category": "Beine",
+    "images": [],
+    "id": "kurzhantel_rumänisches_kreuzheben",
+    "tag": ["beine", "pull"],
+    "priority": 3
   },
   {
     "name": "Überzüge Kabelzug",
@@ -957,6 +1029,24 @@
     "priority": 4
   },
   {
+    "name": "Frontheben",
+    "level": "Anfänger",
+    "mechanic": "Isolation",
+    "equipment": "Kurzhantel",
+    "primaryMuscles": ["Deltoideus anterior"],
+    "secondaryMuscles": ["Trapezius"],
+    "instructions": [
+      "Stelle dich aufrecht hin und halte eine Kurzhantel in jeder Hand.",
+      "Hebe die Kurzhanteln vor dir auf Schulterhöhe an, die Arme leicht gebeugt.",
+      "Lasse die Kurzhanteln kontrolliert wieder nach unten sinken."
+    ],
+    "category": "Schultern",
+    "images": [],
+    "id": "kurzhantel_frontheben",
+    "tag": ["schultern", "vorderer", "adduktion"],
+    "priority": ""
+  },
+  {
     "name": "Seitheben Gerät",
     "level": "Anfänger",
     "mechanic": "Isolation",
@@ -1036,7 +1126,7 @@
     "primaryMuscles": ["Deltoideus (hinterer Anteil)"],
     "secondaryMuscles": ["Rhomboiden", "Trapez"],
     "instructions": [
-      "Stelle dich in die Mitte einer Kabelzugmaschine und greife die Griffe.",
+      "Stelle dich in die Mitte einer Kabelzugmaschine und greife die Griffe über Kreuz.",
       "Ziehe die Griffe nach hinten, bis deine Arme parallel zum Boden sind.",
       "Lasse die Griffe langsam wieder in die Ausgangsposition zurückkehren."
     ],
@@ -1302,7 +1392,7 @@
     "priority": 4
   },
   {
-    "name": "Kabelzug Trizepsdrücken",
+    "name": "Trizepsdrücken am Kabelzug",
     "level": "Anfänger",
     "mechanic": "Isolation",
     "equipment": "Kabelzugmaschine",
@@ -1321,7 +1411,7 @@
     "priority": 1
   },
   {
-    "name": "Einarmiges Kabeldrücken",
+    "name": "Trizeps Kabeldrücken einarmig",
     "level": "Fortgeschritten",
     "mechanic": "Isolation",
     "equipment": "Kabelzugmaschine",
