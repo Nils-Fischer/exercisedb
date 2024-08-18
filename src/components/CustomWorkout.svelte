@@ -1,22 +1,30 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import type { Exercise, ExercisePlan } from "../lib/types";
+  import type { Exercise, ExercisePlan, ExerciseWithAlternatives } from "../lib/types";
   import ExerciseCard from "./ExerciseCard.svelte";
   import ExerciseCardWithAlternatives from "./ExerciseCardWithAlternatives.svelte";
   import { fade } from "svelte/transition"; // Import fade transition
 
   export let workoutSplit: ExercisePlan[];
 
-  let alternatives: Exercise[] | null = null;
+  let selectedAlternative: ExerciseWithAlternatives | null = null;
   let viewMode: "card" | "list" = "card";
 
-  function triggerAlternatives(event: CustomEvent<{ alternatives: Exercise[] }>) {
-    const exerciseAlternatives = event.detail.alternatives;
-    alternatives = alternatives === null ? exerciseAlternatives : null;
+  function triggerAlternatives(exercise: ExerciseWithAlternatives) {
+    selectedAlternative = selectedAlternative === null ? exercise : null;
   }
 
   function toggleView(mode: "card" | "list") {
     viewMode = mode;
+  }
+
+  function changePrimaryExercise(exercise: Exercise) {
+    if (selectedAlternative != null) {
+      selectedAlternative.alternatives = selectedAlternative.alternatives.filter((e) => e != exercise);
+      selectedAlternative.alternatives.push(selectedAlternative.primaryExercise);
+      selectedAlternative.primaryExercise = exercise;
+      workoutSplit = workoutSplit;
+    }
   }
 
   onMount(() => {
@@ -72,7 +80,7 @@
           <div class="card-wrapper mb-8 flex">
             {#each split.exercises as exercise}
               <div class="snap-item stack w-auto flex-none px-2">
-                <ExerciseCardWithAlternatives {exercise} on:showAlternatives={triggerAlternatives} />
+                <ExerciseCardWithAlternatives {exercise} on:showAlternatives={() => triggerAlternatives(exercise)} />
                 {#each exercise.alternatives as alternative}
                   <ExerciseCard exercise={alternative} />
                 {/each}
@@ -81,6 +89,16 @@
             <div class="snap-item w-8 flex-none"></div>
           </div>
         </div>
+        {#if selectedAlternative !== null}
+          <div class="alternatives-wrapper mt-6" transition:fade>
+            <h3 class="mb-4 border-t-2 border-gray-300 pt-2 text-xl font-bold">Alternative Übungen</h3>
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+              {#each selectedAlternative.alternatives as alternative}
+                <ExerciseCard exercise={alternative} on:click={() => changePrimaryExercise(alternative)} />
+              {/each}
+            </div>
+          </div>
+        {/if}
       {:else}
         <!-- List View -->
         <ol class="list-inside list-decimal pl-5">
@@ -93,17 +111,6 @@
             </li>
           {/each}
         </ol>
-      {/if}
-
-      {#if alternatives !== null}
-        <div class="alternatives-wrapper mt-6" transition:fade>
-          <h3 class="mb-4 border-t-2 border-gray-300 pt-2 text-xl font-bold">Alternative Übungen</h3>
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {#each alternatives as alternative}
-              <ExerciseCard exercise={alternative} />
-            {/each}
-          </div>
-        </div>
       {/if}
     </div>
   {/each}

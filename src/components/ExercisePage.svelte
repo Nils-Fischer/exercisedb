@@ -61,7 +61,7 @@
   <div class="w-full">
     <div class="grid grid-cols-auto-fill gap-4">
       {#each $filteredExercises as exercise}
-        <ExerciseCard {exercise} on:openModal={openModal} />
+        <ExerciseCard {exercise} on:click={openModal} />
       {/each}
     </div>
   </div>

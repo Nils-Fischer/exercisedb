@@ -7,7 +7,7 @@
   const dispatch = createEventDispatcher();
 
   function handleClick() {
-    dispatch("openModal", { exercise });
+    dispatch("click", { exercise });
   }
 </script>
 
