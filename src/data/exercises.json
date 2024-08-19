@@ -58,7 +58,7 @@
   },
   {
     "name": "Bankdrücken Multipresse",
-    "level": "Anfänger",
+    "level": "Fortgeschritten",
     "mechanic": "Grundübung",
     "equipment": "Smith-Maschine",
     "primaryMuscles": ["Pectoralis major"],
@@ -316,24 +316,6 @@
     "id": "butterfly_kabelzug_unten",
     "tag": ["brust", "untere", "abduktion"],
     "priority": 1
-  },
-  {
-    "name": "Brustpresse Maschine",
-    "level": "Anfänger",
-    "mechanic": "Grundübung",
-    "equipment": "Chest Press Maschine",
-    "primaryMuscles": ["Pectoralis major (untere Fasern)"],
-    "secondaryMuscles": ["Trizeps", "Deltoideus anterior"],
-    "instructions": [
-      "Setze dich auf die Chest Press Maschine und stelle den Sitz so ein, dass die Griffe auf Höhe deiner unteren Brust sind.",
-      "Greife die Griffe und drücke sie nach vorne, bis deine Arme fast gestreckt sind.",
-      "Lasse die Griffe langsam wieder in die Ausgangsposition zurückkehren."
-    ],
-    "category": "Brust",
-    "images": [],
-    "id": "chest_press_maschine",
-    "tag": ["brust", "untere", "drücken"],
-    "priority": 4
   },
   {
     "name": "Latzug Breit",

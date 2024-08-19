@@ -1,6 +1,7 @@
 <script lang="ts">
   import { writable } from "svelte/store";
   import FilterMenu from "./FilterMenu.svelte";
+  import SearchComponent from "./SearchComponent.svelte";
   import type { Exercise } from "../lib/types";
   import ExerciseModal from "./ExerciseModal.svelte";
   import { fade } from "svelte/transition";
@@ -31,6 +32,10 @@
     );
   }
 
+  function updateSearch(event: CustomEvent<{ query: string; results: Exercise[] }>) {
+    filteredExercises.set(event.detail.results);
+  }
+
   let filteredExercisesArray: Exercise[] = [];
 
   $: filteredExercises.subscribe((value) => {
@@ -54,16 +59,25 @@
   }
 </script>
 
-<div class="flex flex-col items-center">
-  <div class="z-30 mb-8">
+<!-- Container für Filter und Suchleiste -->
+<div class="mb-4 flex w-full flex-col space-y-4">
+  <!-- FilterMenu oben -->
+  <div class="flex-shrink-0">
     <FilterMenu {filters} on:updateFilter={filterExercises} />
   </div>
-  <div class="w-full">
-    <div class="grid grid-cols-auto-fill gap-4">
-      {#each $filteredExercises as exercise}
-        <ExerciseCard {exercise} on:click={openModal} />
-      {/each}
-    </div>
+
+  <!-- Suchkomponente unten -->
+  <div class="flex-grow">
+    <SearchComponent {exercises} on:search={updateSearch} />
+  </div>
+</div>
+
+<!-- Exercise Cards -->
+<div class="w-full">
+  <div class="grid grid-cols-auto-fill gap-4">
+    {#each filteredExercisesArray as exercise}
+      <ExerciseCard {exercise} on:click={openModal} />
+    {/each}
   </div>
 </div>
 

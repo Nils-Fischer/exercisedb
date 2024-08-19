@@ -32,7 +32,7 @@
   }
 </script>
 
-<div class="menu sticky top-28 rounded-box bg-neutral p-4 shadow-xl">
+<div class="menu sticky top-28 z-10 rounded-box bg-neutral p-4 shadow-xl">
   <h2 class="menu-title flex justify-between text-neutral-content">
     <p>Filter</p>
     <button title="Reset Filters" on:click={resetFilter} class="material-symbols-outlined btn btn-primary btn-sm">
@@ -43,7 +43,7 @@
     {#each filters as [category, values]}
       <li class="dropdown dropdown-bottom">
         <div tabindex="0" role="button" class="btn m-1">{capitalize(category.toString())}</div>
-        <ul class="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow">
+        <ul class="menu dropdown-content z-[50] w-52 rounded-box bg-base-100 p-2 shadow">
           {#each values as filter}
             <li>
               <button
