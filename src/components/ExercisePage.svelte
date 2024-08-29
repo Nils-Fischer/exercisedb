@@ -12,6 +12,7 @@
 
   let selectedExercise: Exercise | null = null;
   let showModal = false;
+  let searchQuery = "";
 
   const filteredExercises = writable<Exercise[]>(exercises);
 
@@ -33,6 +34,7 @@
   }
 
   function updateSearch(event: CustomEvent<{ query: string; results: Exercise[] }>) {
+    searchQuery = event.detail.query;
     filteredExercises.set(event.detail.results);
   }
 
@@ -63,17 +65,17 @@
 <div class="mb-4 flex w-full flex-col space-y-4">
   <!-- FilterMenu oben -->
   <div class="flex-shrink-0">
-    <FilterMenu {filters} on:updateFilter={filterExercises} />
-  </div>
-
-  <!-- Suchkomponente unten -->
-  <div class="flex-grow">
-    <SearchComponent {exercises} on:search={updateSearch} />
+    <FilterMenu {filters} {exercises} on:updateFilter={filterExercises} on:search={updateSearch} />
   </div>
 </div>
 
 <!-- Exercise Cards -->
 <div class="w-full">
+  {#if searchQuery !== "" && filteredExercisesArray.length === 0}
+    <div class="mt-2 text-center text-gray-500">
+      <p>Keine Übungen gefunden, die mit Ihrer Suche übereinstimmen.</p>
+    </div>
+  {/if}
   <div class="grid grid-cols-auto-fill gap-4">
     {#each filteredExercisesArray as exercise}
       <ExerciseCard {exercise} on:click={openModal} />
