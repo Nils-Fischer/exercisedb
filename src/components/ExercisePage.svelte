@@ -1,48 +1,33 @@
 <script lang="ts">
-  import { writable } from "svelte/store";
   import FilterMenu from "./FilterMenu.svelte";
-  import SearchComponent from "./SearchComponent.svelte";
   import type { Exercise } from "../lib/types";
   import ExerciseModal from "./ExerciseModal.svelte";
   import { fade } from "svelte/transition";
   import ExerciseCard from "./ExerciseCard.svelte";
+  import { onMount } from "svelte";
 
-  export let exercises: Exercise[];
-  export let filters: Map<keyof Exercise, Set<string>>;
+  export let exercises: Exercise[] = [];
+  export let filters: Map<keyof Exercise, Set<string>> = new Map();
 
   let selectedExercise: Exercise | null = null;
   let showModal = false;
-  let searchQuery = "";
+  let filteredExercises: Exercise[] = [];
+  let isLoaded = false;
 
-  const filteredExercises = writable<Exercise[]>(exercises);
-
-  function filterExercises(event: CustomEvent<{ value: Map<keyof Exercise, Set<string>> }>) {
-    const filterMap = event.detail.value;
-    filteredExercises.set(
-      exercises.filter((exercise) => {
-        for (const [category, values] of filterMap) {
-          if (values.size === 0) continue;
-          const result = exercise[category];
-          const result_arr = Array.isArray(result) ? result : [result];
-          if (!result_arr.some((item) => values.has(item.toString()))) {
-            return false;
-          }
-        }
-        return true;
-      })
-    );
-  }
-
-  function updateSearch(event: CustomEvent<{ query: string; results: Exercise[] }>) {
-    searchQuery = event.detail.query;
-    filteredExercises.set(event.detail.results);
-  }
-
-  let filteredExercisesArray: Exercise[] = [];
-
-  $: filteredExercises.subscribe((value) => {
-    filteredExercisesArray = value;
+  onMount(() => {
+    filteredExercises = [...exercises];
+    isLoaded = true;
   });
+
+  function updateFilteredExercises(event: CustomEvent<{ results?: Exercise[]; value?: Exercise[] }>) {
+    if (event.detail.results) {
+      filteredExercises = event.detail.results;
+    } else if (event.detail.value) {
+      filteredExercises = event.detail.value;
+    } else {
+      filteredExercises = [...exercises];
+    }
+  }
 
   function openModal(event: { detail: { exercise: Exercise | null } }) {
     selectedExercise = event.detail.exercise;
@@ -61,26 +46,31 @@
   }
 </script>
 
-<!-- Container für Filter und Suchleiste -->
 <div class="mb-4 flex w-full flex-col space-y-4">
-  <!-- FilterMenu oben -->
   <div class="flex-shrink-0">
-    <FilterMenu {filters} {exercises} on:updateFilter={filterExercises} on:search={updateSearch} />
+    <FilterMenu {filters} {exercises} on:updateFilter={updateFilteredExercises} />
   </div>
 </div>
 
 <!-- Exercise Cards -->
 <div class="w-full">
-  {#if searchQuery !== "" && filteredExercisesArray.length === 0}
-    <div class="mt-2 text-center text-gray-500">
-      <p>Keine Übungen gefunden, die mit Ihrer Suche übereinstimmen.</p>
+  {#if isLoaded}
+    {#if filteredExercises.length === 0}
+      <div class="alert alert-warning mt-2">
+        <span>Keine Übungen gefunden, die mit Ihrer Suche übereinstimmen.</span>
+      </div>
+    {:else}
+      <div class="grid grid-cols-auto-fill gap-4">
+        {#each filteredExercises as exercise}
+          <ExerciseCard {exercise} on:click={openModal} />
+        {/each}
+      </div>
+    {/if}
+  {:else}
+    <div class="flex justify-center">
+      <span class="loading loading-spinner loading-lg"></span>
     </div>
   {/if}
-  <div class="grid grid-cols-auto-fill gap-4">
-    {#each filteredExercisesArray as exercise}
-      <ExerciseCard {exercise} on:click={openModal} />
-    {/each}
-  </div>
 </div>
 
 {#if showModal}

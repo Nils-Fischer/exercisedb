@@ -1,28 +1,24 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher, onMount } from "svelte";
   import type { Exercise } from "../lib/types";
   import { capitalize } from "../lib/utils";
-  import { writable } from "svelte/store";
 
   export let exercises: Exercise[] = [];
+  export let filters: Map<keyof Exercise, Set<string>>;
+
+  const dispatch = createEventDispatcher();
   let searchQuery = "";
-  const filteredExercises = writable<Exercise[]>(exercises);
+  let filteredExercises: Exercise[] = exercises;
+  let activeFilters = new Map<keyof Exercise, Set<string>>();
 
-  function searchExercises() {
-    const filtered = exercises.filter((exercise) => exercise.name.toLowerCase().includes(searchQuery.toLowerCase()));
-    filteredExercises.set(filtered);
-
-    // Emit the filtered exercises
-    dispatch("search", { query: searchQuery, results: filtered });
-  }
-
-  // Update search results whenever searchQuery changes
   $: searchQuery, searchExercises();
 
-  $: filteredExercisesArray = $filteredExercises;
-  export let filters: Map<keyof Exercise, Set<string>>;
-  const dispatch = createEventDispatcher();
-  let activeFilters = new Map<keyof Exercise, Set<string>>();
+  function searchExercises() {
+    const searchResults = filteredExercises.filter((exercise) =>
+      exercise.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    dispatch("updateFilter", { results: searchResults });
+  }
 
   function updateActiveFilter(category: keyof Exercise, value: string) {
     const updatedFilters = new Map(activeFilters);
@@ -34,18 +30,30 @@
     }
     if (values.size == 0) updatedFilters.delete(category);
     else updatedFilters.set(category, values);
-
     activeFilters = updatedFilters;
-  }
-
-  function toggleFilter(category: keyof Exercise, value: string) {
-    updateActiveFilter(category, value);
-    dispatch("updateFilter", { value: activeFilters });
+    filterExercises();
   }
 
   function resetFilter() {
     activeFilters = new Map<keyof Exercise, Set<string>>();
-    dispatch("updateFilter", { value: activeFilters });
+    searchQuery = "";
+    filteredExercises = exercises;
+    dispatch("updateFilter", { results: filteredExercises });
+  }
+
+  function filterExercises() {
+    filteredExercises = exercises.filter((exercise) => {
+      for (const [category, values] of activeFilters) {
+        if (values.size === 0) continue;
+        const result = exercise[category];
+        const result_arr = Array.isArray(result) ? result : [result];
+        if (!result_arr.some((item) => values.has(item.toString()))) {
+          return false;
+        }
+      }
+      return true;
+    });
+    searchExercises();
   }
 </script>
 
@@ -66,7 +74,7 @@
               <li>
                 <button
                   type="button"
-                  on:click={() => toggleFilter(category, filter)}
+                  on:click={() => updateActiveFilter(category, filter)}
                   class="btn btn-ghost btn-sm justify-start rounded-none [--btn-focus-scale:1] {activeFilters
                     .get(category)
                     ?.has(filter)
