@@ -11,28 +11,28 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.2",
-    "@astrojs/svelte": "^5.4.0",
-    "@astrojs/tailwind": "^5.1.0",
-    "@fortawesome/fontawesome-svg-core": "^6.6.0",
-    "@fortawesome/free-brands-svg-icons": "^6.6.0",
-    "@fortawesome/free-solid-svg-icons": "^6.6.0",
-    "@fortawesome/svelte-fontawesome": "^0.2.2",
-    "@supabase/supabase-js": "^2.45.1",
-    "astro": "^4.9.2",
-    "svelte": "^4.2.17",
-    "svelte-fa": "^4.0.2",
-    "tailwind-merge": "^2.3.0",
-    "tailwindcss": "^3.4.3",
-    "typescript": "^5.5.4"
+    "@astrojs/check": "0.9.3",
+    "@astrojs/svelte": "5.7.0",
+    "@astrojs/tailwind": "5.1.0",
+    "@fortawesome/fontawesome-svg-core": "6.6.0",
+    "@fortawesome/free-brands-svg-icons": "6.6.0",
+    "@fortawesome/free-solid-svg-icons": "6.6.0",
+    "@fortawesome/svelte-fontawesome": "0.2.2",
+    "@supabase/supabase-js": "2.45.2",
+    "astro": "4.15.1",
+    "svelte": "4.2.19",
+    "svelte-fa": "4.0.2",
+    "tailwind-merge": "2.5.2",
+    "tailwindcss": "3.4.10",
+    "typescript": "5.5.4"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.13",
-    "@types/node": "22.2.0",
-    "daisyui": "^4.11.1",
-    "prettier": "^3.3.1",
-    "prettier-plugin-astro": "^0.14.0",
-    "prettier-plugin-svelte": "^3.2.4",
+    "@tailwindcss/typography": "0.5.15",
+    "@types/node": "22.5.1",
+    "daisyui": "4.12.10",
+    "prettier": "3.3.3",
+    "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-svelte": "3.2.6",
     "prettier-plugin-tailwindcss": "0.6.6"
   }
 }
