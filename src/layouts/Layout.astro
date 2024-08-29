@@ -1,18 +1,40 @@
 ---
 import Navbar from "../components/Navbar.svelte";
-
 const { title } = Astro.props;
 const { pathname } = Astro.url;
 ---
 
-<!doctype html>
-<html lang="de" data-theme="emerald">
+<html lang="de">
   <head>
+    <script is:inline define:vars={{ pathname }}>
+      function getTheme() {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+          return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          return "dim";
+        }
+        return "emerald";
+      }
+
+      function setTheme(theme) {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+      }
+
+      const theme = getTheme();
+      setTheme(theme);
+
+      document.addEventListener("astro:after-swap", () => setTheme(getTheme()));
+
+      // Make theme available to Svelte components
+      window.theme = theme;
+      window.setTheme = setTheme;
+    </script>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-
     <title>{title}</title>
   </head>
   <body>
