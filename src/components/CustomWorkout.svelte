@@ -115,6 +115,9 @@
     </div>
   {/each}
 </div>
+<div class=" bottom-0 left-0 right-0 z-30 flex justify-center p-4">
+  <button class="btn btn-success">Jetzt Speichern</button>
+</div>
 
 <style>
   .view-toggle-link {
