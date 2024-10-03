@@ -31,15 +31,17 @@
     <div class="grid grid-cols-auto-fit gap-4">
       <div class="badge badge-accent">{exercise.primaryExercise.category}</div>
     </div>
-    <div class="mt-4 flex justify-center">
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
-      <!-- svelte-ignore a11y-no-static-element-interactions -->
-      <span
-        on:click={showAlternatives}
-        class="cursor-pointer text-sm font-medium text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500"
-      >
-        Alternativen ↓
-      </span>
+    <div class="mt-4 flex h-6 justify-center">
+      {#if exercise.alternatives.length !== 0}
+        <button
+          on:click={showAlternatives}
+          class="btn btn-ghost btn-sm p-0 text-sm font-medium text-secondary hover:underline"
+        >
+          Alternativen ↓
+        </button>
+      {:else}
+        <span class="invisible" aria-hidden="true">Placeholder</span>
+      {/if}
     </div>
   </div>
 </div>
