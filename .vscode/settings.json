@@ -7,5 +7,5 @@
   "prettier.requireConfig": true,
   "editor.tabSize": 2,
   "editor.detectIndentation": false,
-  "prettier.documentSelectors": ["**/*.svelte", "**/*.json, **/*.js, **/*.ts", "**/*.css"]
+  "prettier.documentSelectors": ["**/*.svelte", "**/*.json", "**/*.js", "**/*.ts", "**/*.css", "**/*.svg"]
 }

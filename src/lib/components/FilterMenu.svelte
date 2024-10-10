@@ -1,60 +1,98 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
+  import { goto } from "$app/navigation";
+  import { page } from "$app/stores";
+  import SearchIcon from "$lib/assets/searchIcon.svelte";
   import type { Exercise } from "$lib/types";
   import { capitalize } from "$lib/utils";
-  export let exercises: Exercise[] = [];
+  import { onMount } from "svelte";
+
   export let filters: Map<keyof Exercise, Set<string>>;
 
-  const dispatch = createEventDispatcher();
   let searchQuery = "";
-  let filteredExercises: Exercise[] = exercises;
   let activeFilters = new Map<keyof Exercise, Set<string>>();
+  let openDropdown: keyof Exercise | null = null;
 
-  $: searchQuery, searchExercises();
-  $: isResetDisabled = activeFilters.size === 0 && searchQuery === "";
-
-  function searchExercises() {
-    const searchResults = filteredExercises.filter((exercise) =>
-      exercise.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    dispatch("updateFilter", { results: searchResults });
+  $: {
+    activeFilters = new Map();
+    for (const [category, values] of filters) {
+      const paramValues = $page.url.searchParams.getAll(category.toString());
+      if (paramValues.length > 0) {
+        activeFilters.set(category, new Set(paramValues));
+      }
+    }
+    searchQuery = $page.url.searchParams.get("search") || "";
+    const openParam = $page.url.searchParams.get("open");
+    openDropdown = openParam as keyof Exercise | null;
   }
 
+  $: isResetDisabled = activeFilters.size === 0 && searchQuery === "";
+
   function updateActiveFilter(category: keyof Exercise, value: string) {
-    const updatedFilters = new Map(activeFilters);
-    const values = updatedFilters.get(category) || new Set();
-    if (values.has(value)) {
-      values.delete(value);
+    const url = new URL($page.url);
+    const currentValues = url.searchParams.getAll(category.toString());
+
+    if (currentValues.includes(value)) {
+      url.searchParams.delete(category.toString(), value);
     } else {
-      values.add(value);
+      url.searchParams.append(category.toString(), value);
     }
-    if (values.size == 0) updatedFilters.delete(category);
-    else updatedFilters.set(category, values);
-    activeFilters = updatedFilters;
-    filterExercises();
+
+    // Keep the current dropdown open
+    url.searchParams.set("open", category.toString());
+
+    goto(url.toString(), { replaceState: true });
   }
 
   function resetFilter() {
-    activeFilters = new Map<keyof Exercise, Set<string>>();
+    const url = new URL($page.url);
+    for (const [category] of filters) {
+      url.searchParams.delete(category.toString());
+    }
+    url.searchParams.delete("search");
+    url.searchParams.delete("open");
     searchQuery = "";
-    filteredExercises = exercises;
-    dispatch("updateFilter", { results: filteredExercises });
+    openDropdown = null;
+    goto(url.toString());
   }
 
-  function filterExercises() {
-    filteredExercises = exercises.filter((exercise) => {
-      for (const [category, values] of activeFilters) {
-        if (values.size === 0) continue;
-        const result = exercise[category];
-        const result_arr = Array.isArray(result) ? result : [result];
-        if (!result_arr.some((item) => values.has(item.toString()))) {
-          return false;
-        }
-      }
-      return true;
-    });
-    searchExercises();
+  function handleSearch() {
+    const url = new URL($page.url);
+    if (searchQuery) {
+      url.searchParams.set("search", searchQuery);
+    } else {
+      url.searchParams.delete("search");
+    }
+    goto(url.toString());
   }
+
+  function toggleDropdown(category: keyof Exercise) {
+    const url = new URL($page.url);
+    if (openDropdown === category) {
+      url.searchParams.delete("open");
+      openDropdown = null;
+    } else {
+      url.searchParams.set("open", category.toString());
+      openDropdown = category;
+    }
+    goto(url.toString(), { replaceState: true });
+  }
+
+  // Close dropdown when clicking outside
+  let dropdownContainer: HTMLDivElement;
+  function handleClickOutside(event: MouseEvent) {
+    if (dropdownContainer && !dropdownContainer.contains(event.target as Node)) {
+      const url = new URL($page.url);
+      url.searchParams.delete("open");
+      goto(url.toString(), { replaceState: true });
+    }
+  }
+
+  onMount(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  });
 </script>
 
 <div class="menu sticky top-28 z-10 rounded-box bg-neutral p-4 shadow-xl">
@@ -65,41 +103,48 @@
     <div class="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
       <div class="flex flex-wrap gap-2 sm:flex-grow">
         {#each filters as [category, values]}
-          <div class="dropdown dropdown-bottom">
-            <div tabindex="0" role="button" class="btn btn-sm m-1">
+          <div
+            class="dropdown dropdown-bottom {openDropdown === category ? 'dropdown-open' : ''}"
+            bind:this={dropdownContainer}
+          >
+            <button tabindex="0" class="btn btn-sm m-1" on:click|stopPropagation={() => toggleDropdown(category)}>
               {capitalize(category.toString())}
-            </div>
-            <ul class="menu dropdown-content z-[50] w-52 rounded-box bg-base-100 p-2 shadow">
-              {#each values as filter}
-                <li>
-                  <button
-                    type="button"
-                    on:click={() => updateActiveFilter(category, filter)}
-                    class="btn btn-ghost btn-sm justify-start rounded-none [--btn-focus-scale:1] {activeFilters
-                      .get(category)
-                      ?.has(filter)
-                      ? 'btn-active'
-                      : ''}"
-                  >
-                    {capitalize(filter)}
-                  </button>
-                </li>
-              {/each}
-            </ul>
+            </button>
+            {#if openDropdown === category}
+              <ul class="menu dropdown-content z-[50] w-52 rounded-box bg-base-100 p-2 shadow">
+                {#each values as filter}
+                  <li>
+                    <button
+                      type="button"
+                      on:click|stopPropagation={() => updateActiveFilter(category, filter)}
+                      class="btn btn-ghost btn-sm justify-start rounded-none [--btn-focus-scale:1] {activeFilters
+                        .get(category)
+                        ?.has(filter)
+                        ? 'btn-active'
+                        : ''}"
+                    >
+                      {capitalize(filter)}
+                    </button>
+                  </li>
+                {/each}
+              </ul>
+            {/if}
           </div>
         {/each}
       </div>
       <div class="flex w-full items-center gap-2 sm:w-auto sm:flex-grow">
         <div class="flex-grow">
           <label class="input input-bordered flex w-full items-center gap-2">
-            <input type="text" class="grow" placeholder="Search" bind:value={searchQuery} />
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="h-4 w-4 opacity-70">
-              <path
-                fill-rule="evenodd"
-                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                clip-rule="evenodd"
-              />
-            </svg>
+            <input
+              type="text"
+              class="grow"
+              placeholder="Search"
+              bind:value={searchQuery}
+              on:keyup={(e) => e.key === "Enter" && handleSearch()}
+            />
+            <button type="button" class="btn btn-ghost btn-sm p-0" on:click={handleSearch} aria-label="Search">
+              <SearchIcon />
+            </button>
           </label>
         </div>
         <button
@@ -114,11 +159,3 @@
     </div>
   </div>
 </div>
-
-<style>
-  @media (max-width: 639px) {
-    .menu > div > div {
-      flex-direction: column;
-    }
-  }
-</style>
