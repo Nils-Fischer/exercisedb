@@ -80,7 +80,7 @@
   // Close dropdown when clicking outside
   let dropdownContainer: HTMLDivElement;
   function handleClickOutside(event: MouseEvent) {
-    if (dropdownContainer && !dropdownContainer.contains(event.target as Node)) {
+    if (openDropdown !== null && dropdownContainer && !dropdownContainer.contains(event.target as Node)) {
       const url = new URL($page.url);
       url.searchParams.delete("open");
       goto(url.toString(), { replaceState: true });
@@ -142,8 +142,15 @@
               bind:value={searchQuery}
               on:keyup={(e) => e.key === "Enter" && handleSearch()}
             />
-            <button type="button" class="btn btn-ghost btn-sm p-0" on:click={handleSearch} aria-label="Search">
-              <SearchIcon />
+            <button
+              type="button"
+              class="group btn btn-ghost btn-sm p-0 hover:bg-transparent"
+              on:click={handleSearch}
+              aria-label="Search"
+            >
+              <div class="transition-transform duration-200 ease-in-out group-hover:scale-125">
+                <SearchIcon />
+              </div>
             </button>
           </label>
         </div>
