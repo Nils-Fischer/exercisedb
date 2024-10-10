@@ -160,7 +160,7 @@
           class="material-symbols-outlined btn btn-primary btn-sm {isResetDisabled ? 'btn-disabled' : 'btn-error'}"
           disabled={isResetDisabled}
         >
-          close
+          reset
         </button>
       </div>
     </div>
