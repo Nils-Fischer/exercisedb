@@ -1,7 +1,7 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import { page } from "$app/stores";
-  import SearchIcon from "$lib/assets/searchIcon.svelte";
+  import SearchIcon from "$lib/assets/search_icon.svelte";
   import type { Exercise } from "$lib/types";
   import { capitalize } from "$lib/utils";
   import { onMount } from "svelte";
