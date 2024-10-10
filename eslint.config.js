@@ -27,6 +27,13 @@ export default tseslint.config(
     },
   },
   {
+    rules: {
+      "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+      semi: ["error", "always"],
+      quotes: ["error", "double"],
+    },
+  },
+  {
     ignores: ["build/", ".svelte-kit/", "dist/"],
   }
 );
