@@ -60,10 +60,18 @@
 
   <!-- View Toggle Links -->
   <div class="mb-6 flex justify-center">
-    <a href="#" class={`view-toggle-link ${viewMode === "card" ? "active" : ""}`} on:click={() => toggleView("card")}>
+    <a
+      href="#top"
+      class={`view-toggle-link ${viewMode === "card" ? "active" : ""}`}
+      on:click={() => toggleView("card")}
+    >
       Plan
     </a>
-    <a href="#" class={`view-toggle-link ${viewMode === "list" ? "active" : ""}`} on:click={() => toggleView("list")}>
+    <a
+      href="#top"
+      class={`view-toggle-link ${viewMode === "list" ? "active" : ""}`}
+      on:click={() => toggleView("list")}
+    >
       Liste
     </a>
   </div>

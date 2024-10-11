@@ -4,8 +4,22 @@
   import SunIcon from "$lib/assets/sun_icon.svelte";
   import MoonIcon from "$lib/assets/moon_icon.svelte";
   import logo from "$lib/assets/logo.svg";
+  import { page } from "$app/stores";
+  import { invalidate } from "$app/navigation";
+  import { onMount } from "svelte";
 
-  export let currentPath: string;
+  export let data;
+  $: ({ session, supabase, profile } = data);
+
+  onMount(() => {
+    const { data } = supabase.auth.onAuthStateChange((_, newSession) => {
+      if (newSession?.expires_at !== session?.expires_at) {
+        invalidate("supabase:auth");
+      }
+    });
+
+    return () => data.subscription.unsubscribe();
+  });
 
   let modalState: AuthModal = null;
 
@@ -14,7 +28,7 @@
   }
 
   function isActive(path: string) {
-    return currentPath === path ? "font-bold border-b-2 border-neutral" : "";
+    return $page.url.pathname === path ? "font-bold border-b-2 border-neutral" : "";
   }
 </script>
 
@@ -41,7 +55,12 @@
         <SunIcon />
         <MoonIcon />
       </label>
-      <button on:click={toggleModal} class="btn btn-secondary btn-sm rounded-md">Anmelden</button>
+
+      {#if profile}
+        <a href="/auth" role="button" class="btn btn-secondary btn-sm rounded-md">{profile.firstName}</a>
+      {:else}
+        <a href="/auth" role="button" class="btn btn-secondary btn-sm rounded-md">Anmelden</a>
+      {/if}
     </div>
   </div>
 
