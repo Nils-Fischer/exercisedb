@@ -1,16 +1,9 @@
 <script lang="ts">
-  import { createEventDispatcher } from "svelte";
+  import { enhance } from "$app/forms";
+  import { applyAction } from "$app/forms";
   import { fade } from "svelte/transition";
-  import { supabase } from "$db/supabase";
-
-  // Import Font Awesome
-  import { library } from "@fortawesome/fontawesome-svg-core";
-  import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-  import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-  import Fa from "svelte-fa";
-
-  // Add icons to the library
-  library.add(faGoogle, faEye, faEyeSlash);
+  import type { SubmitFunction } from "@sveltejs/kit";
+  import { createEventDispatcher } from "svelte";
 
   let email = "";
   let password = "";
@@ -22,12 +15,13 @@
   let errorMessage = "";
   let showPassword = false;
   let showConfirmPassword = false;
+  let isLoading = false;
 
   const dispatch = createEventDispatcher();
 
   function validateEmail(email: string) {
     const re = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    return re.test(email.toLowerCase()) && email.includes("@") && email.includes(".");
+    return re.test(email.toLowerCase());
   }
 
   function handleEmailInput() {
@@ -47,43 +41,6 @@
     showConfirmPassword = !showConfirmPassword;
   }
 
-  async function handleSubmit(event: Event) {
-    event.preventDefault();
-    if (!isEmailValid || !passwordsMatch || !acceptTerms) {
-      return;
-    }
-
-    try {
-      const { data, error } = await supabase.auth.signUp({
-        email: email,
-        password: password,
-      });
-
-      if (error) throw error;
-
-      console.log("Erfolgreich registriert:", data);
-      closeModal();
-      // You might want to show a success message or redirect the user
-    } catch (error) {
-      errorMessage = "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.";
-    }
-  }
-
-  async function handleGoogleSignUp() {
-    try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-      });
-
-      if (error) throw error;
-
-      console.log("Google Registrierung initiiert");
-    } catch (error) {
-      console.error("Fehler bei der Google-Registrierung:", error);
-      errorMessage = "Google-Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.";
-    }
-  }
-
   function closeModal() {
     dispatch("close");
   }
@@ -92,25 +49,51 @@
     dispatch("switchToSignIn");
   }
 
-  function handleOverlayKeydown(event: KeyboardEvent) {
-    if (event.key === "Escape") {
-      closeModal();
-    }
-  }
-
   function openTermsAndConditions() {
-    // Implement opening terms and conditions
+    // TODO: Implement opening terms and conditions
     console.log("Allgemeine Geschäftsbedingungen öffnen");
   }
+
+  const enhanceRegister: SubmitFunction = () => {
+    isLoading = true;
+    errorMessage = "";
+    return async ({ result, update }) => {
+      isLoading = false;
+      await applyAction(result);
+      if (result.type === "failure") {
+        errorMessage =
+          (result.data?.message as string) || "Registrierung fehlgeschlagen. Bitte versuchen Sie es erneut.";
+        update();
+      } else if (result.type === "success") {
+        closeModal();
+      }
+    };
+  };
 </script>
 
-<h1 class="mb-2 self-center text-3xl font-bold">Konto erstellen</h1>
-<form on:submit={handleSubmit} class="flex flex-col gap-4">
-  <label class="form-control">
+<h1 class="mb-4 text-center text-3xl font-bold">Konto erstellen</h1>
+
+{#if errorMessage}
+  <div class="alert alert-error" transition:fade={{ duration: 200 }}>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+    <span>{errorMessage}</span>
+  </div>
+{/if}
+
+<form method="POST" action="/auth?/signup" use:enhance={enhanceRegister} class="space-y-4">
+  <label class="form-control w-full">
     <div class="label">
       <span class="label-text">E-Mail</span>
     </div>
     <input
+      name="email"
       type="email"
       bind:value={email}
       on:input={handleEmailInput}
@@ -119,44 +102,33 @@
       required
     />
     {#if !isEmailValid && email}
-      <span class="label-text-alt mt-1 text-error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span>
+      <div class="label">
+        <span class="label-text-alt text-error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span>
+      </div>
     {/if}
   </label>
-  <label class="form-control">
+
+  <label class="form-control w-full">
     <div class="label">
       <span class="label-text">Passwort</span>
     </div>
     <div class="relative">
-      {#if showPassword}
-        <input
-          type="text"
-          bind:value={password}
-          on:input={handlePasswordInput}
-          class="input input-bordered w-full pr-10"
-          placeholder="Geben Sie Ihr Passwort ein"
-          required
-        />
-      {:else}
-        <input
-          type="password"
-          bind:value={password}
-          on:input={handlePasswordInput}
-          class="input input-bordered w-full pr-10"
-          placeholder="Geben Sie Ihr Passwort ein"
-          required
-        />
-      {/if}
-      <button
-        type="button"
-        class="absolute inset-y-0 right-0 flex items-center pr-3"
-        on:click={togglePasswordVisibility}
-      >
-        <Fa icon={showPassword ? faEyeSlash : faEye} />
+      <input
+        name="password"
+        type={showPassword ? "text" : "password"}
+        bind:value={password}
+        on:input={handlePasswordInput}
+        class="input input-bordered w-full pr-10"
+        placeholder="Geben Sie Ihr Passwort ein"
+        required
+      />
+      <button type="button" class="btn btn-ghost btn-sm absolute right-0 top-0" on:click={togglePasswordVisibility}>
+        {showPassword ? "👁️" : "👁️‍🗨️"}
       </button>
     </div>
   </label>
   {#if !isPasswordValid && password}
-    <div class="label-text-alt mt-2 text-error">
+    <div class="mt-1 text-sm text-error">
       <p>Das Passwort erfüllt nicht die Sicherheitsanforderungen. Bitte beachten Sie:</p>
       <ul class="mt-1 list-disc pl-5">
         <li>Mindestens 8 Zeichen lang</li>
@@ -166,67 +138,85 @@
     </div>
   {/if}
 
-  <label class="form-control">
+  <label class="form-control w-full">
     <div class="label">
       <span class="label-text">Passwort bestätigen</span>
     </div>
     <div class="relative">
-      {#if showConfirmPassword}
-        <input
-          type="text"
-          bind:value={confirmPassword}
-          on:input={handlePasswordInput}
-          class="input input-bordered w-full pr-10 {!passwordsMatch && confirmPassword ? 'input-error' : ''}"
-          placeholder="Bestätigen Sie Ihr Passwort"
-          required
-        />
-      {:else}
-        <input
-          type="password"
-          bind:value={confirmPassword}
-          on:input={handlePasswordInput}
-          class="input input-bordered w-full pr-10 {!passwordsMatch && confirmPassword ? 'input-error' : ''}"
-          placeholder="Bestätigen Sie Ihr Passwort"
-          required
-        />
-      {/if}
+      <input
+        name="confirmPassword"
+        type={showConfirmPassword ? "text" : "password"}
+        bind:value={confirmPassword}
+        on:input={handlePasswordInput}
+        class="input input-bordered w-full pr-10 {!passwordsMatch && confirmPassword ? 'input-error' : ''}"
+        placeholder="Bestätigen Sie Ihr Passwort"
+        required
+      />
       <button
         type="button"
-        class="absolute inset-y-0 right-0 flex items-center pr-3"
+        class="btn btn-ghost btn-sm absolute right-0 top-0"
         on:click={toggleConfirmPasswordVisibility}
       >
-        <Fa icon={showConfirmPassword ? faEyeSlash : faEye} />
+        {showConfirmPassword ? "👁️" : "👁️‍🗨️"}
       </button>
     </div>
     {#if !passwordsMatch && confirmPassword}
-      <span class="label-text-alt mt-1 text-error">Die Passwörter stimmen nicht überein.</span>
+      <div class="label">
+        <span class="label-text-alt text-error">Die Passwörter stimmen nicht überein.</span>
+      </div>
     {/if}
   </label>
-  <div class="form-control mt-2">
-    <label class="label cursor-pointer gap-2 self-start">
-      <input type="checkbox" class="checkbox" bind:checked={acceptTerms} required />
-      <span class="label-text">
+
+  <div class="form-control">
+    <label class="label cursor-pointer">
+      <input name="acceptTerms" type="checkbox" class="checkbox" bind:checked={acceptTerms} required />
+      <span class="label-text ml-2">
         Ich akzeptiere die
-        <button type="button" on:click={openTermsAndConditions} class="link link-secondary"
-          >Allgemeinen Geschäftsbedingungen</button
-        >
+        <button type="button" on:click={openTermsAndConditions} class="link link-secondary">
+          Allgemeinen Geschäftsbedingungen
+        </button>
       </span>
     </label>
   </div>
+
   <button
     type="submit"
-    class="btn btn-primary mt-2 w-full"
-    disabled={!isPasswordValid || !isEmailValid || !passwordsMatch || !acceptTerms}>Konto erstellen</button
+    class="btn btn-primary w-full"
+    disabled={!isPasswordValid || !isEmailValid || !passwordsMatch || !acceptTerms || isLoading}
   >
-  {#if errorMessage}
-    <span class="text-sm text-error">{errorMessage}</span>
-  {/if}
+    {#if isLoading}
+      <span class="loading loading-spinner"></span>
+    {:else}
+      Konto erstellen
+    {/if}
+  </button>
 </form>
-<div class="divider my-2">ODER</div>
-<button type="button" class="btn btn-outline w-full" on:click={handleGoogleSignUp}>
-  <Fa icon={faGoogle} class="mr-2" />
+
+<div class="divider my-4">ODER</div>
+
+<button type="button" class="btn btn-outline w-full" on:click={() => dispatch("googleSignUp")}>
+  <svg viewBox="0 0 24 24" class="mr-2 h-5 w-5">
+    <path
+      fill="#4285F4"
+      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+    />
+    <path
+      fill="#34A853"
+      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+    />
+    <path
+      fill="#FBBC05"
+      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+    />
+    <path
+      fill="#EA4335"
+      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+    />
+    <path fill="none" d="M1 1h22v22H1z" />
+  </svg>
   Mit Google registrieren
 </button>
+
 <div class="mt-4 text-center">
   <span>Bereits ein Konto?</span>
   <button type="button" on:click={switchToSignIn} class="link link-primary ml-1">Anmelden</button>

@@ -5,8 +5,9 @@
   import MoonIcon from "$lib/assets/moon_icon.svelte";
   import logo from "$lib/assets/logo.svg";
   import { page } from "$app/stores";
-  import { invalidate } from "$app/navigation";
+  import { invalidate, invalidateAll } from "$app/navigation";
   import { onMount } from "svelte";
+  import AuthControllerModal from "$lib/components/Authentication/AuthControllerModal.svelte";
 
   export let data;
   $: ({ session, supabase, profile } = data);
@@ -17,11 +18,14 @@
         invalidate("supabase:auth");
       }
     });
-
     return () => data.subscription.unsubscribe();
   });
 
   let modalState: AuthModal = null;
+
+  function invalidateAuth() {
+    invalidate("supabase:auth");
+  }
 
   function toggleModal() {
     modalState = modalState === null ? "signIn" : null;
@@ -29,6 +33,15 @@
 
   function isActive(path: string) {
     return $page.url.pathname === path ? "font-bold border-b-2 border-neutral" : "";
+  }
+
+  async function handleLogout() {
+    try {
+      await supabase.auth.signOut();
+      invalidate("supabase:auth");
+    } catch (error) {
+      console.error("Error logging out:", error);
+    }
   }
 </script>
 
@@ -50,21 +63,31 @@
     </div>
     <div class="navbar-end flex items-center space-x-4">
       <label class="swap swap-rotate">
-        <!-- this hidden checkbox controls the state -->
         <input type="checkbox" class="theme-controller" value="dim" />
         <SunIcon />
         <MoonIcon />
       </label>
 
       {#if profile}
-        <a href="/auth" role="button" class="btn btn-secondary btn-sm rounded-md">{profile.firstName}</a>
+        <div class="dropdown dropdown-end">
+          <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+          <!-- svelte-ignore a11y_label_has_associated_control -->
+          <label tabindex="0" class="btn btn-secondary btn-sm rounded-md">{profile.firstName}</label>
+          <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+          <ul tabindex="0" class="menu dropdown-content z-[1] mt-4 w-52 rounded-box bg-base-100 p-2 shadow">
+            <li><a href="/profile">Profil</a></li>
+            <li><a href="/settings">Einstellungen</a></li>
+            <li><a on:click|preventDefault={handleLogout} href="/">Abmelden</a></li>
+          </ul>
+        </div>
       {:else}
-        <a href="/auth" role="button" class="btn btn-secondary btn-sm rounded-md">Anmelden</a>
+        <button on:click={toggleModal} class="btn btn-secondary btn-sm rounded-md">Anmelden</button>
       {/if}
     </div>
   </div>
 
-  <!-- <AuthController bind:modalState />-->
+  <AuthControllerModal bind:modalState on:close={invalidateAuth} />
+
   <main class="flex-grow p-4">
     <slot />
   </main>

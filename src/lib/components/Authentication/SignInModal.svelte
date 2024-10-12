@@ -1,22 +1,31 @@
 <script lang="ts">
+  import { applyAction, enhance } from "$app/forms";
+  import { fade } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
-  import { supabase } from "$db/supabase";
-
-  // Import Font Awesome
-  import { library } from "@fortawesome/fontawesome-svg-core";
-  import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-  import { faGoogle } from "@fortawesome/free-brands-svg-icons";
-  import Fa from "svelte-fa";
-
-  // Add icons to the library
-  library.add(faEye, faEyeSlash, faGoogle);
+  import type { SubmitFunction } from "@sveltejs/kit";
 
   let email = "";
   let password = "";
   let isEmailValid = true;
   let errorMessage = "";
-  let rememberMe = false;
   let showPassword = false;
+  let isLoading = false;
+
+  const enhanceLogin: SubmitFunction = () => {
+    isLoading = true;
+    errorMessage = "";
+    return async ({ result, update }) => {
+      isLoading = false;
+      await applyAction(result);
+      if (result.type === "failure") {
+        errorMessage =
+          (result.data?.message as string) || "Anmeldung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten.";
+        update();
+      } else if (result.type === "success") {
+        closeModal();
+      }
+    };
+  };
 
   const dispatch = createEventDispatcher();
 
@@ -33,37 +42,6 @@
     showPassword = !showPassword;
   }
 
-  async function handleSubmit(event: Event) {
-    event.preventDefault();
-    if (!isEmailValid) {
-      return;
-    }
-    try {
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: email,
-        password: password,
-      });
-      if (error) throw error;
-      console.log("Erfolgreich angemeldet:", data.user);
-      closeModal();
-    } catch (error) {
-      errorMessage = "Anmeldung fehlgeschlagen. Bitte überprüfen Sie Ihre Anmeldedaten.";
-    }
-  }
-
-  async function handleGoogleSignIn() {
-    try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-      });
-      if (error) throw error;
-      console.log("Google Anmeldung initiiert");
-    } catch (error) {
-      console.error("Fehler bei der Google-Anmeldung:", error);
-      errorMessage = "Google-Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.";
-    }
-  }
-
   function closeModal() {
     dispatch("close");
   }
@@ -77,13 +55,29 @@
   }
 </script>
 
-<h1 class="self-center text-3xl font-bold">Anmelden</h1>
-<form on:submit={handleSubmit} class="flex flex-col gap-4">
-  <label class="form-control">
+<h1 class="mb-4 text-center text-3xl font-bold">Anmelden</h1>
+
+{#if errorMessage}
+  <div class="alert alert-error" transition:fade={{ duration: 200 }}>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
+    </svg>
+    <span>{errorMessage}</span>
+  </div>
+{/if}
+
+<form method="POST" use:enhance={enhanceLogin} action="/auth?/login" class="space-y-4">
+  <label class="form-control w-full">
     <div class="label">
       <span class="label-text">E-Mail</span>
     </div>
     <input
+      name="email"
       type="email"
       bind:value={email}
       on:input={handleEmailInput}
@@ -92,59 +86,70 @@
       required
     />
     {#if !isEmailValid && email}
-      <span class="label-text-alt mt-1 text-error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span>
+      <div class="label">
+        <span class="label-text-alt text-error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span>
+      </div>
     {/if}
   </label>
-  <label class="form-control">
+
+  <label class="form-control w-full">
     <div class="label">
       <span class="label-text">Passwort</span>
-      <button type="button" on:click={handleForgotPassword} class="link label-text link-error"
-        >Passwort vergessen?</button
-      >
+      <button type="button" on:click={handleForgotPassword} class="link label-text-alt link-primary">
+        Passwort vergessen?
+      </button>
     </div>
     <div class="relative">
-      {#if showPassword}
-        <input
-          type="text"
-          bind:value={password}
-          class="input input-bordered w-full pr-10"
-          placeholder="Geben Sie Ihr Passwort ein"
-          required
-        />
-      {:else}
-        <input
-          type="password"
-          bind:value={password}
-          class="input input-bordered w-full pr-10"
-          placeholder="Geben Sie Ihr Passwort ein"
-          required
-        />
-      {/if}
-      <button
-        type="button"
-        class="absolute inset-y-0 right-0 flex items-center pr-3"
-        on:click={togglePasswordVisibility}
-      >
-        <Fa icon={showPassword ? faEyeSlash : faEye} />
+      <input
+        name="password"
+        type={showPassword ? "text" : "password"}
+        bind:value={password}
+        class="input input-bordered w-full pr-10"
+        placeholder="Geben Sie Ihr Passwort ein"
+        required
+      />
+      <button type="button" class="btn btn-ghost btn-sm absolute right-0 top-0" on:click={togglePasswordVisibility}>
+        {showPassword ? "👁️" : "👁️‍🗨️"}
       </button>
     </div>
   </label>
-  <div class="form-control">
-    <label class="label cursor-pointer gap-2 self-start">
-      <input type="checkbox" class="checkbox" bind:checked={rememberMe} />
-      <span class="label-text">Angemeldet bleiben</span>
-    </label>
+
+  <div class="space-y-2">
+    <button type="submit" class="btn btn-primary w-full" disabled={!isEmailValid || isLoading}>
+      {#if isLoading}
+        <span class="loading loading-spinner"></span>
+      {:else}
+        Anmelden
+      {/if}
+    </button>
   </div>
-  <button type="submit" class="btn btn-primary w-full" disabled={!isEmailValid}>Anmelden</button>
-  {#if errorMessage}
-    <span class="text-sm text-error">{errorMessage}</span>
-  {/if}
 </form>
-<div class="divider">ODER</div>
-<button type="button" class="btn btn-outline w-full" on:click={handleGoogleSignIn}>
-  <Fa icon={faGoogle} class="mr-2" />
+
+<div class="divider my-4">ODER</div>
+
+<button type="button" class="btn btn-outline w-full" on:click={() => dispatch("googleSignIn")}>
+  <svg viewBox="0 0 24 24" class="mr-2 h-5 w-5">
+    <path
+      fill="#4285F4"
+      d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+    />
+    <path
+      fill="#34A853"
+      d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+    />
+    <path
+      fill="#FBBC05"
+      d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+    />
+    <path
+      fill="#EA4335"
+      d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+    />
+    <path fill="none" d="M1 1h22v22H1z" />
+  </svg>
   Mit Google anmelden
 </button>
+
 <div class="mt-4 text-center">
   <span>Noch kein Konto?</span>
   <button type="button" on:click={switchToRegister} class="link link-primary ml-1">Registrieren</button>

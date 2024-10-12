@@ -4,8 +4,11 @@
   import ForgotPasswordModal from "./ForgotPasswordModal.svelte";
   import type { AuthModal } from "$lib/types";
   import { fade } from "svelte/transition";
+  import { createEventDispatcher } from "svelte";
 
   export let modalState: AuthModal;
+
+  const dispatch = createEventDispatcher();
 
   function signIn() {
     modalState = "signIn";
@@ -21,6 +24,7 @@
 
   function closeModal() {
     modalState = null;
+    dispatch("close");
   }
 
   function handleOverlayKeydown(event: KeyboardEvent) {
