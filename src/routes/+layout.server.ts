@@ -1,4 +1,4 @@
-import { supabase } from "$lib/supabaseClient";
+import { supabase } from "$lib/server/supabaseClient";
 import type { Exercise } from "$lib/types";
 import type { LayoutServerLoad } from "./$types";
 

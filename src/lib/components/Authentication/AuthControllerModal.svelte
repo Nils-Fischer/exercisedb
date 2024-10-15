@@ -5,6 +5,7 @@
   import type { AuthModal } from "$lib/types";
   import { fade } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
+  import ResetPasswordModal from "./ResetPasswordModal.svelte";
 
   export let modalState: AuthModal;
 
@@ -50,6 +51,8 @@
         <RegisterModal on:close={closeModal} on:switchToSignIn={signIn} />
       {:else if modalState === "forgotPassword"}
         <ForgotPasswordModal on:close={closeModal} on:switchToSignIn={signIn} />
+      {:else if modalState === "resetPassword"}
+        <ResetPasswordModal on:close={closeModal} />
       {/if}
     </div>
   </div>

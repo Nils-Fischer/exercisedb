@@ -4,6 +4,7 @@
   import { fade } from "svelte/transition";
   import { createEventDispatcher } from "svelte";
   import type { SubmitFunction } from "@sveltejs/kit";
+  import { page } from "$app/stores";
 
   let email = "";
   let isEmailValid = true;
@@ -31,10 +32,13 @@
     dispatch("switchToSignIn");
   }
 
-  const enhanceResetPassword: SubmitFunction = () => {
+  const enhanceResetPassword: SubmitFunction = ({ formData }) => {
     isLoading = true;
     errorMessage = "";
     successMessage = "";
+    const redirectTo = new URL($page.url);
+    redirectTo.searchParams.append("updatePassword", "false");
+    formData.append("redirectTo", redirectTo.toString());
     return async ({ result, update }) => {
       isLoading = false;
       await applyAction(result);

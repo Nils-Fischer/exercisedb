@@ -5,8 +5,8 @@
   import MoonIcon from "$lib/assets/moon_icon.svelte";
   import logo from "$lib/assets/logo.svg";
   import { page } from "$app/stores";
-  import { invalidate, invalidateAll } from "$app/navigation";
-  import { onMount } from "svelte";
+  import { invalidate } from "$app/navigation";
+  import { onDestroy, onMount } from "svelte";
   import AuthControllerModal from "$lib/components/Authentication/AuthControllerModal.svelte";
 
   export let data;

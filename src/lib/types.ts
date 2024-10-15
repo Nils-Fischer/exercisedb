@@ -66,7 +66,7 @@ export interface ExerciseWithAlternatives {
   totalTime: number;
 }
 
-export type AuthModal = "signIn" | "register" | "forgotPassword" | null;
+export type AuthModal = "resetPassword" | "signIn" | "register" | "forgotPassword" | null;
 
 export interface Profile {
   firstName: string;
