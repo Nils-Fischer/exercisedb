@@ -3,6 +3,9 @@ import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from "$env/static/publi
 import type { LayoutLoad } from "./$types";
 import type { Gender, Profile } from "$lib/types";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { injectSpeedInsights } from "@vercel/speed-insights/sveltekit";
+
+injectSpeedInsights();
 
 async function getProfileById(supabase: SupabaseClient, id: string): Promise<Profile | null> {
   const { data, error } = await supabase.from("profiles").select("*").eq("id", id).single();
