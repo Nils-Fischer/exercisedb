@@ -95,7 +95,11 @@
   <footer class="footer items-center bg-neutral p-4 text-neutral-content">
     <aside class="grid-flow-col items-center">
       <img src={logo} alt="Logo" class="mr-2" width="36" height="36" />
-      <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
+      <p>Copyright © {new Date().getFullYear()} - All rights reserved</p>
     </aside>
+    <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+      <a href="/help/privacy-policy" class="link-hover link">Datenschutz</a>
+      <a href="/help/terms-of-service" class="link-hover link">Nutzungsbedingungen</a>
+    </nav>
   </footer>
 </div>
