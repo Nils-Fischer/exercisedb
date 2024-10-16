@@ -113,15 +113,27 @@
       <span class="label-text">Passwort</span>
     </div>
     <div class="relative">
-      <input
-        name="password"
-        type={showPassword ? "text" : "password"}
-        bind:value={password}
-        on:input={handlePasswordInput}
-        class="input input-bordered w-full pr-10"
-        placeholder="Geben Sie Ihr Passwort ein"
-        required
-      />
+      {#if showPassword}
+        <input
+          name="password"
+          type="text"
+          bind:value={password}
+          on:input={handlePasswordInput}
+          class="input input-bordered w-full pr-10"
+          placeholder="Geben Sie Ihr Passwort ein"
+          required
+        />
+      {:else}
+        <input
+          name="password"
+          type="password"
+          bind:value={password}
+          on:input={handlePasswordInput}
+          class="input input-bordered w-full pr-10"
+          placeholder="Geben Sie Ihr Passwort ein"
+          required
+        />
+      {/if}
       <button type="button" class="btn btn-ghost btn-sm absolute right-0 top-0" on:click={togglePasswordVisibility}>
         {showPassword ? "👁️" : "👁️‍🗨️"}
       </button>
@@ -143,15 +155,27 @@
       <span class="label-text">Passwort bestätigen</span>
     </div>
     <div class="relative">
-      <input
-        name="confirmPassword"
-        type={showConfirmPassword ? "text" : "password"}
-        bind:value={confirmPassword}
-        on:input={handlePasswordInput}
-        class="input input-bordered w-full pr-10 {!passwordsMatch && confirmPassword ? 'input-error' : ''}"
-        placeholder="Bestätigen Sie Ihr Passwort"
-        required
-      />
+      {#if showConfirmPassword}
+        <input
+          name="confirmPassword"
+          type="text"
+          bind:value={confirmPassword}
+          on:input={handlePasswordInput}
+          class="input input-bordered w-full pr-10 {!passwordsMatch && confirmPassword ? 'input-error' : ''}"
+          placeholder="Bestätigen Sie Ihr Passwort"
+          required
+        />
+      {:else}
+        <input
+          name="confirmPassword"
+          type="password"
+          bind:value={confirmPassword}
+          on:input={handlePasswordInput}
+          class="input input-bordered w-full pr-10 {!passwordsMatch && confirmPassword ? 'input-error' : ''}"
+          placeholder="Bestätigen Sie Ihr Passwort"
+          required
+        />
+      {/if}
       <button
         type="button"
         class="btn btn-ghost btn-sm absolute right-0 top-0"

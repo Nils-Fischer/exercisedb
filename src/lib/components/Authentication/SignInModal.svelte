@@ -100,19 +100,34 @@
       </button>
     </div>
     <div class="relative">
-      <input
-        name="password"
-        type={showPassword ? "text" : "password"}
-        bind:value={password}
-        class="input input-bordered w-full pr-10"
-        placeholder="Geben Sie Ihr Passwort ein"
-        required
-      />
-      <button type="button" class="btn btn-ghost btn-sm absolute right-0 top-0" on:click={togglePasswordVisibility}>
+      {#if showPassword}
+        <input
+          name="password"
+          type="text"
+          bind:value={password}
+          class="input input-bordered w-full pr-10"
+          placeholder="Geben Sie Ihr Passwort ein"
+          required
+        />
+      {:else}
+        <input
+          name="password"
+          type="password"
+          bind:value={password}
+          class="input input-bordered w-full pr-10"
+          placeholder="Geben Sie Ihr Passwort ein"
+          required
+        />
+      {/if}
+      <button
+        type="button"
+        class="btn btn-ghost btn-sm absolute right-2 top-1/2 -translate-y-1/2 transform"
+        on:click={togglePasswordVisibility}
+      >
         {showPassword ? "👁️" : "👁️‍🗨️"}
       </button>
-    </div>
-  </label>
+    </div></label
+  >
 
   <div class="space-y-2">
     <button type="submit" class="btn btn-primary w-full" disabled={!isEmailValid || isLoading}>
