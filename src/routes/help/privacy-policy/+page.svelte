@@ -1,8 +1,8 @@
 <script lang="ts">
   import { page } from "$app/stores";
 
-  const supportMail = "support@trainalyze.de";
-  const adminMail = "nils.fischer@trainalyze.de";
+  const supportMail = "info@traintech.me";
+  const adminMail = "nils.fischer@traintech.me";
 </script>
 
 <div class="mx-auto max-w-3xl text-sm">
