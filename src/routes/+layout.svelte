@@ -7,6 +7,8 @@
   import { onMount } from "svelte";
   import AuthControllerModal from "$lib/components/Authentication/AuthControllerModal.svelte";
   import { Moon, Sun } from "lucide-svelte";
+  import { applyAction, enhance } from "$app/forms";
+  import type { SubmitFunction } from "@sveltejs/kit";
 
   export let data;
   $: ({ session, supabase, profile } = data);
@@ -33,6 +35,15 @@
   function isActive(path: string) {
     return $page.url.pathname === path ? "font-bold border-b-2 border-neutral" : "";
   }
+
+  const enhanceLogout: SubmitFunction = () => {
+    return async ({ result, update }) => {
+      await applyAction(result);
+      if (result.type === "success") {
+        invalidateAuth();
+      }
+    };
+  };
 </script>
 
 <div class="flex min-h-screen flex-col">
@@ -61,19 +72,18 @@
       {#if profile}
         <div class="dropdown dropdown-end">
           <button id="profile-dropdown" class="btn btn-secondary btn-sm rounded-md">{profile.firstName}</button>
-          <ul
-            class="menu dropdown-content z-[1] mt-4 w-52 rounded-box bg-base-100 p-2 shadow"
-            aria-labelledby="profile-dropdown"
-          >
-            <li><a href="/private/profile">Profil</a></li>
-            <li><a href="/private/settings">Einstellungen</a></li>
-            <li>
-              <form method="POST" action="/auth?/logout">
-                <input name="redirectTo" type="hidden" value={$page.url.toString()} />
+          <form method="POST" action="/auth?/logout" use:enhance={enhanceLogout}>
+            <ul
+              class="menu dropdown-content z-[1] mt-4 w-52 rounded-box bg-base-100 p-2 shadow"
+              aria-labelledby="profile-dropdown"
+            >
+              <li><a href="/private/profile">Profil</a></li>
+              <li><a href="/private/settings">Einstellungen</a></li>
+              <li>
                 <button type="submit" class="w-full text-left">Ausloggen</button>
-              </form>
-            </li>
-          </ul>
+              </li>
+            </ul>
+          </form>
         </div>
       {:else}
         <button on:click={toggleModal} class="btn btn-secondary btn-sm rounded-md">Anmelden</button>

@@ -74,14 +74,12 @@ export const actions: Actions = {
       return { success: true };
     }
   },
-  logout: async ({ request, locals: { supabase } }) => {
-    const formData = await request.formData();
-    const redirectTo = formData.get("redirectTo") as string;
-
+  logout: async ({ locals: { supabase } }) => {
     const { error } = await supabase.auth.signOut();
     if (error) {
       console.log(error);
+      return fail(400);
     }
-    throw redirect(303, redirectTo);
+    return { success: true };
   },
 };
