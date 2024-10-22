@@ -231,7 +231,6 @@
       Konto erstellen
     {/if}
   </button>
-  <input name="redirectTo" type="hidden" value={$page.url.toString()} />
 </form>
 
 <div class="divider my-4">ODER</div>
@@ -259,6 +258,7 @@
     </svg>
     Mit Google registrieren
   </button>
+  <input name="redirectTo" type="hidden" value={$page.url.toString()} />
 </form>
 
 <div class="mt-4 text-center">

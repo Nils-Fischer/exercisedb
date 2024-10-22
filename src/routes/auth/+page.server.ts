@@ -24,11 +24,13 @@ export const actions: Actions = {
   },
   login: async ({ request, locals: { supabase }, url }) => {
     const provider = url.searchParams.get("provider") as Provider;
+    const formData = await request.formData();
+    const redirectTo = (formData.get("redirectTo") || url.toString()) as string;
     if (provider) {
       if (!OAUTH_PROVIDERS.includes(provider)) {
         return fail(400, { error: "Provider not supported" });
       }
-      const { data, error: err } = await supabase.auth.signInWithOAuth({ provider: provider });
+      const { data, error: err } = await supabase.auth.signInWithOAuth({ provider: provider, options: { redirectTo } });
       if (err) {
         console.log(err);
         return fail(400, { message: `Authentication with ${provider} failed` });
@@ -36,10 +38,8 @@ export const actions: Actions = {
       throw redirect(303, data.url);
     }
 
-    const formData = await request.formData();
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
-    const redirectTo = (formData.get("redirectTo") || url.toString()) as string;
 
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) {

@@ -183,6 +183,7 @@
     </svg>
     Mit Google anmelden
   </button>
+  <input name="redirectTo" type="hidden" value={$page.url.toString()} />
 </form>
 
 <div class="mt-4 text-center">
