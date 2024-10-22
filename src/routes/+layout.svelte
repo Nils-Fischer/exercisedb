@@ -1,7 +1,6 @@
 <script lang="ts">
   import "../app.css";
   import type { AuthModal } from "$lib/types";
-  import logo from "$lib/assets/logo.svg";
   import { page } from "$app/stores";
   import { invalidate } from "$app/navigation";
   import { onMount } from "svelte";
@@ -9,6 +8,7 @@
   import { Moon, Sun } from "lucide-svelte";
   import { applyAction, enhance } from "$app/forms";
   import type { SubmitFunction } from "@sveltejs/kit";
+  import Logo from "$lib/components/Icons/Logo.svelte";
 
   export let data;
   $: ({ session, supabase, profile } = data);
@@ -48,12 +48,10 @@
 
 <div class="flex min-h-screen flex-col">
   <div class="navbar sticky top-0 z-50 mb-8 bg-base-100 px-20 opacity-95 shadow-lg">
-    <div class="navbar-start">
-      <a href="/" class="btn btn-ghost flex items-center text-xl font-black hover:bg-inherit">
-        <img src={logo} alt="Logo" class="mr-2 h-8" width="32" />
-        ExerciseDB
-      </a>
-    </div>
+    <a href="/" class="navbar-start flex items-center">
+      <Logo className="mr-2 fill-base-content pt-1" width="32" />
+      <p class="text-xl font-black">TrainTech</p>
+    </a>
     <div class="navbar-center hidden space-x-4 lg:flex">
       <a class="btn btn-ghost rounded-md hover:bg-inherit {isActive('/workout-planner')}" href="/workout-planner">
         Trainingsplan erstellen
@@ -99,7 +97,7 @@
 
   <footer class="footer items-center bg-neutral p-4 text-neutral-content">
     <aside class="grid-flow-col items-center">
-      <img src={logo} alt="Logo" class="mr-2" width="36" height="36" />
+      <Logo className="fill-base-content pt-1" width="32" />
       <p>Copyright © {new Date().getFullYear()} - All rights reserved</p>
     </aside>
     <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
