@@ -1,10 +1,10 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
   import { page } from "$app/stores";
-  import SearchIcon from "$lib/assets/search_icon.svelte";
   import type { Exercise } from "$lib/types";
   import { capitalize } from "$lib/utils";
   import { onMount } from "svelte";
+  import { X, RotateCcw, Search } from "lucide-svelte";
 
   export let filters: Map<keyof Exercise, Set<string>>;
 
@@ -48,10 +48,15 @@
     for (const [category] of filters) {
       url.searchParams.delete(category.toString());
     }
-    url.searchParams.delete("search");
     url.searchParams.delete("open");
-    searchQuery = "";
     openDropdown = null;
+    goto(url.toString());
+  }
+
+  function resetSearch() {
+    const url = new URL($page.url);
+    url.searchParams.delete("search");
+    searchQuery = "";
     goto(url.toString());
   }
 
@@ -131,6 +136,15 @@
             {/if}
           </div>
         {/each}
+        <button
+          title="Reset Filters"
+          on:click={resetFilter}
+          class="btn btn-primary btn-sm m-1 {activeFilters.size == 0 ? 'btn-disabled' : 'btn-error'}"
+          disabled={isResetDisabled}
+          aria-label="Reset Filters"
+        >
+          <X size="15" />
+        </button>
       </div>
       <div class="flex w-full items-center gap-2 sm:w-auto sm:flex-grow">
         <div class="flex-grow">
@@ -149,18 +163,21 @@
               aria-label="Search"
             >
               <div class="transition-transform duration-200 ease-in-out group-hover:scale-125">
-                <SearchIcon />
+                <Search size="15" />
               </div>
             </button>
           </label>
         </div>
         <button
-          title="Reset Filters"
-          on:click={resetFilter}
-          class="material-symbols-outlined btn btn-primary btn-sm {isResetDisabled ? 'btn-disabled' : 'btn-error'}"
+          title="Reset Search"
+          on:click={resetSearch}
+          class="material-symbols-outlined btn btn-primary btn-sm m-1 {searchQuery === ''
+            ? 'btn-disabled'
+            : 'btn-error'}"
           disabled={isResetDisabled}
+          aria-label="Reset Filters"
         >
-          reset
+          <RotateCcw size="15" />
         </button>
       </div>
     </div>

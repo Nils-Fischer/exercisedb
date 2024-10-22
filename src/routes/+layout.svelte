@@ -1,13 +1,12 @@
 <script lang="ts">
   import "../app.css";
   import type { AuthModal } from "$lib/types";
-  import SunIcon from "$lib/assets/sun_icon.svelte";
-  import MoonIcon from "$lib/assets/moon_icon.svelte";
   import logo from "$lib/assets/logo.svg";
   import { page } from "$app/stores";
   import { invalidate } from "$app/navigation";
   import { onMount } from "svelte";
   import AuthControllerModal from "$lib/components/Authentication/AuthControllerModal.svelte";
+  import { Moon, Sun } from "lucide-svelte";
 
   export let data;
   $: ({ session, supabase, profile } = data);
@@ -55,8 +54,8 @@
     <div class="navbar-end flex items-center space-x-4">
       <label class="swap swap-rotate">
         <input type="checkbox" class="theme-controller" value="dim" />
-        <SunIcon />
-        <MoonIcon />
+        <Sun class="swap-on" size="30" aria-hidden="true" />
+        <Moon class="swap-off" size="30" aria-hidden="true" />
       </label>
 
       {#if profile}
