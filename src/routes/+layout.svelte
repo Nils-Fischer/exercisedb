@@ -6,7 +6,7 @@
   import logo from "$lib/assets/logo.svg";
   import { page } from "$app/stores";
   import { invalidate } from "$app/navigation";
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
   import AuthControllerModal from "$lib/components/Authentication/AuthControllerModal.svelte";
 
   export let data;
@@ -33,15 +33,6 @@
 
   function isActive(path: string) {
     return $page.url.pathname === path ? "font-bold border-b-2 border-neutral" : "";
-  }
-
-  async function handleLogout() {
-    try {
-      await supabase.auth.signOut();
-      invalidate("supabase:auth");
-    } catch (error) {
-      console.error("Error logging out:", error);
-    }
   }
 </script>
 
@@ -70,14 +61,19 @@
 
       {#if profile}
         <div class="dropdown dropdown-end">
-          <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-          <!-- svelte-ignore a11y_label_has_associated_control -->
-          <label tabindex="0" class="btn btn-secondary btn-sm rounded-md">{profile.firstName}</label>
-          <!-- svelte-ignore a11y_no_noninteractive_tabindex -->
-          <ul tabindex="0" class="menu dropdown-content z-[1] mt-4 w-52 rounded-box bg-base-100 p-2 shadow">
-            <li><a href="/profile">Profil</a></li>
-            <li><a href="/settings">Einstellungen</a></li>
-            <li><a on:click|preventDefault={handleLogout} href="/">Abmelden</a></li>
+          <button id="profile-dropdown" class="btn btn-secondary btn-sm rounded-md">{profile.firstName}</button>
+          <ul
+            class="menu dropdown-content z-[1] mt-4 w-52 rounded-box bg-base-100 p-2 shadow"
+            aria-labelledby="profile-dropdown"
+          >
+            <li><a href="/private/profile">Profil</a></li>
+            <li><a href="/private/settings">Einstellungen</a></li>
+            <li>
+              <form method="POST" action="/auth?/logout">
+                <input name="redirectTo" type="hidden" value={$page.url.toString()} />
+                <button type="submit" class="w-full text-left">Ausloggen</button>
+              </form>
+            </li>
           </ul>
         </div>
       {:else}
