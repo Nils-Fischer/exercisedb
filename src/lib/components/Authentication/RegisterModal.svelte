@@ -5,6 +5,7 @@
   import type { SubmitFunction } from "@sveltejs/kit";
   import { createEventDispatcher } from "svelte";
   import { page } from "$app/stores";
+  import { Eye, EyeOff } from "lucide-svelte";
 
   let email = "";
   let password = "";
@@ -151,8 +152,16 @@
           required
         />
       {/if}
-      <button type="button" class="btn btn-ghost btn-sm absolute right-0 top-0" on:click={togglePasswordVisibility}>
-        {showPassword ? "👁️" : "👁️‍🗨️"}
+      <button
+        type="button"
+        class="btn-sm absolute right-2 top-1/2 -translate-y-1/2"
+        on:click={togglePasswordVisibility}
+      >
+        {#if showPassword}
+          <Eye size="20" />
+        {:else}
+          <EyeOff size="20" />
+        {/if}
       </button>
     </div>
   </label>
@@ -195,10 +204,14 @@
       {/if}
       <button
         type="button"
-        class="btn btn-ghost btn-sm absolute right-0 top-0"
+        class="btn-sm absolute right-2 top-1/2 -translate-y-1/2"
         on:click={toggleConfirmPasswordVisibility}
       >
-        {showConfirmPassword ? "👁️" : "👁️‍🗨️"}
+        {#if showConfirmPassword}
+          <Eye size="20" />
+        {:else}
+          <EyeOff size="20" />
+        {/if}
       </button>
     </div>
     {#if !passwordsMatch && confirmPassword}
