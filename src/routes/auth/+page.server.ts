@@ -6,11 +6,10 @@ import { AuthApiError, type Provider } from "@supabase/supabase-js";
 const OAUTH_PROVIDERS = ["google", "discord", "github"];
 
 export const actions: Actions = {
-  signup: async ({ request, locals: { supabase }, url }) => {
+  signup: async ({ request, locals: { supabase } }) => {
     const formData = await request.formData();
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
-    const redirectTo = (formData.get("redirectTo") || url.toString()) as string;
 
     const { error } = await supabase.auth.signUp({ email, password });
     if (error) {
@@ -20,7 +19,7 @@ export const actions: Actions = {
       }
       return fail(500, { error: "Something went wrong. Please try again later" });
     }
-    throw redirect(303, redirectTo);
+    return { success: true };
   },
   login: async ({ request, locals: { supabase }, url }) => {
     const provider = url.searchParams.get("provider") as Provider;
@@ -49,7 +48,7 @@ export const actions: Actions = {
       }
       return fail(500, { error: "Something went wrong. Please try again later" });
     }
-    throw redirect(303, redirectTo);
+    return { success: true };
   },
   resetPassword: async ({ request, locals: { supabase } }) => {
     const formData = await request.formData();

@@ -235,8 +235,8 @@
 
 <div class="divider my-4">ODER</div>
 
-<form method="POST" action="/auth?/googleSignIn">
-  <button type="submit" class="btn btn-outline w-full">
+<form method="POST" use:enhance={enhanceGoogleSignIn}>
+  <button formaction="/auth?/login&provider=google" type="submit" class="btn btn-outline w-full">
     <svg viewBox="0 0 24 24" class="mr-2 h-5 w-5">
       <path
         fill="#4285F4"
