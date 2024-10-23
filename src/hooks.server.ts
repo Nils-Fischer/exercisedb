@@ -2,6 +2,7 @@ import { createServerClient } from "@supabase/ssr";
 import { type Handle, redirect } from "@sveltejs/kit";
 import { sequence } from "@sveltejs/kit/hooks";
 import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY } from "$env/static/public";
+import { clearExerciseCache } from "$lib/server/redis";
 
 const supabase: Handle = async ({ event, resolve }) => {
   /**
@@ -78,3 +79,5 @@ const authGuard: Handle = async ({ event, resolve }) => {
 };
 
 export const handle: Handle = sequence(supabase, authGuard);
+
+await clearExerciseCache();

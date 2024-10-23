@@ -12,6 +12,8 @@
   let selectedExercise: Exercise | null = null;
   let showModal = false;
 
+  $: filteredExercises = exercises;
+
   function openModal(event: { detail: { exercise: Exercise | null } }) {
     selectedExercise = event.detail.exercise;
     showModal = true;
@@ -32,19 +34,24 @@
 <main class="container mx-auto p-4">
   <div class="mb-4 flex w-full flex-col space-y-4">
     <div class="flex-shrink-0">
-      <FilterMenu {filters} />
+      <FilterMenu
+        {filters}
+        on:search={(query) => {
+          filteredExercises = exercises.filter((ex) => ex.name.toLowerCase().includes(query.detail.toLowerCase()));
+        }}
+      />
     </div>
   </div>
 
   <!-- Exercise Cards -->
   <div class="w-full">
-    {#if exercises.length === 0}
+    {#if filteredExercises.length === 0}
       <div class="alert alert-warning mt-2">
         <span>Keine Übungen gefunden, die mit Ihrer Suche übereinstimmen.</span>
       </div>
     {:else}
       <div class="grid grid-cols-auto-fill gap-4">
-        {#each exercises as exercise (exercise.id)}
+        {#each filteredExercises as exercise (exercise.id)}
           <ExerciseCard {exercise} on:click={openModal} />
         {/each}
       </div>

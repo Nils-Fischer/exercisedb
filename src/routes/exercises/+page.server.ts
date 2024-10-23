@@ -1,23 +1,24 @@
-import { generateFilters } from "$lib/constant";
-import { type Exercise } from "$lib/types";
+import { type Exercise, type Filters } from "$lib/types";
 import type { PageServerLoad } from "./$types";
 import { EXERCISE_CACHE_DURATION, getValue, setValue } from "$lib/server/redis";
 
-async function generateAndCacheFilters(
-  exercises: Exercise[],
-  filterFields: readonly ("category" | "level" | "mechanic")[]
-): Promise<Map<keyof Exercise, Set<string>>> {
-  const filters = generateFilters(exercises, filterFields);
+function generateFilters(exercises: Exercise[]): Filters {
+  return {
+    category: [...new Set(exercises.map((e) => e.category))],
+    level: [...new Set(exercises.map((e) => e.level))],
+    mechanic: [...new Set(exercises.map((e) => e.mechanic))],
+  };
+}
+
+async function generateAndCacheFilters(exercises: Exercise[]): Promise<Filters> {
+  const filters = generateFilters(exercises);
   await setValue("exercises:filters", filters, EXERCISE_CACHE_DURATION);
   return filters;
 }
 
-async function filterExercises(
-  exercises: Exercise[],
-  filterFields: readonly ("category" | "level" | "mechanic")[],
-  searchParams: URLSearchParams
-): Promise<Exercise[]> {
+async function filterExercises(exercises: Exercise[], searchParams: URLSearchParams): Promise<Exercise[]> {
   return exercises.filter((exercise) => {
+    const filterFields = ["category", "level", "mechanic"];
     return filterFields.every((field) => {
       const paramValues = searchParams.getAll(field.toString());
       if (paramValues.length === 0) return true;
@@ -36,7 +37,7 @@ export const load: PageServerLoad = async ({ parent, url }) => {
 
   const [cachedfilteredExercises, cachedFilters] = await Promise.all([
     getValue<Exercise[]>(cacheKey),
-    getValue<Map<keyof Exercise, Set<string>>>("exercises:filters"),
+    getValue<Filters>("exercises:filters"),
   ]);
 
   if (cachedfilteredExercises && cachedFilters) {
@@ -48,9 +49,8 @@ export const load: PageServerLoad = async ({ parent, url }) => {
   }
 
   const exercises = (await parent()).exercises;
-  const filterFields = ["category", "level", "mechanic"] as const;
 
-  const filters = cachedFilters || (await generateAndCacheFilters(exercises, filterFields));
+  const filters = cachedFilters || (await generateAndCacheFilters(exercises));
 
   if (cachedfilteredExercises) {
     return {
@@ -59,7 +59,7 @@ export const load: PageServerLoad = async ({ parent, url }) => {
     };
   }
 
-  const filteredExercises = await filterExercises(exercises, filterFields, searchParams);
+  const filteredExercises = await filterExercises(exercises, searchParams);
 
   await setValue(cacheKey, filteredExercises, EXERCISE_CACHE_DURATION);
 

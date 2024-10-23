@@ -47,7 +47,7 @@ export async function deleteKey(key: string): Promise<number> {
   }
 }
 
-export async function invalidateExerciseCache(): Promise<number> {
+export async function clearExerciseCache(): Promise<number> {
   try {
     const keys = await redis.keys("exercises*");
     if (keys.length === 0) {

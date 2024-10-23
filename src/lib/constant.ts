@@ -2,26 +2,6 @@ import fs from "fs";
 import path from "path";
 import type { Exercise, ExerciseDescription } from "$lib/types";
 
-export function generateFilters(
-  exercises: Exercise[],
-  filterFields: readonly (keyof Exercise)[]
-): Map<keyof Exercise, Set<string>> {
-  const setMap: Map<keyof Exercise, Set<string>> = exercises.reduce((map, exercise) => {
-    filterFields.forEach((field) => {
-      const set = map.get(field);
-      const result = exercise[field];
-      const values = Array.isArray(result) ? result : [result.toString()];
-      if (set !== undefined) {
-        values.forEach((str) => set.add(str));
-      } else {
-        map.set(field, new Set<string>([...values]));
-      }
-    });
-    return map;
-  }, new Map<keyof Exercise, Set<string>>());
-  return setMap;
-}
-
 export function generateExercises(json_file_path: string): Exercise[] {
   const filePath = path.resolve(json_file_path);
   const fileContent = fs.readFileSync(filePath, "utf-8");
