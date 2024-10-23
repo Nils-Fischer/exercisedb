@@ -54,7 +54,7 @@ export const load: LayoutServerLoad = async ({ locals: { safeGetSession }, cooki
   return {
     session,
     cookies: cookies.getAll(),
-    exercises: getAllExercises(),
-    profile: getProfileById(session?.user.id),
+    exercises: (await getAllExercises()) || [],
+    profile: await getProfileById(session?.user.id),
   };
 };
