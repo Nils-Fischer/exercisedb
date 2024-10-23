@@ -1,11 +1,11 @@
-import { getValue, setValue } from "$lib/server/redis";
+import { EXERCISE_CACHE_DURATION, getValue, setValue } from "$lib/server/redis";
 import { supabase } from "$lib/server/supabaseClient";
-import type { Exercise, Gender, Profile } from "$lib/types";
+import { type Exercise, type Gender, type Profile } from "$lib/types";
 import type { LayoutServerLoad } from "./$types";
 
 async function getProfileById(id: string | undefined): Promise<Profile | null> {
   if (id === undefined) return null;
-  const cachedProfile = await getValue<Profile>(`profile_${id}`);
+  const cachedProfile = await getValue<Profile>(`profile:${id}`);
   if (cachedProfile) return cachedProfile;
 
   const { data, error } = await supabase.from("profiles").select("*").eq("id", id).single();
@@ -23,7 +23,7 @@ async function getProfileById(id: string | undefined): Promise<Profile | null> {
     gender: data.gender as Gender,
   };
   // cache for 5 minutes
-  setValue(`profile_${id}`, profile, 300);
+  setValue(`profile:${id}`, profile, 300);
   return profile;
 }
 
@@ -43,7 +43,7 @@ async function getAllExercises(): Promise<Exercise[] | null> {
   const exercises = data as Exercise[];
   // cache for one day
   console.log("Caching results...");
-  await setValue("exercises", exercises, 86400);
+  await setValue("exercises", exercises, EXERCISE_CACHE_DURATION);
   return exercises;
 }
 

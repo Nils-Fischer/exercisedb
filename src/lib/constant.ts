@@ -4,7 +4,7 @@ import type { Exercise, ExerciseDescription } from "$lib/types";
 
 export function generateFilters(
   exercises: Exercise[],
-  filterFields: (keyof Exercise)[]
+  filterFields: readonly (keyof Exercise)[]
 ): Map<keyof Exercise, Set<string>> {
   const setMap: Map<keyof Exercise, Set<string>> = exercises.reduce((map, exercise) => {
     filterFields.forEach((field) => {
