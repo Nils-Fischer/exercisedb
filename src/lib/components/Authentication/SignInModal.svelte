@@ -4,6 +4,7 @@
   import { createEventDispatcher } from "svelte";
   import { type SubmitFunction } from "@sveltejs/kit";
   import { page } from "$app/stores";
+  import { Eye, EyeOff } from "lucide-svelte";
 
   let email = "";
   let password = "";
@@ -89,72 +90,78 @@
 {/if}
 
 <form method="POST" use:enhance={enhanceLogin} action="/auth?/login" class="space-y-4">
-  <label class="form-control w-full">
+  <div>
     <div class="label">
       <span class="label-text">E-Mail</span>
     </div>
-    <input
-      name="email"
-      type="email"
-      bind:value={email}
-      on:input={handleEmailInput}
-      class="input input-bordered w-full {!isEmailValid && email ? 'input-error' : ''}"
-      placeholder="Geben Sie Ihre E-Mail ein"
-      required
-    />
-    {#if !isEmailValid && email}
-      <div class="label">
-        <span class="label-text-alt text-error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span>
-      </div>
-    {/if}
-  </label>
+    <label class="form-control w-full">
+      <input
+        name="email"
+        type="email"
+        bind:value={email}
+        on:input={handleEmailInput}
+        class="input input-bordered w-full {!isEmailValid && email ? 'input-error' : ''}"
+        placeholder="Geben Sie Ihre E-Mail ein"
+        required
+      />
+      {#if !isEmailValid && email}
+        <div class="label">
+          <span class="label-text-alt text-error">Bitte geben Sie eine gültige E-Mail-Adresse ein.</span>
+        </div>
+      {/if}
+    </label>
+  </div>
 
-  <label class="form-control w-full">
+  <div>
     <div class="label">
       <span class="label-text">Passwort</span>
       <button type="button" on:click={handleForgotPassword} class="link label-text-alt link-primary">
         Passwort vergessen?
       </button>
     </div>
-    <div class="relative">
-      {#if showPassword}
-        <input
-          name="password"
-          type="text"
-          bind:value={password}
-          class="input input-bordered w-full pr-10"
-          placeholder="Geben Sie Ihr Passwort ein"
-          required
-        />
-      {:else}
-        <input
-          name="password"
-          type="password"
-          bind:value={password}
-          class="input input-bordered w-full pr-10"
-          placeholder="Geben Sie Ihr Passwort ein"
-          required
-        />
-      {/if}
-      <button
-        type="button"
-        class="btn btn-ghost btn-sm absolute right-2 top-1/2 -translate-y-1/2 transform"
-        on:click={togglePasswordVisibility}
-      >
-        {showPassword ? "👁️" : "👁️‍🗨️"}
-      </button>
-    </div>
-  </label>
-
-  <div class="space-y-2">
-    <button type="submit" class="btn btn-primary w-full" disabled={!isEmailValid || isLoading}>
-      {#if isLoading}
-        <span class="loading loading-spinner"></span>
-      {:else}
-        Anmelden
-      {/if}
-    </button>
+    <label class="form-control w-full">
+      <div class="relative">
+        {#if showPassword}
+          <input
+            name="password"
+            type="text"
+            bind:value={password}
+            class="input input-bordered w-full pr-10"
+            placeholder="Geben Sie Ihr Passwort ein"
+            required
+          />
+        {:else}
+          <input
+            name="password"
+            type="password"
+            bind:value={password}
+            class="input input-bordered w-full pr-10"
+            placeholder="Geben Sie Ihr Passwort ein"
+            required
+          />
+        {/if}
+        <button
+          type="button"
+          class="btn-sm absolute right-2 top-1/2 -translate-y-1/2"
+          on:click={togglePasswordVisibility}
+        >
+          {#if showPassword}
+            <Eye size="20" />
+          {:else}
+            <EyeOff size="20" />
+          {/if}
+        </button>
+      </div>
+    </label>
   </div>
+
+  <button type="submit" class="btn btn-primary w-full" disabled={!isEmailValid || isLoading}>
+    {#if isLoading}
+      <span class="loading loading-spinner"></span>
+    {:else}
+      Anmelden
+    {/if}
+  </button>
   <input name="redirectTo" type="hidden" value={$page.url.toString()} />
 </form>
 

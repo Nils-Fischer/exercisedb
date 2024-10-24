@@ -18,9 +18,11 @@ export interface Exercise extends FilterableItem {
   priority: number;
 }
 
-export interface Filters {
-  [key: string]: string | null;
-}
+export type Filters = {
+  category: string[];
+  level: string[];
+  mechanic: string[];
+};
 
 export type MediaType = "image" | "video";
 
