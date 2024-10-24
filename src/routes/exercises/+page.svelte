@@ -5,6 +5,7 @@
   import ExerciseModal from "$lib/components/ExerciseModal.svelte";
   import { fade } from "svelte/transition";
   import ExerciseCard from "$lib/components/ExerciseCard.svelte";
+  import { page } from "$app/stores";
 
   export let data: PageData;
   $: ({ exercises, filters } = data);
@@ -12,7 +13,8 @@
   let selectedExercise: Exercise | null = null;
   let showModal = false;
 
-  $: filteredExercises = exercises;
+  $: searchQuery = $page.url.searchParams.get("search") || "";
+  $: filteredExercises = exercises.filter((ex) => ex.name.toLowerCase().includes(searchQuery));
 
   function openModal(event: { detail: { exercise: Exercise | null } }) {
     selectedExercise = event.detail.exercise;

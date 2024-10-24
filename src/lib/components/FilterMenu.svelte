@@ -8,7 +8,7 @@
 
   export let filters: Filters;
 
-  let searchQuery = "";
+  let searchQuery = $page.url.searchParams.get("search") || "";
   let activeFilters = new Map<keyof Filters, string[]>();
   let openDropdown: keyof Filters | null = null;
 
@@ -40,6 +40,7 @@
     }
 
     url.searchParams.set("open", category);
+    url.searchParams.set("search", searchQuery);
     goto(url.toString(), { replaceState: true });
   }
 
@@ -50,12 +51,15 @@
     });
     url.searchParams.delete("open");
     openDropdown = null;
+    url.searchParams.set("search", searchQuery);
     goto(url.toString());
   }
 
   function resetSearch() {
     searchQuery = "";
-    dispatch("search", "");
+    const url = new URL($page.url);
+    url.searchParams.delete("search");
+    goto(url.toString());
   }
 
   function handleSearch() {
@@ -71,6 +75,7 @@
       url.searchParams.set("open", category);
       openDropdown = category;
     }
+    url.searchParams.set("search", searchQuery);
     goto(url.toString(), { replaceState: true });
   }
 
@@ -80,6 +85,7 @@
     if (openDropdown !== null && dropdownContainer && !dropdownContainer.contains(event.target as Node)) {
       const url = new URL($page.url);
       url.searchParams.delete("open");
+      url.searchParams.set("search", searchQuery);
       goto(url.toString(), { replaceState: true });
     }
   }
