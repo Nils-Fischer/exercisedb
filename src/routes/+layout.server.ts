@@ -1,6 +1,7 @@
-import { EXERCISE_CACHE_DURATION, getValue, setValue } from "$lib/server/redis";
+import { getAllExercises } from "$lib/server/exerciseCache";
+import { getValue, setValue } from "$lib/server/redis";
 import { supabase } from "$lib/server/supabaseClient";
-import { type Exercise, type Gender, type Profile } from "$lib/types";
+import { type Gender, type Profile } from "$lib/types";
 import type { LayoutServerLoad } from "./$types";
 
 async function getProfileById(id: string | undefined): Promise<Profile | null> {
@@ -27,26 +28,6 @@ async function getProfileById(id: string | undefined): Promise<Profile | null> {
   return profile;
 }
 
-async function getAllExercises(): Promise<Exercise[] | null> {
-  const cachedExercises = await getValue<Exercise[]>("exercises");
-  if (cachedExercises) {
-    console.log("Exercises recovered from cache");
-    return cachedExercises;
-  }
-  const { data, error } = await supabase.from("exercises").select("*");
-  if (error) {
-    console.error("Error fetching exercises:", error);
-    return null;
-  } else if (!data) return null;
-
-  console.log("Successfully imported Exercises. Count:", data.length);
-  const exercises = data as Exercise[];
-  // cache for one day
-  console.log("Caching results...");
-  await setValue("exercises", exercises, EXERCISE_CACHE_DURATION);
-  return exercises;
-}
-
 export const load: LayoutServerLoad = async ({ locals: { safeGetSession }, cookies }) => {
   console.log("Layout server load function started");
   const { session } = await safeGetSession();
@@ -54,7 +35,7 @@ export const load: LayoutServerLoad = async ({ locals: { safeGetSession }, cooki
   return {
     session,
     cookies: cookies.getAll(),
-    exercises: (await getAllExercises()) || [],
+    exercises: (await getAllExercises(supabase)) || [],
     profile: await getProfileById(session?.user.id),
   };
 };
